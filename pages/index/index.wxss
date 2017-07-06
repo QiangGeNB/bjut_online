@@ -1,0 +1,73 @@
+@import '/font.wxss';
+.all {
+
+}
+
+.search-wrapper {
+  width: 100%;
+}
+
+.search-button {
+  margin: 0 auto;
+  height: 30px;
+  width: 90%;
+  border-radius: 5px;
+  background-color: whitesmoke;
+  font-size: 15px;
+  line-height: 30px;
+  text-align: center;
+}
+
+.swiper-wrapper{
+    margin-top: 10px;
+    width: 100%;
+}
+
+.swiper{
+    width: 100%;
+    height: 200px;
+}
+
+.slide-image{
+    width: 100%;
+    border-radius: 2px;
+}
+
+.tag-wrapper{
+    width: 100%;
+    height: 30px;
+    margin: 5px;
+    margin-bottom: -2px;
+    padding: 10px;
+    overflow: scroll;
+    white-space: nowrap;
+}
+
+.tag-item{
+    display: inline-block;
+    height: 20px;
+    padding: 5px 10px;
+    border-radius: 10px;
+    background: ghostwhite;
+}
+.blank{
+    display: inline-block;
+    margin:0 8px;
+}
+.tap-name{
+    display: inline;
+    font-size: 14px;
+    line-height: 10px;
+}
+.icon-tag{
+    margin-right: 2px;
+}
+
+.gap{
+    width: 100%;
+    height: 10px;
+    border-top: 1px solid rgba(0,0,0,.1);
+    border-bottom: 1px solid rgba(0,0,0,.1);
+    background-color: gainsboro;
+
+}
