@@ -1,0 +1,5 @@
+<template name="activity_item">
+  <view class="activity_item_wrapper">
+   {{activityTitle}}
+  </view>
+</template>

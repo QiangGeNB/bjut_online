@@ -1,3 +1,5 @@
+<import src="/template/activity_item/activity_item.wxml" />
+
 <view class="all">
   <!--收缩框-->
   <view class="search-wrapper">
@@ -7,23 +9,28 @@
     </view>
   </view>
   <!--轮播图-->
-  <view class="swiper-wrapper">
-    <swiper class="swiper" indicator-dots="true">
-      <block wx:for="{{swiperUrls}}">
-        <swiper-item>
-          <image src="{{item}}" mode="aspectFill" class="slide-image" />
-        </swiper-item>
+  <scroll-view scroll-y="true" bindscroll="bindscroll">
+    <view class="swiper-wrapper">
+      <swiper class="swiper" indicator-dots="true">
+        <block wx:for="{{swiperUrls}}">
+          <swiper-item>
+            <image src="{{item}}" mode="aspectFill" class="slide-image" />
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+    <view class="tag-wrapper">
+      <block class="tag" wx:for="{{tag}}">
+        <view class="tag-item">
+          <view class="iconfont icon-tag tap-name "></view>
+          <view class="tap-name">{{item}}</view>
+        </view>
+        <view class="blank"></view>
       </block>
-    </swiper>
-  </view>
-  <view class="tag-wrapper">
-       <block class="tag" wx:for="{{tag}}">
-            <view class="tag-item">
-                <view class="iconfont icon-tag tap-name "></view>
-                <view class="tap-name">{{item}}</view>
-            </view>
-            <view class="blank"></view>
-       </block>
-  </view>
-  <view class="gap"></view>
+    </view>
+    <view class="gap"></view>
+    <block wx:for="{{activity_data}}">
+      <template is="activity_item" data="{{...item}}" />
+    </block>
+    </scroll-view>
 </view>
