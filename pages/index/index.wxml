@@ -20,13 +20,18 @@
       </swiper>
     </view>
     <view class="tag-wrapper">
-      <block class="tag" wx:for="{{tag}}">
-        <view class="tag-item">
-          <view class="iconfont icon-tag tap-name "></view>
-          <view class="tap-name">{{item}}</view>
-        </view>
-        <view class="blank"></view>
-      </block>
+      <view class="tag">
+        <view></view>
+        <view></view>
+      </view>
+      <view class="tag">
+        <view></view>
+        <view></view>
+      </view>
+      <view class="tag">
+        <view></view>
+        <view></view>
+      </view>
     </view>
     <view class="gap"></view>
     <block wx:for="{{activity_data}}">
