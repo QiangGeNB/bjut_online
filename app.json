@@ -1,7 +1,9 @@
 {
   "pages":[
       "pages/index/index",
-      "template/activity_item/activity_item"
+      "template/activity_item/activity_item",
+      "pages/search/search",
+      "pages/myinfo/myinfo"
   ],
   "window":{
     "backgroundTextStyle":"light",
@@ -23,7 +25,7 @@
         {
             "selectedIconPath": "/images/toolbar/person2.png",
             "iconPath": "/images/toolbar/person.png",
-            "pagePath": "pages/index/index",
+            "pagePath": "pages/myinfo/myinfo",
             "text": "个人"
         }
     ]

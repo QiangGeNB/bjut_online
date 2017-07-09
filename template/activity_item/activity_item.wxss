@@ -1,4 +1,68 @@
 .activity_item_wrapper{
+    position: relative;
     width: 100%;
-    height: 200px;
+    padding-bottom: 10px;
+}
+.item-image{
+    width: 100%;
+    height: 130px;
+}
+.title-wrapper{
+    position: relative;
+    margin: 10px;
+    margin-bottom: 2px;
+}
+.title{
+    display: inline-block;
+    margin-left: 10px;
+    font-size: 16px;
+    line-height: 20px;
+    vertical-align: top;
+}
+.fire{
+    display: inline-block;
+    color: red;
+    vertical-align: 4px;
+    margin-left: 2px;
+}
+.act_icon{
+    display: inline-block;
+    width: 40px;
+    height: 20px;
+    border-radius: 6px;
+    vertical-align: top;
+}
+.online-time{
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    font-size: 10px;
+    line-height: 15px;
+    vertical-align: top;
+    color: gainsboro;
+}
+.intro-text{
+    padding:0 10px;
+    font-size: 3.5vw;
+    line-height: 20px;
+    max-height: 80px;
+    overflow:hidden;
+}
+
+.footer-wrapper{
+    width: 100%;
+    margin-left: 10px;
+}
+.vf-wrapper{
+    display: inline-block;
+    margin-right: 10px;
+}
+.vf-icon{
+    display: inline-block;
+    font-size: 14px;
+
+}
+.vf-data{
+    display: inline-block;
+    font-size: 12px;
 }

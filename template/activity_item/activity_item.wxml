@@ -1,5 +1,30 @@
 <template name="activity_item">
   <view class="activity_item_wrapper">
-   {{activityTitle}}
+    <!--标题栏-->
+    <view class="title-wrapper">
+      <image mode="aspectFit" class="act_icon" src="{{activityType == 1 ? '/images/icon/icon_xueshu.png':'/images/icon/icon_xinsheng.png'}}"></image>
+      <view class="title">{{activityTitle}}</view>
+      <view wx:if="{{fire}}" class="fire iconfont icon-fire"></view>
+      
+    </view>
+    <image class="item-image" mode="aspectFill" src="{{activityImage[0]}}"></image>
+
+    <!--活动简介-->
+    <view class="intro-wrapper">
+        <view class="intro-text">{{activityInt}}</view>
+    </view>
+
+    <!--查看收藏-->
+    <view class="footer-wrapper">
+        <view class="vf-wrapper">
+            <view class="icon-view iconfont vf-icon"></view>
+            <view class="vf-data">{{view_count}}</view>
+        </view>
+        <view class="vf-wrapper">
+            <view class="icon-fav iconfont vf-icon"></view>
+            <view class="vf-data">{{fav_count}}</view>
+        </view>
+        <view class="online-time">发布于 {{onlineTime}}</view>
+    </view>
   </view>
 </template>

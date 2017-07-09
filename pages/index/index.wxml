@@ -2,14 +2,14 @@
 
 <view class="all">
   <!--收缩框-->
-  <view class="search-wrapper">
+  <view class="search-wrapper {{show_search_back?'search-wrapper-blue':''}}">
     <view class="search-button">
       <view class="iconfont icon-sousuo"></view>
       搜索活动
     </view>
   </view>
   <!--轮播图-->
-  <scroll-view scroll-y="true" bindscroll="bindscroll">
+  <scroll-view scroll-y="true" bindscroll="bindscroll" bindscrolltoupper="reach_top">
     <view class="swiper-wrapper">
       <swiper class="swiper" indicator-dots="true">
         <block wx:for="{{swiperUrls}}">
@@ -20,22 +20,25 @@
       </swiper>
     </view>
     <view class="tag-wrapper">
-      <view class="tag">
-        <view></view>
-        <view></view>
+      <view class="tag {{tag_select == 0 ? 'tag-select':''}}" data-tag-index="0" catchtap="click_tag">
+        <view class="iconfont icon-quanbu"></view>
+        <view class="tag-text">全部</view>
       </view>
-      <view class="tag">
-        <view></view>
-        <view></view>
+      <view class="tag {{tag_select == 1 ? 'tag-select':''}}" data-tag-index="1" catchtap="click_tag">
+        <view class="iconfont icon-xueshu"></view>
+        <view class="tag-text">学术活动</view>
       </view>
-      <view class="tag">
-        <view></view>
-        <view></view>
+      <view class="tag {{tag_select == 2 ? 'tag-select':''}}" data-tag-index="2" catchtap="click_tag">
+        <view class="iconfont icon-zhidao"></view>
+        <view class="tag-text">新生指导</view>
       </view>
     </view>
-    <view class="gap"></view>
     <block wx:for="{{activity_data}}">
-      <template is="activity_item" data="{{...item}}" />
+      <view wx:if="{{item.activityType == tag_select || tag_select==0}}">
+        <view class="gap"></view>
+        <template is="activity_item" data="{{...item}}" />
+      </view>
     </block>
-    </scroll-view>
+
+  </scroll-view>
 </view>

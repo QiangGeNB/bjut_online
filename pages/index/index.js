@@ -7,14 +7,15 @@ Page({
    */
   data: {
       page_num: 1,
+      show_search_back: false,
       activity_data: data.data.activity.slice(0, 5),
       swiperUrls: [
           '/images/swiper/1.jpg',
           '/images/swiper/2.jpg',
           '/images/swiper/3.jpg',
       ],
-      tag: ['学术活动','社团活动','外语讲座','人工智能','学院通知','报销流程'],
-      temp_data: [{'data':1},{'data':2}]
+      tag_select:0
+
   },
 
   /**
@@ -70,7 +71,39 @@ Page({
   onShareAppMessage: function () {
   
   },
-  bindscroll: function(e){
-      console.log('e.detail.scrollTop');
+  bindscroll: function(e){  
+      if (e.detail.scrollTop > 2){
+          this.setData({
+              show_search_back: true
+          });
+      }
+  },
+  reach_top: function(){
+      this.setData({
+          show_search_back: false
+      });
+  },
+  // 点击tag的响应函数
+  click_tag:function(e){
+    self = this;
+    console.log(e.currentTarget.dataset.tagIndex);
+    let index = e.currentTarget.dataset.tagIndex;
+    switch(index){
+        case "0":
+            this.setData({
+                tag_select: 0
+            });
+            break;
+        case "1":
+            this.setData({
+                tag_select: 1
+            });
+            break;
+        case "2":
+            this.setData({
+                tag_select: 2
+            });
+            break;
+    }
   }
 })
