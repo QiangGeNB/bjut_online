@@ -1,9 +1,9 @@
 {
   "pages":[
-      "pages/auth/auth",
+      
       "pages/index/index",
       "pages/myinfo/myinfo",
-      
+      "pages/auth/auth",
       "pages/search/search",
       "pages/detail/detail",
       

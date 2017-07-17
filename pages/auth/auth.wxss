@@ -4,6 +4,7 @@
 }
 .title-wrapper{
     margin-bottom:5vw; 
+    text-align: center;
 }
 
 .input-title{
