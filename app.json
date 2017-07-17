@@ -1,11 +1,12 @@
 {
   "pages":[
+      "pages/auth/auth",
       "pages/index/index",
       "pages/myinfo/myinfo",
       
       "pages/search/search",
       "pages/detail/detail",
-      "pages/auth/auth",
+      
       "template/activity_item/activity_item",
       "template/user_info_act_item/user_info_act_item",
       "pages/search_result/search_result"

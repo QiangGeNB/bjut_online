@@ -34,3 +34,43 @@ picker{
     background-color: #1296db;
     color: white;
 }
+.image-choose{
+  position: relative;
+  width: 50vw;
+  height: 50vw;
+  margin: 5vw auto;
+  border: 1px solid gainsboro;
+  border-radius: 10px;
+}
+.hover{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50vw;
+  height: 50vw;
+  background-color: rgba(0,0,0,.1);
+}
+.hover-text{
+  text-align: center;
+  line-height: 75vw;
+  font-size: 4vw;
+}
+.album-icon{
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  display: block;
+  width: 30vw;
+  height: 30vw;
+  margin: 5vw 10vw;
+  opacity: .4;
+}
+.student-card-image{
+  position: absolute;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 50vw;
+  height: 50vw;
+}

@@ -74,30 +74,23 @@ Page({
         var send_data = { bjut_id: user_key };
         if (user_key == undefined) {
             app.getUserKey();
-            app.SendRequest('/api/get_user_info', { bjut_id: wx.getStorageSync('user_key')}, self.get_user_info_request_suc);
+            app.SendRequest('/api/get_user_info', { bjut_id: wx.getStorageSync('user_key') }, self.get_user_info_request_suc);
         } else {
             console.log('sending req...');
             app.SendRequest('/api/get_user_info', send_data, self.get_user_info_request_suc);
         }
     },
     // 收到查询结果回调函数
-    get_user_info_request_suc:function(res){
+    get_user_info_request_suc: function (res) {
         self = this;
         console.log('this is user-info res: ');
         console.log(res);
-        if (res.data.erron == 0) {
-            console.log(res);
-            self.setData({
-                student_info: res.data.user_info[0],
-                join_act: res.data.join_activity,
-                fav_act: res.data.coll_activity
-            });
-        } else {
-            wx.showToast({
-                title: '请求错误',
-                icon: 'loading'
-            });
-        }
+        self.setData({
+            student_info: res.data.user_info,
+            join_act: res.data.join_activity,
+            fav_act: res.data.coll_activity
+        });
+
     },
     click_join: function () {
         this.setData({
@@ -113,10 +106,10 @@ Page({
         var actid = e.currentTarget.dataset.actid;
         console.log('this is click_act actid: ' + e.currentTarget.dataset.actid);
         wx.navigateTo({
-            url:'/pages/detail/detail?actid=' + actid,
+            url: '/pages/detail/detail?actid=' + actid,
         });
     },
-    click_sign: function(){
+    click_sign: function () {
         wx.navigateTo({
             url: '/pages/auth/auth'
         })
