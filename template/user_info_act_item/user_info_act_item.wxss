@@ -1,0 +1,33 @@
+/* template/user_info_act_item/user_info_act_item.wxss */
+.user-act-wrapper{
+    margin: 3vw;
+    padding: 2vw;
+    border: 2px solid silver;
+    border-radius: 5px;
+}
+.user-act-image{
+    display: inline-block;
+    width: 15vw;
+    height: 15vw;
+    vertical-align: top;
+    border-radius: 4px;
+}
+.user-act-info-wrapper{
+    margin-left: 5vw;
+    display: inline-block;
+    height: 15vw;
+}
+.user-title{
+    font-size: 4vw;
+    margin-bottom: 1vw;
+}
+.user-date{
+    font-size: 3vw;
+    margin-bottom: .5vw;
+}
+.user-location{
+    font-size: 3vw;
+}
+.fire{
+    color: red;
+}

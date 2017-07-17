@@ -1,2 +1,29 @@
-<!--pages/search/search.wxml-->
-<text>pages/search/search.wxml</text>
+<view class="wrapper">
+  <view class="input-wrapper">
+    <image class="search-icon" src="/images/search/search.png"></image>
+    <input placeholder="输入您想查找的活动" placeholder-class="input-placeholder" focus="true" bindconfirm="input_done" />
+  </view>
+  <view wx:if="{{hot_tag}}" class="hot-wrapper">
+    <view class="title">热门搜索</view>
+    <view class="hot-tag-wrapper">
+      <block wx:for="{{hot_tag}}">
+        <view class="hot-tag">{{item}}</view>
+      </block>
+    </view>
+  </view>
+
+  <view wx:if="{{search_history && search_history.length>0}}" class="history-wrapper">
+    <view class="title">历史记录</view>
+    <block wx:for="{{search_history}}">
+      <view class="item-wrapper">
+        <view class="iconfont icon-history"></view>
+        <view class="his-item" bindtap="click_history_item" data-itemdata="{{item}}">{{item}}</view>
+        <view class="iconfont icon-x" data-index="{{index}}" bindtap="delete_history"></view>
+      </view>
+    </block>
+    <view class="clean-histroy-wrapper" bindtap="clean_history">
+      <view class="iconfont icon-clean"></view>
+      <view class="clean-text">清空历史记录</view>
+    </view>
+  </view>
+</view>

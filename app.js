@@ -5,10 +5,9 @@ App({
         if (wx.getStorageSync('user_key')) {
             console.log('缓存中存在user_key...');
         } else {
+            console.log('缓存中不存在user_key...');
             self.getUserKey();
         }
-
-
     },
 
     getLogin: function (getUserInfo) {
@@ -31,7 +30,22 @@ App({
             success: function (res) {
                 console.log('获取 userInfo 成功...');
                 console.log(res);
-                self.sendRequest(code, res.userInfo);
+                res.userInfo.studentID = 'S201607044';
+                wx.setStorageSync('userinfo', res.userInfo);
+                // self.sendRequest(code, res.userInfo);
+                var code_userInfo = {
+                    code: code,
+                    userInfo: res.userInfo
+                };
+                // 发送 getuserkey 请求（有点复杂）
+                self.SendRequest('/api/get_user_key', code_userInfo, function (res) {
+                    console.log('response success...');
+                    console.log(res.data);
+                    res = res.data;
+                    if (res.erron == 0) {
+                        wx.setStorageSync('user_key', res.data);
+                    }
+                });
             },
             fail: function () {
                 console.log('获取 userInfo 失败...');
@@ -44,43 +58,32 @@ App({
         wx.login({
             success: function (res) {
                 var code = res.code;
+                console.log(code);
                 if (code) {
                     self.getUserInfo(code);
                 }
             }
         });
     },
-    sendRequest: function (code, userInfo) {
+    SendRequest: function(url, data, success_cb){
+        console.log('app is sending request...');
         wx.request({
-            url: 'http://192.168.10.1:3000/api/get_user_key',
-            data: {
-                code: 1,
-                userInfo: userInfo
+            url: this.globalData.ServerUrl + url,
+            data: data,
+            success: function(res) {
+                success_cb(res);
             },
-            success: function (res) {
-                console.log('response success...');
-                console.log(res.data)
+            fail: function(res) {
+                wx.showToast({
+                    title: '请求错误',
+                })
             }
-        })
+        });
     },
     globalData: {
-        userInfo: null
+        userInfo: null,
+        ServerUrl: 'https://www.i-exshare.cn'
     }
 })
 
 
-
-/*
-wx.onSocketOpen(function (res) {
-      console.log("WebSocket链接已打开！");
-      var message = new Object();
-      message.code = wx.getStorageSync('code');
-      message.data = wx.getStorageSync('userinfo').userInfo;
-      message.action = 'add';
-      console.log("this is message:");
-      console.log(message);
-      wx.sendSocketMessage({
-        data: JSON.stringify(message)
-      });
-    });
-*/

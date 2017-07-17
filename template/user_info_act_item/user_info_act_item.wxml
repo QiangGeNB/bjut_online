@@ -1,0 +1,13 @@
+<template name="userInfoActItem">
+    <view class="user-act-wrapper">
+        <image mode="aspectFill" class="user-act-image" src="{{activityImage[0]}}"></image>
+        <view class="user-act-info-wrapper">
+            <view class="user-title">
+                {{activityTitle}}
+                <view wx:if="{{fire}}" class="fire iconfont icon-fire"></view>
+            </view>
+            <view class="user-date">活动时间：{{activityDate}}</view>
+            <view class="user-location">活动地点：{{activityLocation}}</view>
+        </view>
+    </view>
+</template>

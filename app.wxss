@@ -9,6 +9,6 @@
   box-sizing: border-box;
 } 
 
-view{
+view, input{
   font-family: MicroSoft YaHei;
 }

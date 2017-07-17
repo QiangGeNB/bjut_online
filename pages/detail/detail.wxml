@@ -1,0 +1,61 @@
+<view class="all">
+  <view class="header">
+    <view class="title">{{detail_data.activityTitle}}</view>
+    <view wx:if="{{detail_data.fire}}" class="fire iconfont icon-fire"></view>
+    <view class="online-date">发布于{{detail_data.onlineTime}}</view>
+  </view>
+
+  <view class="gap"></view>
+
+  <view class="tag-wrapper">
+    <view class="tag {{tag_select == 0 ? 'tag-selected':''}}" data-tag-index="0" catchtap="click_tag">
+      <view class="tag-text">活动信息</view>
+    </view>
+    <view class="tag {{tag_select == 1 ? 'tag-selected':''}}" data-tag-index="1" catchtap="click_tag">
+      <view class="tag-text">活动介绍</view>
+    </view>
+  </view>
+  <!--活动信息页面-->
+  <view wx:if="{{tag_select == 0}}" class="act-info-wrapper">
+    <view class="tr tr-blue">
+      <view class="td1">活动时间</view>
+      <view class="td2">{{detail_data.activityDate}}</view>
+    </view>
+    <view class="tr">
+      <view class="td1">活动地点</view>
+      <view class="td2">{{detail_data.activityLocation}}</view>
+    </view>
+    <view class="tr tr-blue">
+      <view class="td1">活动时间</view>
+      <view class="td2">{{detail_data.duration}}分钟</view>
+    </view>
+    <view class="tr" wx:if="{{detail_data.activityReporter}}">
+      <view class="td1">主讲人</view>
+      <view class="td2">{{detail_data.activityReporter}}</view>
+    </view>
+    <view class="tr" wx:if="{{detail_data.activityHolder}}">
+      <view class="td1">主办方</view>
+      <view class="td2">{{detail_data.activityHolder}}</view>
+    </view>
+    <view class="tr tr-blue">
+      <view class="td1">活动时长</view>
+      <view class="td2">{{detail_data.duration}}分钟</view>
+    </view>
+    <view wx:if="{{detail_data.remark}}" class="other-wrapper">
+      *备注: {{detail_data.remark}}
+    </view>
+  </view>
+  <view wx:if="{{tag_select == 1}}" class="act-detail-wrapper">
+    <image class="main-image" src="{{detail_data.mainImage}}"></image>
+    <view class="detail-text">{{detail_data.content}}</view>
+      <block wx:for="{{detail_data.activityImage}}">
+        <image class="other-image" src="{{item}}"></image>
+      </block>
+  </view>
+  <view class="footer">
+    <view wx:if="{{!has_join}}" class="un-has button-common" bindtap="click_join">现在参加</view>
+    <view wx:if="{{has_join}}" class="has button-common" bindtap="click_join">已参加</view>
+    <view wx:if="{{!has_fav}}" class="un-has button-common" bindtap="click_fav">收藏活动</view>
+    <view wx:if="{{has_fav}}" class="has button-common" bindtap="click_fav">已收藏</view>
+  </view>
+</view>

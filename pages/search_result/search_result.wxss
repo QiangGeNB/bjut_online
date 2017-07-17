@@ -1,0 +1,38 @@
+/* pages/search_result/search_result.wxss */
+@import '/font.wxss';
+@import '/template/activity_item/activity_item.wxss';
+
+
+.gap {
+  width: 100%;
+  height: 10px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  background-color: ghostwhite;
+}
+
+.input-wrapper {
+  margin: 5vw;
+}
+
+.search-icon {
+  display: inline-block;
+  width: 6vw;
+  height: 6vw;
+  margin-right: 2vw;
+  margin-bottom: 1vw;
+}
+
+input {
+  display: inline-block;
+  width: 82vw;
+  height: 8vw;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  font-family: MicroSoft YaHei;
+  font-size: 4vw;
+}
+
+.input-placeholder {
+  font-family: MicroSoft YaHei;
+  font-size: 4vw;
+}

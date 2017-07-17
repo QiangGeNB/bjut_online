@@ -1,4 +1,5 @@
 var data = require('../../data.js');
+var app = getApp();
 // pages/index/index.js
 Page({
 
@@ -8,20 +9,18 @@ Page({
   data: {
       page_num: 1,
       show_search_back: false,
-      activity_data: data.data.activity.slice(0, 5),
-      swiperUrls: [
-          '/images/swiper/1.jpg',
-          '/images/swiper/2.jpg',
-          '/images/swiper/3.jpg',
-      ],
+    //   activity_data: data.data.activity,
+    //   swiper:data.data.swiper,
+      activity_data: '',
+      swiper:'',
       tag_select:0
-
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+      this.initPage();
   },
 
   /**
@@ -64,13 +63,20 @@ Page({
   onReachBottom: function () {
   
   },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-  
+  // 页面初始化函数
+  initPage(){
+      self = this;
+      app.SendRequest('/api/index_info', {}, self.initPage_request_suc);
   },
+  // 请求成功回调函数
+  initPage_request_suc: function(res){
+      console.log(res);
+      self.setData({
+          activity_data: res.data.activity,
+          swiper: res.data.swiper
+      });
+  },
+
   bindscroll: function(e){  
       if (e.detail.scrollTop > 2){
           this.setData({
@@ -105,5 +111,19 @@ Page({
             });
             break;
     }
+  },
+  // 点击活动进入活动详情页面
+  click_activity: function(e){
+      console.log(e.currentTarget.dataset.actid);
+      let actid = e.currentTarget.dataset.actid;
+      let user_key = wx.getStorageSync('user_key');
+      wx.navigateTo({
+          url: '/pages/detail/detail?actid=' + actid,
+      });
+  },
+  click_search: function(){
+      wx.navigateTo({
+          url: '/pages/search/search',
+      });
   }
 })

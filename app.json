@@ -1,15 +1,21 @@
 {
   "pages":[
       "pages/index/index",
-      "template/activity_item/activity_item",
+      "pages/myinfo/myinfo",
+      
       "pages/search/search",
-      "pages/myinfo/myinfo"
+      "pages/detail/detail",
+      "pages/auth/auth",
+      "template/activity_item/activity_item",
+      "template/user_info_act_item/user_info_act_item",
+      "pages/search_result/search_result"
   ],
   "window":{
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#1296db",
-    "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle":"white"
+    "navigationBarTitleText": "北工大活动报名平台",
+    "navigationBarTextStyle":"white",
+    "enablePullDownRefresh": true
   },
   "tabBar": {
     "color": "2c2c2c",

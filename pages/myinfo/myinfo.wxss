@@ -1,1 +1,73 @@
+@import '/font.wxss';
+@import '/template/user_info_act_item/user_info_act_item.wxss';
 /* pages/myinfo/myinfo.wxss */
+.header-wrapper{
+    position: relative;
+    width: 90%;
+    margin: 10px auto;
+    border: 1px solid rgba(0,0,0,.1);
+    border-radius: 3px;
+    height: 20vw;
+    box-shadow: 10px 10px 15px #888888;
+}
+.avatar{
+    display: inline-block;
+    width: 10vw;
+    height: 10vw;
+    border-radius: 50%;
+    margin: 5vw 3vw;
+}
+.nickname{
+    display: inline-block;
+    vertical-align: top;
+    height: 10vw;
+    line-height: 10vw;
+    margin: 5vw 0;
+}
+.unsign{
+    position: absolute;
+    right: 5vw;
+    top: 7vw;
+    width: 23vw;
+    height: 6vw;
+    border-radius: 4px;
+}
+.sign{
+    position: absolute;
+    right: 5vw;
+    top: 7vw;
+    width: 23vw;
+    height: 6vw;
+    border-radius: 4px;
+}
+.tab-wrapper{
+    display: flex;
+    width: 100%;
+    margin: 10vw 0 ;
+}
+.tab{
+    flex: 1;
+}
+.tab-right-border{
+    border-right: 2px solid rgba(0,0,0,.3);
+}
+.tab-image{
+    display: block;
+    width: 10vw;
+    height: 10vw;
+    margin: 0 auto;
+}
+.tab-text{
+    width: 100%;
+    margin-top: 10px;
+    text-align: center;
+    font-size: 4vw;
+}
+.activity-wrapper{
+    margin: 0 5vw;
+}
+
+.activity-title{
+    display: inline-block;
+    vertical-align: 2px;
+}

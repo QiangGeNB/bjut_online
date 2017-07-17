@@ -1,12 +1,11 @@
 @font-face {
   font-family: 'iconfont';  /* project id 346498 */
-  src: url('//at.alicdn.com/t/font_l5mechjxtq2dquxr.eot');
-  src: url('//at.alicdn.com/t/font_l5mechjxtq2dquxr.eot?#iefix') format('embedded-opentype'),
-  url('//at.alicdn.com/t/font_l5mechjxtq2dquxr.woff') format('woff'),
-  url('//at.alicdn.com/t/font_l5mechjxtq2dquxr.ttf') format('truetype'),
-  url('//at.alicdn.com/t/font_l5mechjxtq2dquxr.svg#iconfont') format('svg');
+  src: url('//at.alicdn.com/t/font_hctqotgwlyf7ds4i.eot');
+  src: url('//at.alicdn.com/t/font_hctqotgwlyf7ds4i.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_hctqotgwlyf7ds4i.woff') format('woff'),
+  url('//at.alicdn.com/t/font_hctqotgwlyf7ds4i.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_hctqotgwlyf7ds4i.svg#iconfont') format('svg');
 }
-
 .iconfont {
   display: inline;
   font-family: "iconfont" !important;
@@ -48,4 +47,20 @@
 
 .icon-fire:before {
   content: "\e698";
+}
+
+.icon-richeng:before {
+  content: "\e630";
+  font-size: 25px;
+  margin:0 10px;
+  color: #1296db;
+}
+.icon-history:before {
+  content: "\e644";
+}
+.icon-x:before {
+  content: "\e628";
+}
+.icon-clean:before {
+  content: "\e605";
 }

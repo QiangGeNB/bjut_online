@@ -1,0 +1,15 @@
+<import src="/template/activity_item/activity_item.wxml" />
+<view class="wrapper">
+    <view class="input-wrapper">
+        <image class="search-icon" src="/images/search/search.png"></image>
+        <input value="{{keyword}}" placeholder="输入您想查找的活动" placeholder-class="input-placeholder" focus="true" bindconfirm="input_done" />
+    </view>
+    <view class="res-wrapper">
+        <block wx:for="{{search_res}}">
+            <view wx:if="{{index>0}}" class="gap"></view>
+            <view data-actid="{{item.activityID}}" bindtap="click_activity">
+                <template is="activity_item" data="{{...item}}"></template>
+            </view>
+        </block>
+    </view>
+</view>

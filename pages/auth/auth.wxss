@@ -1,0 +1,36 @@
+/* pages/auth/auth.wxss */
+.wrapper{
+    margin: 5vw;
+}
+.title-wrapper{
+    margin-bottom:5vw; 
+}
+
+.input-title{
+    font-size: 4vw;
+    text-align: center;
+    margin-top: 5vw;
+    font-weight: bold;
+}
+input{
+    border-bottom: 1px solid rgba(0,0,0,.1);
+    margin:0vw auto;
+    width: 40vw;
+    text-align: center;
+    font-size: 3.5vw;
+    height: 6vw;
+}
+picker{
+    height: 5vw;
+    border-bottom: 1px solid rgba(0,0,0,.1);
+    margin:5vw auto;
+    width: 40vw;
+    text-align: center;
+    font-size: 3.5vw;
+}
+
+.submit-button{
+    margin-top: 5vw;
+    background-color: #1296db;
+    color: white;
+}

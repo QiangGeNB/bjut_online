@@ -3,7 +3,7 @@
 <view class="all">
   <!--收缩框-->
   <view class="search-wrapper {{show_search_back?'search-wrapper-blue':''}}">
-    <view class="search-button">
+    <view class="search-button" bindtap="click_search">
       <view class="iconfont icon-sousuo"></view>
       搜索活动
     </view>
@@ -12,9 +12,9 @@
   <scroll-view scroll-y="true" bindscroll="bindscroll" bindscrolltoupper="reach_top">
     <view class="swiper-wrapper">
       <swiper class="swiper" indicator-dots="true">
-        <block wx:for="{{swiperUrls}}">
+        <block wx:for="{{swiper}}">
           <swiper-item>
-            <image src="{{item}}" mode="aspectFill" class="slide-image" />
+            <image src="{{item.url}}" mode="aspectFill" class="slide-image" data-actid="{{item.actid}}" bindtap="click_activity"/>
           </swiper-item>
         </block>
       </swiper>
@@ -34,7 +34,7 @@
       </view>
     </view>
     <block wx:for="{{activity_data}}">
-      <view wx:if="{{item.activityType == tag_select || tag_select==0}}">
+      <view wx:if="{{item.activityType == tag_select || tag_select==0}}" data-actid="{{item.activityID}}" bindtap="click_activity">
         <view class="gap"></view>
         <template is="activity_item" data="{{...item}}" />
       </view>

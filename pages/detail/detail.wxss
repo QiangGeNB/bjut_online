@@ -1,0 +1,122 @@
+@import '/font.wxss';
+
+.gap{
+    width: 100%;
+    height: 2vw;
+    border-top: 1px solid rgba(0,0,0,.1);
+    border-bottom: 1px solid rgba(0,0,0,.1);
+    background-color: ghostwhite;
+}
+
+.header{
+    margin: 5vw;
+}
+.title{
+    display: inline-block;
+    font-size: 5vw;
+    margin-right: 2vw;
+}
+.fire{
+    display: inline;
+    color: orangered;
+}
+.online-date{
+    margin-top: 2vw;
+    font-size: 3vw;
+    color: gainsboro;
+}
+.tag-wrapper{
+    display: flex;
+    margin: 10px;
+}
+.tag{
+    flex: 1;
+    text-align: center;
+    font-size: 4vw;
+    padding: 1vw 0vw;
+    margin: 0 5vw;
+    border-radius: 1.5vw;
+}
+  
+.tag-selected{
+    background-color: #1296db;
+    color: snow;
+    transition: all .5s;
+}
+
+.act-info-wrapper{
+    margin: 5vw;
+    font-size: 4vw;
+    margin-top: 10vw;
+}
+
+.tr{
+    display: flex;
+    
+}
+.tr-blue{
+    background-color: rgba(18,150,219, .2);
+}
+.td1{
+    flex: 1;
+    text-align: right;
+    padding-right: 5vw;
+    border-right: 1px solid rgba(0,0,0,.1)
+}
+.td2{
+    flex: 2;
+    margin-left: 5vw;
+}
+
+.footer{
+    position: fixed;
+    bottom: 0px;
+    left: 0;
+    width: 100%;
+    background-color: white;
+}
+.button-common{
+    display: inline-block;
+    width: 46vw; 
+    height: 12vw;
+    margin: 2vw 2vw;
+    text-align: center;
+    line-height: 12vw;
+    font-size: 4vw;
+}
+
+.has{
+    background-color: lightgreen;
+}
+.un-has{
+    background: rgba(18,150,219, 1);
+}
+
+.other-wrapper{
+    margin-top: 5vw;
+    font-size: 3vw;
+    color: lightslategray;
+}
+
+.act-detail-wrapper{
+    margin: 5vw;
+    margin-bottom: 20vw;
+}
+
+.main-image{
+    width: 90vw;
+    height: 50vw;
+    border-radius: 4px;
+    margin-bottom: 5vw;
+}
+
+.detail-text{
+    font-size: 4vw;
+    line-height: 6vw;
+    
+}
+
+.other-image{
+    width: 90vw;
+    height: 50vw;
+}

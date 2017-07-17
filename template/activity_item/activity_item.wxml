@@ -18,11 +18,11 @@
     <view class="footer-wrapper">
         <view class="vf-wrapper">
             <view class="icon-view iconfont vf-icon"></view>
-            <view class="vf-data">{{view_count}}</view>
+            <view class="vf-data">{{viewNumber}}</view>
         </view>
         <view class="vf-wrapper">
             <view class="icon-fav iconfont vf-icon"></view>
-            <view class="vf-data">{{fav_count}}</view>
+            <view class="vf-data">{{collectionNumber}}</view>
         </view>
         <view class="online-time">发布于 {{onlineTime}}</view>
     </view>
