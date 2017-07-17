@@ -106,7 +106,19 @@ Page({
               formData: sign_data,
               success: function(res) {
                 console.log('this is upload respo:')
-                console.log(res);
+                console.log(typeof res.data);
+                var j_res = JSON.parse(res.data);
+                console.log(j_res);
+                if(j_res.erron == 0){
+                    wx.navigateBack({
+                        delta: 1,
+                    });
+                } else {
+                    wx.showToast({
+                        title: '上传出现问题...',
+                        image: '/images/icon/cry.svg'
+                    })
+                }
               },
               fail: function(res) {},
               complete: function(res) {},
