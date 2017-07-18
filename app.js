@@ -83,6 +83,7 @@ App({
     globalData: {
         userInfo: null,
         ServerUrl: 'https://www.i-exshare.cn'
+        //ServerUrl:'https://10.21.8.131:3000'
     }
 })
 

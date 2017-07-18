@@ -7,13 +7,14 @@ Page({
    * 页面的初始数据
    */
   data: {
-      page_num: 1,
+      page_index: 1,
       show_search_back: false,
     //   activity_data: data.data.activity,
     //   swiper:data.data.swiper,
       activity_data: '',
       swiper:'',
-      tag_select:0
+      tag_select:0,
+      open: false
   },
 
   /**
@@ -76,7 +77,6 @@ Page({
           swiper: res.data.swiper
       });
   },
-
   bindscroll: function(e){  
       if (e.detail.scrollTop > 2){
           this.setData({
@@ -88,6 +88,20 @@ Page({
       this.setData({
           show_search_back: false
       });
+  },
+  open_side_list: function(){
+    self = this;
+    this.setData({
+      open: !self.data.open,
+      show_search_back: true
+    });
+  },
+  click_side_item:function(e){
+    let list_index = e.currentTarget.dataset.listIndex;
+    this.setData({
+      page_index: list_index,
+      open: !self.data.open
+    });
   },
   // 点击tag的响应函数
   click_tag:function(e){

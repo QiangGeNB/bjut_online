@@ -6,7 +6,7 @@
                 {{activityTitle}}
                 <view wx:if="{{fire}}" class="fire iconfont icon-fire"></view>
             </view>
-            <view class="user-date">活动时间：{{activityDate}}</view>
+            <view class="user-date">活动时间：{{activityDate_String}}</view>
             <view class="user-location">活动地点：{{activityLocation}}</view>
         </view>
     </view>

@@ -9,11 +9,11 @@
     </view>
     <view class="tab-wrapper">
         <view class="tab tab-right-border" bindtap="click_join">
-            <image class="tab-image" src="/images/userinfo/u_join.png"></image>
+            <image class="tab-image" src="/images/userinfo/join2.svg"></image>
             <view class="tab-text">参加的活动</view>
         </view>
         <view class="tab" bindtap="click_fav">
-            <image class="tab-image" src="/images/userinfo/u_fav.png"></image>
+            <image class="tab-image" src="/images/userinfo/fav2.svg"></image>
             <view class="tab-text">收藏的活动</view>
         </view>
     </view>
