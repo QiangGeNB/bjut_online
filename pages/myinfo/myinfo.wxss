@@ -63,6 +63,19 @@
     text-align: center;
     font-size: 4vw;
 }
+.no-act{
+  margin: 5vw;
+}
+.no-act-text{
+  font-size: 4vw;
+  line-height: 5vw;
+}
+.no-act-icon{
+  margin-right: 3vw;
+  width: 5vw;
+  height: 5vw;
+  vertical-align: middle;
+}
 .activity-wrapper{
     margin: 0 5vw;
 }

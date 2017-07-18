@@ -53,7 +53,14 @@
       </block>
   </view>
   <view class="footer">
-    <view class=" button-common {{has_join?'un-has':'has'}}" bindtap="click_join">{{has_join?'现在参加':'已参加'}}</view>
-    <view class=" button-common {{has_fav?'un-has':'has'}}" bindtap="click_fav">{{has_fav?'收藏':'已收藏'}}</view>
+    <view class=" button-common {{has_join?'un-has':'has'}}" bindtap="click_join">
+      <image class="button-icon" src="{{has_join?'/images/detail/join.svg':'/images/detail/has_join.svg'}}"></image>
+      <text class="button-text">{{has_join?'现在参加':'已参加'}}</text>
+    </view>
+    <view class=" button-common {{has_fav?'un-has':'has'}}" bindtap="click_fav">
+      <image class="button-icon" src="{{has_fav?'/images/detail/fav.svg':'/images/detail/has_fav.svg'}}"></image>
+      <text class="button-text">{{has_fav?'收藏':'已收藏'}}</text>
+      
+    </view>
   </view>
 </view>

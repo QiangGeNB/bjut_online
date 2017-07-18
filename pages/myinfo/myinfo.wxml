@@ -1,39 +1,47 @@
 <import src="/template/user_info_act_item/user_info_act_item.wxml" />
 
 <view class="all">
-    <view class="header-wrapper">
-        <image class="avatar" src="{{student_info.avatarUrl}}"></image>
-        <view class="nickname">{{student_info.nickName}}</view>
-        <image wx:if="{{student_info.studentID!=''}}" class="sign" src="/images/userinfo/sign.png" bindtap="click_sign"></image>
-        <image wx:if="{{student_info.studentID==''}}" class="sign" src="/images/userinfo/unsign.png"></image>
+  <view class="header-wrapper">
+    <image class="avatar" src="{{student_info.avatarUrl}}"></image>
+    <view class="nickname">{{student_info.nickName}}</view>
+    <image wx:if="{{student_info.studentID!=''}}" class="sign" src="/images/userinfo/sign.png" bindtap="click_sign"></image>
+    <image wx:if="{{student_info.studentID==''}}" class="sign" src="/images/userinfo/unsign.png"></image>
+  </view>
+  <view class="tab-wrapper">
+    <view class="tab tab-right-border" bindtap="click_join">
+      <image class="tab-image" src="/images/userinfo/join2.svg"></image>
+      <view class="tab-text">参加的活动</view>
     </view>
-    <view class="tab-wrapper">
-        <view class="tab tab-right-border" bindtap="click_join">
-            <image class="tab-image" src="/images/userinfo/join2.svg"></image>
-            <view class="tab-text">参加的活动</view>
-        </view>
-        <view class="tab" bindtap="click_fav">
-            <image class="tab-image" src="/images/userinfo/fav2.svg"></image>
-            <view class="tab-text">收藏的活动</view>
-        </view>
+    <view class="tab" bindtap="click_fav">
+      <image class="tab-image" src="/images/userinfo/fav2.svg"></image>
+      <view class="tab-text">收藏的活动</view>
     </view>
-    <view class="activity-wrapper">
-        <view class=" icon-richeng iconfont"></view>
-        <view wx:if="{{join_fav_mark == 1}}" class="activity-title">我参加的活动</view>
-        <view wx:if="{{join_fav_mark == 2}}" class="activity-title">我收藏的活动</view>
-        <view wx:if="{{join_fav_mark == 1}}" class="activity-template">
-            <block wx:for="{{join_act}}">
-                <view data-actid="{{item.activityID}}" bindtap="click_act">
-                    <template is="userInfoActItem" data="{{...item}}"/>
-                </view>
-            </block>
+  </view>
+  <view class="activity-wrapper">
+    <view class=" icon-richeng iconfont"></view>
+    <view wx:if="{{join_fav_mark == 1}}" class="activity-title">我参加的活动</view>
+    <view wx:if="{{join_fav_mark == 2}}" class="activity-title">我收藏的活动</view>
+    <view wx:if="{{join_fav_mark == 1}}" class="activity-template">
+      <view wx:if="{{join_act.length == 0}}" class="no-act">
+        <image class="no-act-icon" src="/images/userinfo/no_act.svg"></image>
+        <text class="no-act-text">您还没有参加活动哦~</text>
+      </view>
+      <block wx:for="{{join_act}}">
+        <view data-actid="{{item.activityID}}" bindtap="click_act">
+          <template is="userInfoActItem" data="{{...item}}" />
         </view>
-        <view wx:if="{{join_fav_mark == 2}}" class="activity-template">
-            <block wx:for="{{fav_act}}">
-                <view data-actid="{{item.activityID}}" bindtap="click_act">
-                    <template is="userInfoActItem" data="{{...item}}"/>
-                </view>
-            </block>
-        </view>
+      </block>
     </view>
+    <view wx:if="{{join_fav_mark == 2}}" class="activity-template">
+      <view wx:if="{{fav_act.length == 0}}" class="no-act">
+        <image class="no-act-icon" src="/images/userinfo/no_act.svg"></image>
+        <text class="no-act-text">您还没有收藏活动哦~</text>
+      </view>
+      <block wx:for="{{fav_act}}">
+        <view data-actid="{{item.activityID}}" bindtap="click_act">
+          <template is="userInfoActItem" data="{{...item}}" />
+        </view>
+      </block>
+    </view>
+  </view>
 </view>

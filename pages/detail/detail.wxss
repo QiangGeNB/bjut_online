@@ -91,10 +91,17 @@
     transition: all .5s;
     color: white;
 }
-
+.button-icon{
+  margin-right: 2vw;
+  vertical-align: -1.5vw;
+  width: 6vw;
+  height: 6vw;
+}
+.button-text{
+  text-align: top;
+}
 .has{
     background-color:	#32CD32;
-    color: black;
 }
 .un-has{
     background: rgba(18,150,219, 1);
