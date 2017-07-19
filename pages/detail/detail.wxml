@@ -19,7 +19,7 @@
   <view wx:if="{{tag_select == 0}}" class="act-info-wrapper">
     <view class="tr tr-blue">
       <view class="td1">活动时间</view>
-      <view class="td2">{{detail_data.activityDate}}</view>
+      <view class="td2">{{detail_data.activityDate_String}}</view>
     </view>
     <view class="tr">
       <view class="td1">活动地点</view>
@@ -53,9 +53,14 @@
       </block>
   </view>
   <view class="footer">
-    <view wx:if="{{!has_join}}" class="un-has button-common" bindtap="click_join">现在参加</view>
-    <view wx:if="{{has_join}}" class="has button-common" bindtap="click_join">已参加</view>
-    <view wx:if="{{!has_fav}}" class="un-has button-common" bindtap="click_fav">收藏活动</view>
-    <view wx:if="{{has_fav}}" class="has button-common" bindtap="click_fav">已收藏</view>
+    <view class=" button-common {{has_join?'un-has':'has'}}" bindtap="click_join">
+      <image class="button-icon" src="{{has_join?'/images/detail/join.svg':'/images/detail/has_join.svg'}}"></image>
+      <text class="button-text">{{has_join?'现在参加':'已参加'}}</text>
+    </view>
+    <view class=" button-common {{has_fav?'un-has':'has'}}" bindtap="click_fav">
+      <image class="button-icon" src="{{has_fav?'/images/detail/fav.svg':'/images/detail/has_fav.svg'}}"></image>
+      <text class="button-text">{{has_fav?'收藏':'已收藏'}}</text>
+      
+    </view>
   </view>
 </view>

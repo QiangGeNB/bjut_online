@@ -59,13 +59,17 @@
 }
 .td1{
     flex: 1;
+    height: 8vw;
+    line-height: 8vw;
     text-align: right;
     padding-right: 5vw;
     border-right: 1px solid rgba(0,0,0,.1)
 }
 .td2{
     flex: 2;
-    margin-left: 5vw;
+    height: 5vw;
+    line-height: 8vw;
+    margin-left: 8vw;
 }
 
 .footer{
@@ -80,13 +84,24 @@
     width: 46vw; 
     height: 12vw;
     margin: 2vw 2vw;
+    border-radius: 5px;
     text-align: center;
     line-height: 12vw;
     font-size: 4vw;
+    transition: all .5s;
+    color: white;
 }
-
+.button-icon{
+  margin-right: 2vw;
+  vertical-align: -1.5vw;
+  width: 6vw;
+  height: 6vw;
+}
+.button-text{
+  text-align: top;
+}
 .has{
-    background-color: lightgreen;
+    background-color:	#32CD32;
 }
 .un-has{
     background: rgba(18,150,219, 1);

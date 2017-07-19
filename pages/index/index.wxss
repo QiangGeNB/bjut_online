@@ -1,18 +1,93 @@
 @import '/font.wxss';
 @import '/template/activity_item/activity_item.wxss';
 
-page {
+.page{
   height: 100%;
 }
-
-.all {
+.page-top {
   height: 100%;
 }
 
 scroll-view {
   height: 100%;
+  width: 100%;
 }
 
+/* 侧边栏样式 */
+.page-bottom{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  overflow: hidden;
+}
+.side-list-wrapper{
+  width: 100%;
+  height: 90%;
+  overflow: hidden;
+  background-color: #1296db;
+  padding-top: 60px;
+  color: white;
+}
+.side-list{
+  display: inline-block;
+  margin: 0 5vw;
+  height: 30px;
+  width: 30px;
+  font-size: 25px;
+  color: #1296db;
+  transition: color .5s;
+}
+
+.side-list-white{
+  color: white;
+}
+.list-item{
+  margin-top: 5vw;
+  margin-left: 5vw;
+}
+.botton-item1{
+  position: absolute;
+  bottom: 5vw;
+  left: 5vw;
+  font-size: 4vw;
+}
+.botton-item2{
+  position: absolute;
+  bottom: 15vw;
+  left: 5vw;
+  font-size: 4vw;
+}
+.c-state1{
+  transform: translate(50%,0%);
+  filter: blur(3px);
+}  
+
+
+
+.page-top{
+  position: absolute;
+  left: 0;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  z-index: 0;
+  transition: All 0.4s ease; 
+}
+
+.filter{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 200;
+  background-color: white;
+  opacity: .2;
+}
 .search-wrapper {
   position: fixed;
   top: 0;
@@ -21,17 +96,20 @@ scroll-view {
   width: 100%;
   z-index: 1;
   transition: background-color .5s;
+  background-color: white;
 }
 
 .search-button {
+  display: inline-block;
   margin: 0 auto;
   height: 30px;
-  width: 90%;
+  width: 70%;
   border-radius: 5px;
   background-color: whitesmoke;
   font-size: 13px;
   line-height: 30px;
   text-align: center;
+  vertical-align: top;
 }
 
 .search-wrapper-blue {
@@ -39,8 +117,8 @@ scroll-view {
 }
 
 .swiper-wrapper {
-  margin-top: 50px;
   width: 100%;
+  margin-top: 50px;
 }
 
 .swiper {
@@ -56,6 +134,7 @@ scroll-view {
 .tag-wrapper {
   display: flex;
   width: 100%;
+  background-color: white;
 }
 
 .tag:last-child {
@@ -88,4 +167,11 @@ scroll-view {
   border-top: 1px solid rgba(0, 0, 0, 0.1);
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   background-color: ghostwhite;
+}
+
+.want{
+  height: 100%;
+  width: 100%;
+  background-color: white;
+  margin-top: 50px;
 }

@@ -1,10 +1,9 @@
 {
   "pages":[
       "pages/index/index",
-      "pages/auth/auth",
       
       "pages/myinfo/myinfo",
-      
+      "pages/auth/auth",
       "pages/search/search",
       "pages/detail/detail",
       
@@ -20,9 +19,11 @@
     "enablePullDownRefresh": true
   },
   "tabBar": {
-    "color": "2c2c2c",
+    "color": "#2c2c2c",
     "selectedColor": "#1296db",
-    "borderStyle": "white",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "position": "bottom",
     "list": [
         {
             "selectedIconPath": "/images/toolbar/activity2.png",
