@@ -2,6 +2,17 @@
 App({
     onLaunch: function () {
         self = this;
+        // 添加数组包含方法
+        Array.prototype.contains = function (obj) {
+            var i = this.length;
+            while (i--) {
+                if (this[i] === obj) {
+                    return true;
+                }
+            }
+            return false;
+        }
+
         if (wx.getStorageSync('user_key')) {
             console.log('缓存中存在user_key...');
         } else {

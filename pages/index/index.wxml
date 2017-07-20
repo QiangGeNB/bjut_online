@@ -1,81 +1,120 @@
 <import src="/template/activity_item/activity_item.wxml" />
 
 <view class="page">
-  <!--收缩框-->
-  <view class="search-wrapper {{show_search_back?'search-wrapper-blue':''}}">
-    <view class="side-list iconfont icon-list {{show_search_back?'side-list-white':''}}" bindtap="open_side_list"></view>
-    <view class="search-button" bindtap="click_search">
-      <view class="iconfont icon-sousuo"></view>
-      搜索活动
+    <!--收缩框-->
+    <view class="search-wrapper {{show_search_back?'search-wrapper-blue':''}}">
+        <view class="side-list iconfont icon-list {{show_search_back?'side-list-white':''}}" bindtap="open_side_list"></view>
+        <view class="search-button" bindtap="click_search">
+            <view class="iconfont icon-sousuo"></view>
+            搜索活动
+        </view>
     </view>
-  </view>
-
-  <view class="page-bottom">
-    <view class="side-list-wrapper">
-      <view class="list-item" data-list-index="1" bindtap="click_side_item">
-        <text>学术活动</text>
-      </view>
-      <view class="list-item" data-list-index="2" bindtap="click_side_item">
-        <text>实习招聘</text>
-      </view>
-      <view class="list-item" data-list-index="3" bindtap="click_side_item">
-        <text>周边娱乐</text>
-      </view>
-      <view class="list-item" data-list-index="4" bindtap="click_side_item">
-        <text>学校通知</text>
-      </view>
-      <view class="botton-item1" data-list-index="5" bindtap="click_side_item">
-        <text>联系客服</text>
-      </view>
-      <view class="botton-item2" data-list-index="6" bindtap="click_side_item">
-        <text>关于我们</text>
-      </view>
+    <view class="page-bottom">
+        <view class="side-list-wrapper">
+            <view class="list-item" data-list-index="1" bindtap="click_side_item">
+                <text>学生活动</text>
+            </view>
+            <view class="list-item" data-list-index="2" bindtap="click_side_item">
+                <text>每天行走一万步</text>
+            </view>
+            <view class="list-item" data-list-index="3" bindtap="click_side_item">
+                <text>实习信息</text>
+            </view>
+            <view class="list-item" data-list-index="4" bindtap="click_side_item">
+                <text>学校通知</text>
+            </view>
+            <view class="botton-item1" data-list-index="5" bindtap="click_side_item">
+                <text>联系客服</text>
+            </view>
+            <view class="botton-item2" data-list-index="6" bindtap="click_side_item">
+                <text>关于我们</text>
+            </view>
+        </view>
     </view>
-  </view>
-  <!--活动详情界面-->
-  <view wx:if="{{page_index == 1}}" class="page-top {{open ? 'c-state1' : ''}}">
-  <view wx:if="{{open}}" class="filter"></view>
-    <!--轮播图-->
-    <scroll-view scroll-y="true" bindscroll="bindscroll" bindscrolltoupper="reach_top">
-      <view class="swiper-wrapper">
-        <swiper class="swiper" indicator-dots="true">
-          <block wx:for="{{swiper}}">
-            <swiper-item>
-              <image src="{{item.url}}" mode="aspectFill" class="slide-image" data-actid="{{item.actid}}" bindtap="click_activity" />
-            </swiper-item>
-          </block>
-        </swiper>
-      </view>
-      <view class="tag-wrapper">
-        <view class="tag {{tag_select == 0 ? 'tag-select':''}}" data-tag-index="0" catchtap="click_tag">
-          <view class="iconfont icon-quanbu"></view>
-          <view class="tag-text">全部</view>
-        </view>
-        <view class="tag {{tag_select == 1 ? 'tag-select':''}}" data-tag-index="1" catchtap="click_tag">
-          <view class="iconfont icon-xueshu"></view>
-          <view class="tag-text">学术活动</view>
-        </view>
-        <view class="tag {{tag_select == 2 ? 'tag-select':''}}" data-tag-index="2" catchtap="click_tag">
-          <view class="iconfont icon-zhidao"></view>
-          <view class="tag-text">新生指导</view>
-        </view>
-      </view>
-      <block wx:for="{{activity_data}}">
-        <view wx:if="{{item.activityType == tag_select || tag_select==0}}" data-actid="{{item.activityID}}" bindtap="click_activity">
-          <view class="gap"></view>
-          <template is="activity_item" data="{{...item}}" />
-        </view>
-      </block>
-
-    </scroll-view>
-  </view>
-  <!--实习招聘界面-->
-  <view wx:if="{{page_index == 2}}" class="page-top {{open ? 'c-state1' : ''}}">
-    <scroll-view scroll-y="true" bindscroll="bindscroll" bindscrolltoupper="reach_top">
-      <view class="want">
-        我是实习招聘界面
-      </view>
-    </scroll-view>
-
-  </view>
+    <!--活动详情界面-->
+    <view wx:if="{{page_index == 1}}" class="page-top {{open ? 'c-state1' : ''}}">
+        <view wx:if="{{open}}" class="filter"></view>
+        <!--轮播图-->
+        <scroll-view scroll-y="true" bindscroll="bindscroll" bindscrolltoupper="reach_top">
+            <view class="swiper-wrapper">
+                <swiper class="swiper" indicator-dots="true">
+                    <block wx:for="{{swiper}}">
+                        <swiper-item>
+                            <image src="{{item.url}}" mode="aspectFill" class="slide-image" data-actid="{{item.actid}}" bindtap="click_activity" />
+                        </swiper-item>
+                    </block>
+                </swiper>
+            </view>
+            <view class="tag-wrapper">
+                <view class="tag {{tag_select == 0 ? 'tag-select':''}}" data-tag-index="0" catchtap="click_tag">
+                    <view class="iconfont icon-quanbu"></view>
+                    <view class="tag-text">全部</view>
+                </view>
+                <view class="tag {{tag_select == 1 ? 'tag-select':''}}" data-tag-index="1" catchtap="click_tag">
+                    <view class="iconfont icon-xueshu"></view>
+                    <view class="tag-text">学术活动</view>
+                </view>
+                <view class="tag {{tag_select == 2 ? 'tag-select':''}}" data-tag-index="2" catchtap="click_tag">
+                    <view class="iconfont icon-zhidao"></view>
+                    <view class="tag-text">新生指导</view>
+                </view>
+            </view>
+            <block wx:for="{{activity_data}}">
+                <view wx:if="{{item.activityType == tag_select || tag_select==0}}" data-actid="{{item.activityID}}" bindtap="click_activity">
+                    <view class="gap"></view>
+                    <template is="activity_item" data="{{...item}}" />
+                </view>
+            </block>
+        </scroll-view>
+    </view>
+    <!--每天行走一万步界面-->
+    <view wx:if="{{page_index == 2}}" class="page-top {{open ? 'c-state1' : ''}}">
+        <view wx:if="{{open}}" class="filter"></view>
+        <scroll-view scroll-y="true" bindscroll="bindscroll" bindscrolltoupper="reach_top">
+            <view class="sport-wrapper">
+                <image class="head-back" src="/images/sport/titleback3.jpg" mode="aspectFill"></image>
+                <view class="head-back-filter"></view>
+                <view class="head-wrapper">
+                    <image class="title-image" src="/images/sport/title.png"></image>
+                </view>
+                <!--头像 昵称 学院-->
+                <view class="userinfo-wrapper">
+                    <image class="userinfo-avater" src="{{userinfo.avater}}"></image>
+                    <view class="userinfo-info-wrapper">
+                        <view class="userinfo-nickname">{{userinfo.nickName}}</view>
+                        <view class="userinfo-academy">{{userinfo.academy}}</view>
+                    </view>
+                </view>
+                <view class="tab">
+                    <view class="tab-item tab-selected">我的排名</view>
+                    <view class="tab-item-middle">|</view>
+                    <view class="tab-item">排行榜</view>
+                </view>
+                <!--我的排名-->
+                <view class="myrank-wrapper">
+                    <view class="myrank-step-wrapper">
+                        今天您已经走了 <text>{{sport_data.my_sport_data.step}}</text> 步
+                    </view>
+                    <view class="myrank-detail">
+                        <view class="myrank-item-wrapper">
+                            <view class="rank-title">学院排名</view>
+                            <view class="rank-rank">{{sport_data.my_sport_data.academy_rank}}/{{sport_data.my_sport_data.academy_all}}</view>
+                            <view class="rank-gap">距离学院上一名还差<text>{{sport_data.my_sport_data.aca_gap}}</text>步</view>
+                        </view>
+                        <view class="myrank-item-wrapper">
+                            <view class="rank-title">校园排名</view>
+                            <view class="rank-rank">{{sport_data.my_sport_data.bjut_rank}}/{{sport_data.my_sport_data.bjut_all}}</view>
+                            <view class="rank-gap">距离学院上一名还差<text>{{sport_data.my_sport_data.bjut_gap}}</text>步</view>
+                        </view>
+                    </view>
+                    <view class="myrank-remark">
+                    <view>排行说明：</view>
+                        <view>* 排行信息每1小时刷新一次</view>
+                        <view>* 运动数据以微信运动为准</view>
+                        <view>* 每次打开本界面提交当前微信运动信息，请参加活动的同学每天至少打开一次本界面</view>
+                    </view>
+                </view>
+            </view>
+        </scroll-view>
+    </view>
 </view>

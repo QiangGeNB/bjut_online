@@ -145,6 +145,26 @@ var data = {
             "新生入学指南",
             "学术报销流程"
         ]
+    },
+    // 每天行走一万步需要的数据
+    sport: {
+        userinfo:{
+            avater: 'https://wx.qlogo.cn/mmopen/vi_32/DYAIOgq83eoYRXtw7CNxyD2rau3zlUk8hVqqYrz2icgtY5OMgDVXZhlcKuNw2jmduGVGkMFKAvicXXmXaJmWjoPQ/0',
+            nickName: 'chenlong',
+            academy: '计算机学院',
+        },
+        sport_data: {
+            // 个人运动数据/排行
+            my_sport_data:{
+                step:10000,
+                academy_rank: 12,
+                academy_all:243,
+                aca_gap:233,
+                bjut_rank:22,
+                bjut_all:4123,
+                bjut_gap: 234
+            }
+        }
     }
 };
 module.exports.data = data;
