@@ -1,5 +1,6 @@
 @import '/font.wxss';
 @import '/template/activity_item/activity_item.wxss';
+@import '/template/rank_item/rank_item.wxss';
 
 .page{
   width: 100%;
@@ -226,6 +227,7 @@ scroll-view {
     border-radius: 4px;
     margin: 0 9vw;
     font-size: 4vw;
+    transition: all .2s;
 }
 .tab-selected{
     background-color: #1296db;
@@ -261,14 +263,12 @@ scroll-view {
     box-shadow: 5px 5px 15px #888888;
 }
 .rank-title{
-    margin: 0 4vw;
-    padding: 1vw 0;
-    border-radius: 4px;
+    margin: 0 6vw;
+    padding: 3vw 4vw;
+    border-bottom: 1px solid black;
     font-size: 4vw;
-    font-weight: bold;
     line-height: 4vw;
-    background-color: #1296db;
-    color: white;
+    color: #1296db;
 
 }
 .rank-rank{
@@ -290,4 +290,13 @@ scroll-view {
     margin: 6vw;
     font-size: 3vw;
     color: rgba(0, 0, 0, 0.7)
+}
+.piker_text{
+  display: block;
+  width: 50vw;
+  margin: 2vw auto;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  text-align: center;
+  font-size: 4vw;
+  padding-bottom: 2vw;
 }

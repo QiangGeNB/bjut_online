@@ -16,7 +16,11 @@ Page({
         tag_select: 0,
         open: false,
         sport_data: data.data.sport.sport_data,
-        userinfo: data.data.sport.userinfo
+        userinfo: data.data.sport.userinfo,
+        sport_tab:2,
+        academy: app.globalData.academy,
+        sport_aca_picker_index: 0,
+        rank_list_data: data.data.sport.rank_data
     },
 
     /**
@@ -24,7 +28,6 @@ Page({
      */
     onLoad: function (options) {
         this.initPage();
-        
     },
 
     /**
@@ -40,19 +43,6 @@ Page({
 
     },
 
-    /**
-     * 生命周期函数--监听页面隐藏
-     */
-    onHide: function () {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面卸载
-     */
-    onUnload: function () {
-
-    },
 
     /**
      * 页面相关事件处理函数--监听用户下拉动作
@@ -123,23 +113,7 @@ Page({
         });
         }, 500);
     },
-    require_sport_message: function(){
-        self = this;
-        wx.getWeRunData({
-            success(res) {
-                var sport_data = {
-                    bjut_id: wx.getStorageSync('user_key'),
-                    encryptedData: res.encryptedData,
-                    iv: res.iv
-                }
-                app.SendRequest('/api/get_wx_run_date', sport_data, self.sport_req_suc);
-            }
-        })
-    },
-    // 请求微信运动的回调函数
-    sport_req_suc: function(res){
-        console.log(res);
-    },
+    
     // 点击tag的响应函数
     click_tag: function (e) {
         self = this;
@@ -165,7 +139,6 @@ Page({
     },
     // 点击活动进入活动详情页面
     click_activity: function (e) {
-        console.log(e.currentTarget.dataset.actid);
         let actid = e.currentTarget.dataset.actid;
         let user_key = wx.getStorageSync('user_key');
         wx.navigateTo({
@@ -176,5 +149,47 @@ Page({
         wx.navigateTo({
             url: '/pages/search/search',
         });
+    },
+    // 运动界面相关js
+    //点击活动侧边栏 发送请求并进行相应的赋值
+    require_sport_message: function () {
+      self = this;
+      wx.getWeRunData({
+        success(res) {
+          var sport_data = {
+            bjut_id: wx.getStorageSync('user_key'),
+            encryptedData: res.encryptedData,
+            iv: res.iv
+          }
+          console.log(sport_data);
+          app.SendRequest('/api/get_wx_run_date', sport_data, self.sport_req_suc);
+        }
+      })
+    },
+    // 请求微信运动的回调函数
+    sport_req_suc: function (res) {
+      console.log('this is sport callback:')
+      console.log(res);
+    },
+    click_sport_tab: function(e){
+      self = this;
+      let sport_tab_index = e.currentTarget.dataset.sportTabIndex;
+      switch(sport_tab_index){
+        case "1":
+          self.setData({
+            sport_tab: 1
+          });
+          break;
+        case "2":
+          self.setData({
+            sport_tab: 2
+          });
+          break;
+      }
+    },
+    sport_aca_picker: function(e){
+      this.setData({
+        sport_aca_picker_index: e.detail.value
+      });
     }
 })

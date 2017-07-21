@@ -8,7 +8,8 @@
       "pages/sport/sport",
       "template/activity_item/activity_item",
       "template/user_info_act_item/user_info_act_item",
-      "pages/search_result/search_result"
+      "pages/search_result/search_result",
+      "template/rank_item/rank_item"
   ],
   "window":{
     "backgroundTextStyle":"light",
