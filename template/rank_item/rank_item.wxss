@@ -1,0 +1,108 @@
+/* template/rank_item/rank_item.wxss */
+
+.rank-item-wrapper {
+  margin: 5vw auto;
+  line-height: 7vw;
+  width: 90%;
+}
+
+.rank-num {
+  display: inline-block;
+  margin-right: 5vw;
+  vertical-align: top;
+}
+
+.rank-avater {
+  display: inline-block;
+  width: 7vw;
+  height: 7vw;
+  margin-right: 5vw;
+  border-radius: 50%;
+  vertical-align: top;
+}
+
+.rank-name {
+  display: inline-block;
+  font-size: 4vw;
+  width:35vw;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.rank-step {
+  float: right;
+}
+
+.rank-one-num {
+  font-size: 7vw;
+  color: #1296db;
+  line-height: 10vw;
+}
+
+.rank-two-num {
+  font-size: 6.5vw;
+  color: #1077ad;
+  line-height: 9vw;
+}
+
+.rank-three-num {
+  font-size: 6vw;
+  color: #0a4a6b;
+  line-height: 8vw;
+}
+
+.rank-one-avater {
+  width: 10vw;
+  height: 10vw;
+}
+
+.rank-two-avater {
+  width: 9vw;
+  height: 9vw;
+}
+
+.rank-three-avater {
+  width: 8vw;
+  height: 8vw;
+}
+
+.rank-one-name {
+  font-size: 5.5vw;
+  line-height: 10vw;
+  color: #1296db;
+}
+
+.rank-two-name {
+  font-size: 5vw;
+  line-height: 9vw;
+  color: #1077ad;
+}
+
+.rank-three-name {
+  font-size: 4.5vw;
+  line-height: 8vw;
+  color: #0a4a6b;
+}
+
+.rank-one-step {
+  font-size: 7vw;
+  color: #1296db;
+  line-height: 10vw;
+}
+
+.rank-two-step {
+  font-size: 6.5vw;
+  color: #1077ad;
+  line-height: 9vw;
+}
+
+.rank-three-step {
+  font-size: 6vw;
+  color: #0a4a6b;
+  line-height: 8vw;
+}
+.bu{
+  font-size: 4vw;
+  color: black;
+}
