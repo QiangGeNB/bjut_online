@@ -281,10 +281,15 @@ scroll-view {
     font-size: 3vw;
 }
 .rank-gap > text{
+    display: block;
     font-size: 4vw;
     color: #1296db;
     font-weight: bold;
-    vertical-align: bottom;
+}
+.bu{
+    font-size: 3vw;
+    color: black;
+    font-weight: normal;
 }
 .myrank-remark{
     margin: 6vw;

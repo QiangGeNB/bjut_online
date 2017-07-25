@@ -77,7 +77,7 @@ App({
         });
     },
     SendRequest: function(url, data, success_cb){
-        console.log('app is sending request...');
+        console.log(url + ' is sending request...');
         wx.request({
             url: this.globalData.ServerUrl + url,
             data: data,

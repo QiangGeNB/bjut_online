@@ -79,7 +79,7 @@
         </view>
         <!--头像 昵称 学院-->
         <view class="userinfo-wrapper">
-          <image class="userinfo-avater" src="{{userinfo.avater}}"></image>
+          <image class="userinfo-avater" src="{{userinfo.avatar}}"></image>
           <view class="userinfo-info-wrapper">
             <view class="userinfo-nickname">{{userinfo.nickName}}</view>
             <view class="userinfo-academy">{{userinfo.academy}}</view>
@@ -94,18 +94,18 @@
         <!--我的排名-->
         <view class="myrank-wrapper" wx:if="{{sport_tab == 1}}">
           <view class="myrank-step-wrapper">
-            今天您已经走了 <text>{{sport_data.my_sport_data.step}}</text> 步
+            今天您已经走了 <text>{{my_sport_data.step}}</text> 步
           </view>
           <view class="myrank-detail">
             <view class="myrank-item-wrapper">
               <view class="rank-title">学院排名</view>
-              <view class="rank-rank">{{sport_data.my_sport_data.academy_rank}}/{{sport_data.my_sport_data.academy_all}}</view>
-              <view class="rank-gap">距离学院上一名还差<text>{{sport_data.my_sport_data.aca_gap}}</text>步</view>
+              <view class="rank-rank">{{my_sport_data.academyrank}}/{{my_sport_data.academycount}}</view>
+              <view class="rank-gap">距离学院上一名还差<text>{{my_sport_data.aca_gap}}<text class="bu">步</text></text></view>
             </view>
             <view class="myrank-item-wrapper">
               <view class="rank-title">校园排名</view>
-              <view class="rank-rank">{{sport_data.my_sport_data.bjut_rank}}/{{sport_data.my_sport_data.bjut_all}}</view>
-              <view class="rank-gap">距离学院上一名还差<text>{{sport_data.my_sport_data.bjut_gap}}</text>步</view>
+              <view class="rank-rank">{{my_sport_data.schoolrank}}/{{my_sport_data.schoolcount}}</view>
+              <view class="rank-gap">距离学院上一名还差<text>{{my_sport_data.bjut_gap}}<text class="bu">步</text></text></view>
             </view>
           </view>
           <view class="myrank-remark">
