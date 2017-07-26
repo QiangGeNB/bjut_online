@@ -4,7 +4,7 @@
   <view class="header-wrapper">
     <image class="avatar" src="{{student_info.avatarUrl}}"></image>
     <view class="nickname">{{student_info.nickName}}</view>
-    <image wx:if="{{student_info.studentID!=''}}" class="sign" src="/images/userinfo/sign.png"></image>
+    <image wx:if="{{student_info.studentID!=''}}" class="sign" src="/images/userinfo/sign.png" bindtap="click_sign"></image>
     <image wx:else="{{student_info.studentID==''}}" class="sign" src="/images/userinfo/unsign.png" bindtap="click_sign"></image>
   </view>
   <view class="tab-wrapper">
