@@ -88,7 +88,7 @@ Page({
             });
         } else {
             var sign_data = {
-                bjut_id: wx.getStorageSync('user_key'),
+                _id: wx.getStorageSync('user_key'),
                 student_data: {
                     studentID: page_data.studentID,
                     enter_year: page_data.year,
@@ -97,9 +97,9 @@ Page({
             };
             //app.SendRequest('/api/index_info', sign_data, self.sign_suc);
             wx.uploadFile({
-              url: 'https://www.i-exshare.cn/api/verify_stu_info',
-              filePath: self.data.student_card_image[0],
-              name: 'student_card_image',
+              url: 'https://www.i-exshare.cn/api/upload_stu_image',
+              filePath: self.data.stu_image[0],
+              name: 'stu_image',
               header: {
                 'content-type': 'multipart/form-data'
               },
@@ -149,7 +149,7 @@ Page({
                 // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
                 var tempFilePaths = res.tempFilePaths;
                 self.setData({
-                    student_card_image: tempFilePaths
+                    stu_image: tempFilePaths
                 });
                 console.log(tempFilePaths);
             }
