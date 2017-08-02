@@ -97,7 +97,8 @@ Page({
             };
             //app.SendRequest('/api/index_info', sign_data, self.sign_suc);
             wx.uploadFile({
-              url: 'https://www.i-exshare.cn/api/upload_stu_image',
+              // url: 'https://www.i-exshare.cn/api/upload_stu_image',
+                url: 'http://127.0.0.1:3000/api/upload_stu_image',
               filePath: self.data.stu_image[0],
               name: 'stu_image',
               header: {
