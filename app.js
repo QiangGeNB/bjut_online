@@ -50,10 +50,11 @@ App({
                 };
                 // 发送 getuserkey 请求（有点复杂）
                 self.SendRequest('/api/get_user_key', code_userInfo, function (res) {
-                    console.log('response success...');
+                    console.log('/api/get_user_key response success...');
                     console.log(res.data);
                     res = res.data;
-                    if (res.erron == 0) {
+                    if (res.errno == '0') {
+                        console.log('user_key存入缓存...');
                         wx.setStorageSync('user_key', res.data);
                     }
                 });
