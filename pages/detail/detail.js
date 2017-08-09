@@ -10,7 +10,9 @@ Page({
         // detail_data: data.data.act_detail,
         // has_join: data.data.act_detail.has_join,
         // has_fav: data.data.act_detail.has_fav,
-        tag_select: 0
+        tag_select: 0,
+        formate_act_date: '',
+        formate_online_date:''
     },
 
     /**
@@ -89,8 +91,13 @@ Page({
         
         console.log(res);
         var detail_data = res.data.data[0];
-        var chenldate = res.data.data[0].activityDate;
-        console.log(typeof chenldate);
+        var formate_act_date = this.formate_data(new Date(res.data.data[0].activityDate));
+        var formate_online_date = this.formate_data(new Date(res.data.data[0].onlineTime));
+        this.setData({
+            formate_act_date: formate_act_date,
+            formate_online_date: formate_online_date
+        });
+
         var has_join = res.data.join;
         var has_fav = res.data.coll;
         self.setData({
@@ -171,5 +178,15 @@ Page({
                 console.log('取消收藏活动返回信息收到...');
             });
         }
+    },
+    formate_data: function(date){
+        let month_add = date.getMonth() + 1;
+        var formate_result = date.getFullYear() + '年'
+            + month_add + '月'
+            + date.getDate() + '日'
+            + ' '
+            + date.getHours() + '点'
+            + date.getMinutes() + '分';
+        return formate_result;
     }
 })

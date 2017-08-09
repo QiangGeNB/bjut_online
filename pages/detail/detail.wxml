@@ -2,7 +2,7 @@
   <view class="header">
     <view class="title">{{detail_data.activityTitle}}</view>
     <view wx:if="{{detail_data.fire}}" class="fire iconfont icon-fire"></view>
-    <view class="online-date">发布于{{detail_data.onlineTime}}</view>
+    <view class="online-date">发布于{{formate_online_date}}</view>
   </view>
 
   <view class="gap"></view>
@@ -12,14 +12,14 @@
       <view class="tag-text">活动信息</view>
     </view>
     <view class="tag {{tag_select == 1 ? 'tag-selected':''}}" data-tag-index="1" catchtap="click_tag">
-      <view class="tag-text">活动介绍</view>
+      <view class="tag-text">活动内容</view>
     </view>
   </view>
   <!--活动信息页面-->
   <view wx:if="{{tag_select == 0}}" class="act-info-wrapper">
     <view class="tr tr-blue">
       <view class="td1">活动时间</view>
-      <view class="td2">{{detail_data.activityDate_String}}</view>
+      <view class="td2">{{formate_act_date}}</view>
     </view>
     <view class="tr">
       <view class="td1">活动地点</view>
@@ -45,12 +45,9 @@
       *备注: {{detail_data.remark}}
     </view>
   </view>
+  <!-- 活动内容界面  -->
   <view wx:if="{{tag_select == 1}}" class="act-detail-wrapper">
-    <image class="main-image" src="{{detail_data.mainImage}}"></image>
-    <view class="detail-text">{{detail_data.content}}</view>
-      <block wx:for="{{detail_data.activityImage}}">
-        <image class="other-image" src="{{item}}"></image>
-      </block>
+    <rich-text nodes="{{detail_data.content}}"></rich-text>
   </view>
   <view class="footer">
     <view class=" button-common {{has_join?'un-has':'has'}}" bindtap="click_join">

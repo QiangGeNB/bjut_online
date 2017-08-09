@@ -50,10 +50,11 @@ App({
                 };
                 // 发送 getuserkey 请求（有点复杂）
                 self.SendRequest('/api/get_user_key', code_userInfo, function (res) {
-                    console.log('response success...');
+                    console.log('/api/get_user_key response success...');
                     console.log(res.data);
                     res = res.data;
-                    if (res.erron == 0) {
+                    if (res.errno == '0') {
+                        console.log('user_key存入缓存...');
                         wx.setStorageSync('user_key', res.data);
                     }
                 });
@@ -93,7 +94,8 @@ App({
     },
     globalData: {
         userInfo: null,
-        ServerUrl: 'https://www.i-exshare.cn',
+        //ServerUrl: 'https://www.i-exshare.cn',
+        ServerUrl:'http://127.0.0.1:3000',
         academy:['全校','计算机学院','软件学院','人文学院','经管学院','材料学院','建筑与规划学院','交通学院']
         //ServerUrl:'https://10.21.8.131:3000'
     }

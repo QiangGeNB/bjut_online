@@ -16,10 +16,10 @@
       </picker>
       <view class="input-title">请上传您的学生证（卡）正面照片</view>
       <view class="image-choose" bindtap="choose_image">
-        <image class="student-card-image" wx:if="{{student_card_image}}" src="{{student_card_image}}" mode="aspectFit"></image>
-        <image wx:if="{{!student_card_image}}" class="album-icon" src="/images/icon/album.svg"></image>
+        <image class="student-card-image" wx:if="{{stu_image}}" src="{{stu_image}}" mode="aspectFit"></image>
+        <image wx:if="{{!stu_image}}" class="album-icon" src="/images/icon/album.svg"></image>
         <view class="hover">
-          <view wx:if="{{!student_card_image}}" class="hover-text">点击选择图片</view>
+          <view wx:if="{{!stu_image}}" class="hover-text">点击选择图片</view>
         </view>
       </view>
     </view>
