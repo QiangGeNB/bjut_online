@@ -1,1 +1,139 @@
-/* pages/sport/sport.wxss */
+@import '/font.wxss';
+@import '/template/activity_item/activity_item.wxss';
+@import '/template/rank_item/rank_item.wxss';
+
+
+.head-wrapper{
+    margin-top: 70px;
+}
+.head-back{
+    position: absolute;
+    top: 0px;
+    left: 0;
+    width: 100%;
+    height: 40vw;
+    z-index: -100;
+}
+.head-back-filter{
+    position: absolute;
+    top: 0px;
+    left: 0;
+    width: 100%;
+    height: 40vw;
+    opacity: 1;
+    z-index: -50;
+    background: linear-gradient(180deg, rgba(255,255,255, 0), rgba(255,255,255, .7), rgba(255,255,255, 1));
+}
+.title-image{
+    display: block;
+    width: 70vw;
+    height: 13vw;
+    margin: 10vw auto;
+    margin-bottom: 5vw;
+}
+.userinfo-avater{
+    display: block;
+    width: 15vw;
+    height: 15vw;
+    border-radius: 50%;
+    margin: 0 auto;
+}
+.userinfo-info-wrapper{
+    width: 100%;
+    margin: 3vw 0;
+    font-size: 3vw;
+    text-align: center;
+}
+.userinfo-nickname{
+    font-size: 4vw;
+    font-weight: bold;
+}
+.tab{
+    display: flex;
+}
+.tab-item{
+    flex: 1;
+    height: 7vw;
+    line-height: 7vw;
+    text-align: center;
+    border-radius: 4px;
+    margin: 0 9vw;
+    font-size: 4vw;
+    transition: all .2s;
+}
+.tab-selected{
+    background-color: #1296db;
+    color: white;
+}
+.myrank-step-wrapper{
+    height: 17vw;
+    width: 80vw;
+    margin: 5vw auto;
+    text-align: center;
+    line-height: 17vw;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    box-shadow: 10px 10px 15px #888888;
+}
+.myrank-step-wrapper text{
+    font-size: 8vw;
+    color: red;
+    font-weight: bold;
+    vertical-align: top;
+}
+
+.myrank-detail{
+    display: flex;
+}
+.myrank-item-wrapper{
+    flex: 1;
+    margin: 4vw;
+    padding: 3vw 1vw;
+    text-align: center;
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    box-shadow: 5px 5px 15px #888888;
+}
+.rank-title{
+    margin: 0 6vw;
+    padding: 3vw 4vw;
+    border-bottom: 1px solid black;
+    font-size: 4vw;
+    line-height: 4vw;
+    color: #1296db;
+
+}
+.rank-rank{
+    font-size: 7vw;
+    margin: 3vw 0;
+    color: red;
+    font-weight: 300px;
+}
+.rank-gap{
+    font-size: 3vw;
+}
+.rank-gap > text{
+    display: block;
+    font-size: 4vw;
+    color: #1296db;
+    font-weight: bold;
+}
+.bu{
+    font-size: 3vw;
+    color: black;
+    font-weight: normal;
+}
+.myrank-remark{
+    margin: 6vw;
+    font-size: 3vw;
+    color: rgba(0, 0, 0, 0.7)
+}
+.piker_text{
+  display: block;
+  width: 50vw;
+  margin: 2vw auto;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  text-align: center;
+  font-size: 4vw;
+  padding-bottom: 2vw;
+}

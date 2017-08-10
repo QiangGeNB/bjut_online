@@ -100,18 +100,14 @@ Page({
                 break;
             case "2": // 点击“每天行走一万步活动”
                 // 请求每天行走一万步的数据
-                self.require_sport_message();
+                this.setData({
+                    open: false,
+                    page_index: 1
+                })
+                wx.navigateTo({
+                    url: '/pages/sport/sport',
+                });
         }
-        // 收起侧边栏
-        this.setData({
-            open: !self.data.open
-        });
-        // 显示界面信息
-        setTimeout(function () {
-            self.setData({
-                page_index: list_index
-            });
-        }, 500);
     },
 
     // 点击tag的响应函数
@@ -148,84 +144,6 @@ Page({
     click_search: function () {
         wx.navigateTo({
             url: '/pages/search/search',
-        });
-    },
-    // 运动界面相关js
-    //点击活动侧边栏 发送请求并进行相应的赋值
-    require_sport_message: function () {
-        self = this;
-        wx.getWeRunData({
-            success(res) {
-                var encryptedData = res.encryptedData;
-                var iv = res.iv;
-                var sport_data = {
-                    bjut_id: wx.getStorageSync('user_key'),
-                    code: '',
-                    encryptedData: encryptedData,
-                    iv: iv
-                };
-                // 登录 获取code
-                wx.checkSession({
-                    success: function () {
-                        console.log('用户session没有过期');
-                        console.log(sport_data);
-                        app.SendRequest('/api/get_wx_run_date', sport_data, self.sport_req_suc);
-                    },
-                    fail: function () {
-                        console.log('用户session已过期，需要重新登录获取session...');
-                        wx.login({
-                            success: function (res) {
-                                sport_data.code = res.code;
-                                console.log(sport_data);
-                                app.SendRequest('/api/get_wx_run_date', sport_data, self.sport_req_suc);
-                            },
-                            fail: function (res) { },
-                            complete: function (res) { },
-                        });
-                    }
-                })
-            }
-        })
-    },
-    // 请求微信运动的回调函数
-    sport_req_suc: function (res) {
-        console.log('this is sport callback:')
-        console.log(res.data);
-        // 将运动首页数据付给my_sport_data
-        this.setData({
-            my_sport_data: res.data.sport_data,
-            userinfo: res.data.userinfo
-        });
-    },
-    click_sport_tab: function (e) {
-        self = this;
-        let sport_tab_index = e.currentTarget.dataset.sportTabIndex;
-        switch (sport_tab_index) {
-            case "1":
-                self.setData({
-                    sport_tab: 1
-                });
-                break;
-            case "2":
-                self.setData({
-                    sport_tab: 2
-                });
-                app.SendRequest('/api/wx_day_rank_10', { range: 0 }, function (res) {
-                    console.log(res);
-                    self.setData({
-                        rank_list_data: res.data.data
-                    });
-                });
-                break;
-        }
-    },
-    sport_aca_picker: function (e) {
-        this.setData({
-            sport_aca_picker_index: e.detail.value
-        });
-        app.SendRequest('/api/wx_day_rank_10', { range: 0 }, function (res) {
-            console.log('this is rank res:')
-            console.log(res);
         });
     }
 })
