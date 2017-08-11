@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+      imageUrl: 'http://www.i-exshare.cn/activity_images/chenlong13856.jpg'
   },
 
   /**

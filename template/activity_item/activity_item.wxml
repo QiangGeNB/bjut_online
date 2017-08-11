@@ -7,7 +7,7 @@
       <view wx:if="{{fire}}" class="fire iconfont icon-fire"></view>
       
     </view>
-    <image class="item-image" mode="aspectFill" src="{{activityImage[0]}}"></image>
+    <image class="item-image" mode="aspectFill" src="{{mainImage}}"></image>
 
     <!--活动简介-->
     <view class="intro-wrapper">
