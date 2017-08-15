@@ -15,7 +15,7 @@
   "window":{
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#1296db",
-    "navigationBarTitleText": "北工大活动报名平台",
+    "navigationBarTitleText": "北工大活动汇总平台",
     "navigationBarTextStyle":"white",
     "enablePullDownRefresh": true
   },

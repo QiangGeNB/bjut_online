@@ -94,8 +94,8 @@ App({
     },
     globalData: {
         userInfo: null,
-        ServerUrl: 'https://www.i-exshare.cn',
-        //ServerUrl:'http://127.0.0.1:3000',
+        //ServerUrl: 'https://www.i-exshare.cn',
+        ServerUrl:'http://127.0.0.1:3000',
         academy:['全校','计算机学院','软件学院','人文学院','经管学院','材料学院','建筑与规划学院','交通学院']
         //ServerUrl:'https://10.21.8.131:3000'
     }
