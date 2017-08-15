@@ -50,8 +50,8 @@
         <!--排行榜-->
         <view wx:if="{{sport_tab == 2}}" class="all-rank">
             <!----选择器-->
-            <picker bindchange="sport_aca_picker" value="{{sport_aca_picker_index}}" range="{{academy}}">
-                <text class="piker_text">{{academy[sport_aca_picker_index]}}</text>
+            <picker bindchange="sport_aca_picker" value="{{sport_aca_picker_index}}" range="{{academy}}" range-key="{{'academy_name'}}">
+                <text class="piker_text">{{academy[sport_aca_picker_index].academy_name}}</text>
             </picker>
             <!--排名榜单-->
             <view class="rank-list">
