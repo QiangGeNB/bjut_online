@@ -1,22 +1,24 @@
 {
-  "pages":[
-      
-      "pages/index/index",
-      "pages/myinfo/myinfo",
-      "pages/auth/auth",
-      "pages/search/search",
-      "pages/detail/detail",
-      "pages/sport/sport",
-      "template/activity_item/activity_item",
-      "template/user_info_act_item/user_info_act_item",
-      "pages/search_result/search_result",
-      "template/rank_item/rank_item"
+  "pages": [
+    "pages/index/index",
+    "pages/myinfo/myinfo",
+    "pages/auth/auth",
+    "pages/search/search",
+    "pages/detail/detail",
+    "pages/sport/sport",
+    "template/activity_item/activity_item",
+    "template/user_info_act_item/user_info_act_item",
+    "pages/search_result/search_result",
+    "template/rank_item/rank_item",
+    "pages/about_us/about_us",
+    "pages/contact_us/contact_us"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#1296db",
-    "navigationBarTitleText": "北工大活动汇总平台",
-    "navigationBarTextStyle":"white",
+
+    "navigationBarTitleText": "北工大活动报名平台",
+    "navigationBarTextStyle": "white",
     "enablePullDownRefresh": true
   },
   "tabBar": {
@@ -26,19 +28,18 @@
     "backgroundColor": "#ffffff",
     "position": "bottom",
     "list": [
-        {
-            "selectedIconPath": "/images/toolbar/activity2.png",
-            "iconPath": "/images/toolbar/activity.png",
-            "pagePath": "pages/index/index",
-            "text": "活动"
-        },
-        {
-            "selectedIconPath": "/images/toolbar/person2.png",
-            "iconPath": "/images/toolbar/person.png",
-            "pagePath": "pages/myinfo/myinfo",
-            "text": "个人"
-        }
+      {
+        "selectedIconPath": "/images/toolbar/activity2.png",
+        "iconPath": "/images/toolbar/activity.png",
+        "pagePath": "pages/index/index",
+        "text": "活动"
+      },
+      {
+        "selectedIconPath": "/images/toolbar/person2.png",
+        "iconPath": "/images/toolbar/person.png",
+        "pagePath": "pages/myinfo/myinfo",
+        "text": "个人"
+      }
     ]
-}
-
+  }
 }

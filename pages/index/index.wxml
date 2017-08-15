@@ -24,7 +24,7 @@
         <text>学校通知</text>
       </view>
       <view class="botton-item1" data-list-index="5" bindtap="click_side_item">
-        <text>联系客服</text>
+        <text>联系我们</text>
       </view>
       <view class="botton-item2" data-list-index="6" bindtap="click_side_item">
         <text>关于我们</text>
