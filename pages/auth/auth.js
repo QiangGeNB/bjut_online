@@ -16,21 +16,21 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-
+      console.log("load")
     },
 
     /**
      * 生命周期函数--监听页面初次渲染完成
      */
     onReady: function () {
-
+        console.log("ready")
     },
 
     /**
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-
+      console.log("show")
     },
 
     /**
@@ -78,6 +78,7 @@ Page({
         });
     },
     form_submit: function (e) {
+      console.log("jinrusubmit");
         self = this;
         console.log(e.detail.value);
         var page_data = e.detail.value;
@@ -110,6 +111,7 @@ Page({
                 console.log(typeof res.data);
                 var j_res = JSON.parse(res.data);
                 console.log(j_res);
+                console.log("jinrusubmit1");
                 if(j_res.erron == 0){
                     wx.navigateBack({
                         delta: 1,

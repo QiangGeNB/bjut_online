@@ -97,6 +97,9 @@ Page({
         // 根据点击item发送相应请求
         switch (list_index) {
             case "1": // 点击学生活动
+            wx.navigateTo({
+              url: '/pages/index/index',
+            });
                 break;
             case "2": // 点击“每天行走一万步活动”
                 // 请求每天行走一万步的数据
@@ -107,6 +110,17 @@ Page({
                 wx.navigateTo({
                     url: '/pages/sport/sport',
                 });
+                break;
+            case "5"://联系客服
+                wx.navigateTo({
+                  url: '/pages/contact_us/contact_us',
+                });
+                break; 
+            case "6"://关于我们
+                wx.navigateTo({
+                  url: '/pages/about_us/about_us',
+                });
+                break;   
         }
     },
 
