@@ -94,9 +94,20 @@ App({
     },
     globalData: {
         userInfo: null,
-        ServerUrl: 'https://www.i-exshare.cn',
-        //ServerUrl:'http://127.0.0.1:3000',
-        academy:['全校','计算机学院','软件学院','人文学院','经管学院','材料学院','建筑与规划学院','交通学院']
+        //ServerUrl: 'https://www.i-exshare.cn',
+        ServerUrl:'http://127.0.0.1:3000',
+        academy: [
+          {
+            "_id": "598b0494fb89956113a5f19f",
+            "academy_number": 7,
+            "academy_name": "学院"
+          },
+          {
+            "_id": "599268d758c0e9a8c7e0bbcc",
+            "academy_name": "电控学院",
+            "academy_number": 1
+          }
+        ]
         //ServerUrl:'https://10.21.8.131:3000'
     }
 })
