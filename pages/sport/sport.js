@@ -127,6 +127,11 @@ Page({
                   self.setData({
                       rank_list_data: res.data.data
                   });
+                  app.SendRequest('/api/find_all_info_by_action', { action: 'academy' }, function (res) {
+                    self.setData({
+                      academy: res.data.data[0].academy
+                    })
+                  })
               });
               break;
       }

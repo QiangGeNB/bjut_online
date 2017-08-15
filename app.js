@@ -100,7 +100,7 @@ App({
           {
             "_id": "598b0494fb89956113a5f19f",
             "academy_number": 7,
-            "academy_name": "计算机学院"
+            "academy_name": "学院"
           },
           {
             "_id": "599268d758c0e9a8c7e0bbcc",
