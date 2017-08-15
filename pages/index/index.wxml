@@ -37,13 +37,18 @@
     <!--轮播图-->
     <scroll-view scroll-y="true" bindscroll="bindscroll" bindscrolltoupper="reach_top">
       <view class="swiper-wrapper">
-        <swiper class="swiper" indicator-dots="true">
+         <swiper class="swiper" indicator-dots="true">
           <block wx:for="{{swiper}}">
             <swiper-item>
               <image src="{{item.url}}" mode="aspectFill" class="slide-image" data-actid="{{item.actid}}" bindtap="click_activity" />
             </swiper-item>
           </block>
-        </swiper>
+        </swiper> 
+        <!-- <swiper class="swiper" indicator-dots="true">
+          <swiper-item>
+            <image src="/images/swiper/1.jpg" mode="aspectFill" class="slide-image" data-actid="{{item.actid}}" bindtap="click_activity" />
+          </swiper-item>
+        </swiper> -->
       </view>
       <view class="tag-wrapper">
         <view class="tag {{tag_select == 0 ? 'tag-select':''}}" data-tag-index="0" catchtap="click_tag">
