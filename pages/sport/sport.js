@@ -123,7 +123,7 @@ Page({
                   sport_tab: 2
               });
               app.SendRequest('/api/wx_day_rank_10', { range: 0 }, function (res) {
-                  console.log(res);
+                  console.log(res.data.data);
                   self.setData({
                       rank_list_data: res.data.data
                   });
