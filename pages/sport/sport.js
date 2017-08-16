@@ -136,6 +136,7 @@ Page({
               break;
       }
   },
+  // 学院选择器变化时触发
   sport_aca_picker: function (e) {
       this.setData({
           sport_aca_picker_index: e.detail.value
