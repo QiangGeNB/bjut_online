@@ -122,12 +122,12 @@ Page({
             });
         } else {
             wx.showLoading({
-                title: '正在上传学生信息，请稍后...',
+                title: '正在提交学生信息，请稍后...',
             })
             //app.SendRequest('/api/index_info', sign_data, self.sign_suc);
             wx.uploadFile({
               // url: 'https://www.i-exshare.cn/api/upload_stu_image',
-                url: 'http://127.0.0.1:3000/api/upload_stu_image',
+                url: app.globalData.ServerUrl + '/api/upload_stu_image',
               filePath: self.data.stu_image[0],
               name: 'stu_image',
               header: {
@@ -136,22 +136,26 @@ Page({
               formData: { _id: wx.getStorageSync('user_key')},
               success: uploadFileSuccessedCallback,
               fail: function(res) {},
+              complete:function(res){
+                  console.log('上传图片完成')
+                  console.log(res)
+              }
             });
         }
 
         function uploadFileSuccessedCallback(res) {
-            var j_res = JSON.parse(res.data);
-            console.log(j_res);
-            if (j_res.errno != 0) {
-                console.log("错误码不等于0！");
+            var j_res;
+            if(res.statusCode != 200 || (j_res=JSON.parse(res.data)).errno != 0){
                 wx.showToast({
                     title: '上传图片出现问题...',
                     image: '/images/icon/cry.svg'
                 })
                 return
             }
+            
             var student_data = {
                 _id: wx.getStorageSync('user_key'),
+                studentID: page_data.studentID,
                 enter_year: self.data.year[page_data.year],
                 academy: self.data.academy[page_data.academy].academy_number,
             }
@@ -160,14 +164,14 @@ Page({
         function updateStudentSuccessCallback(res){
             if(res.statusCode != 200 || res.data.errno != 0){
                 wx.showToast({
-                    title: '更新学生信息失败！',
+                    title: '提交学生信息失败！',
                     image: '/images/icon/cry.svg',
                 })
                 return
             }
             wx.hideLoading();
             wx.showToast({
-                title: '更新学生信息成功！',
+                title: '提交学生信息成功！',
                 duration: 2000,
             })
             setTimeout(function () {
