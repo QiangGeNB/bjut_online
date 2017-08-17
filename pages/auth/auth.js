@@ -6,16 +6,47 @@ Page({
      * 页面的初始数据
      */
     data: {
-        academy: ['计算机学院', '生命学院', '材料学院', '人文学院'],
-        year: ['2012年', '2013年', '2014年', '2015年', '2016年', '2017年'],
+        academy: [],
+        academy_names : ['加载中...'],
+        year: [],
         index_academy: 0,
-        index_year: 0
+        index_year: 0,
+        verify_state: 3,
+        stu_image : [],
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
+        var that = this
+        var nowYear = new Date().getFullYear()
+        var arrYear = []
+        for(var i=2012; i<=nowYear; i++){
+            arrYear.push(i)
+        }
+        that.setData({
+            year : arrYear,
+        })
+        app.SendRequest('/api/find_all_info_by_action', {action:"academy"}, function(res){
+            if(res.statusCode != 200 || res.data.errno != 0){
+                wx.showToast({
+                    title: '获取学院信息失败！',
+                })
+                return
+            }
+            var academy = res.data.data[0].academy
+            that.setData({
+                academy : academy,
+            })
+            var names = [];
+            for (var i = 0; i < academy.length; i++) {
+                names.push(academy[i].academy_name);
+            }
+            that.setData({
+                academy_names : names,
+            })
+        });
       console.log("load")
     },
 
@@ -77,55 +108,82 @@ Page({
             index_year: e.detail.value
         });
     },
+    // 点击上传按钮
     form_submit: function (e) {
-      console.log("jinrusubmit");
         self = this;
-        console.log(e.detail.value);
         var page_data = e.detail.value;
         if (page_data.studentID == "") {
             wx.showToast({
                 title: '学号不能为空',
                 image: '/images/icon/warn.svg'
             });
+        } else if(self.data.stu_image.length == 0){
+            wx.showToast({
+                title: '请选择图片',
+                image: '/images/icon/warn.svg'
+            });
         } else {
-            var sign_data = {
-                _id: wx.getStorageSync('user_key'),
-                student_data: {
-                    studentID: page_data.studentID,
-                    enter_year: page_data.year,
-                    academy: page_data.academy
-                }
-            };
+            wx.showLoading({
+
+                title: '正在提交学生信息，请稍后...',
+            })
             //app.SendRequest('/api/index_info', sign_data, self.sign_suc);
             wx.uploadFile({
               // url: 'https://www.i-exshare.cn/api/upload_stu_image',
-                url: 'http://127.0.0.1:3000/api/upload_stu_image',
+                url: app.globalData.ServerUrl + '/api/upload_stu_image',
+
               filePath: self.data.stu_image[0],
               name: 'stu_image',
               header: {
                 'content-type': 'multipart/form-data'
               },
-              formData: sign_data,
-              success: function(res) {
-                console.log('this is upload respo:')
-                console.log(typeof res.data);
-                var j_res = JSON.parse(res.data);
-                console.log(j_res);
-                console.log("jinrusubmit1");
-                if(j_res.erron == 0){
-                    wx.navigateBack({
-                        delta: 1,
-                    });
-                } else {
-                    wx.showToast({
-                        title: '上传出现问题...',
-                        image: '/images/icon/cry.svg'
-                    })
-                }
-              },
+              formData: { _id: wx.getStorageSync('user_key')},
+              success: uploadFileSuccessedCallback,
               fail: function(res) {},
-              complete: function(res) {},
+              complete:function(res){
+                  console.log('上传图片完成')
+                  console.log(res)
+              }
             });
+        }
+
+        function uploadFileSuccessedCallback(res) {
+            var j_res;
+            if(res.statusCode != 200 || (j_res=JSON.parse(res.data)).errno != 0){
+                wx.showToast({
+                    title: '上传图片出现问题...',
+                    image: '/images/icon/cry.svg'
+                })
+                return
+            }
+            
+            var student_data = {
+                _id: wx.getStorageSync('user_key'),
+                studentID: page_data.studentID,
+                enter_year: self.data.year[page_data.year],
+                academy: self.data.academy[page_data.academy].academy_number,
+                verify_state: 1
+            }
+            app.SendRequest('/api/update_student',student_data,updateStudentSuccessCallback);
+        }
+        function updateStudentSuccessCallback(res){
+            if(res.statusCode != 200 || res.data.errno != 0){
+                wx.showToast({
+                    title: '提交学生信息失败！',
+                    image: '/images/icon/cry.svg',
+                })
+                return
+            }
+            wx.hideLoading();
+            wx.showToast({
+                title: '提交学生信息成功！',
+                duration: 2000,
+            })
+            setTimeout(function () {
+                wx.navigateBack({
+                    delta: 1,
+                });
+            },2000)
         }
     },
     sign_suc: function (res) {
@@ -154,8 +212,7 @@ Page({
                 self.setData({
                     stu_image: tempFilePaths
                 });
-                console.log(tempFilePaths);
             }
         })
-    }
+    },
 })
