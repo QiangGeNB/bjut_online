@@ -110,5 +110,10 @@ Page({
         wx.navigateTo({
             url: '/pages/auth/auth'
         })
+    },
+    update_info: function(e) {
+      wx.navigateTo({
+        url: '/pages/update_info/update_info',
+      })
     }
 })

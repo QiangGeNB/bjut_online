@@ -11,13 +11,12 @@
     "pages/search_result/search_result",
     "template/rank_item/rank_item",
     "pages/about_us/about_us",
-    "pages/contact_us/contact_us"
-    
+    "pages/contact_us/contact_us",
+    "pages/update_info/update_info"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#1296db",
-
     "navigationBarTitleText": "北工大活动报名平台",
     "navigationBarTextStyle": "white",
     "enablePullDownRefresh": true
