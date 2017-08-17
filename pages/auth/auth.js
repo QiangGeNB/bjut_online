@@ -11,6 +11,7 @@ Page({
         year: [],
         index_academy: 0,
         index_year: 0,
+        verify_state: 3,
         stu_image : [],
     },
 
@@ -158,6 +159,7 @@ Page({
                 studentID: page_data.studentID,
                 enter_year: self.data.year[page_data.year],
                 academy: self.data.academy[page_data.academy].academy_number,
+                verify_state: 1
             }
             app.SendRequest('/api/update_student',student_data,updateStudentSuccessCallback);
         }
