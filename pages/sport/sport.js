@@ -32,7 +32,7 @@ Page({
                   success: function () {
                       console.log('用户session没有过期');
                       console.log(sport_data);
-                      app.SendRequest('/api/get_wx_run_date', sport_data, self.sport_req_suc);
+                      app.SendRequest('/api/get_wx_run_data', sport_data, self.sport_req_suc);
                   },
                   fail: function () {
                       console.log('用户session已过期，需要重新登录获取session...');
