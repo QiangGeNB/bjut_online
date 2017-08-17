@@ -108,6 +108,7 @@ Page({
             index_year: e.detail.value
         });
     },
+    // 点击上传按钮
     form_submit: function (e) {
         self = this;
         var page_data = e.detail.value;
@@ -123,12 +124,14 @@ Page({
             });
         } else {
             wx.showLoading({
+
                 title: '正在提交学生信息，请稍后...',
             })
             //app.SendRequest('/api/index_info', sign_data, self.sign_suc);
             wx.uploadFile({
               // url: 'https://www.i-exshare.cn/api/upload_stu_image',
                 url: app.globalData.ServerUrl + '/api/upload_stu_image',
+
               filePath: self.data.stu_image[0],
               name: 'stu_image',
               header: {

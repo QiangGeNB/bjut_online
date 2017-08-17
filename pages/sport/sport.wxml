@@ -1,3 +1,4 @@
+<import src="/template/rank_item/rank_item.wxml" />
 <view wx:if="{{open}}" class="filter">
 </view>
 <scroll-view scroll-y="true" bindscroll="bindscroll" bindscrolltoupper="reach_top">
