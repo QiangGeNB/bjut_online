@@ -7,14 +7,14 @@ Page({
    */
   data: {
     rank_switch: false,
-    nickName: "123"
+    nickName: ''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+      app.SendRequest('/api/get_user_info', { bjut_id: wx.getStorageSync('user_key') }, this.get_user_info_request_suc);
   },
 
   /**
@@ -65,7 +65,8 @@ Page({
   onShareAppMessage: function () {
   
   },
-  switch1Change: function (e) {
-    app.SendRequest('/api/update_student', this.data);
-  }
+//   switch1Change: function (e) {
+//     app.SendRequest('/api/update_student', this.data);
+//   }
+    get_user_info_request_suc: function(){}
 })

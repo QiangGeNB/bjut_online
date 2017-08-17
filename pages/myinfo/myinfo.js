@@ -81,7 +81,15 @@ Page({
     get_user_info_request_suc: function (res) {
         self = this;
         console.log('this is user-info res: ');
-        console.log(res);
+        console.log(res.data);
+        for (var i = 0; i < res.data.coll_activity.length; i++){
+            console.log(res.data.coll_activity[i].activityDate)
+            res.data.coll_activity[i].activityDate = this.formate_date(new Date(res.data.coll_activity[i].activityDate));
+        }
+        for (var i = 0; i < res.data.join_activity.length; i++) {
+            console.log(res.data.join_activity[i].activityDate)
+            res.data.join_activity[i].activityDate = this.formate_date(new Date(res.data.join_activity[i].activityDate));
+        }
         self.setData({
             student_info: res.data.user_info,
             join_act: res.data.join_activity,
@@ -115,5 +123,16 @@ Page({
       wx.navigateTo({
         url: '/pages/update_info/update_info',
       })
-    }
+    },
+    formate_date: function (date) {
+        let month_add = date.getMonth() + 1;
+        var formate_result = date.getFullYear() + '年'
+            + month_add + '月'
+            + date.getDate() + '日'
+            + ' '
+            + date.getHours() + '点'
+            + date.getMinutes() + '分';
+        return formate_result;
+    },
+
 })

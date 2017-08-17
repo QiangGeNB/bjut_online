@@ -1,5 +1,12 @@
 <!--update_info.wxml-->
-<text>微信运动排行榜</text>
-<switch checked="{{rank_switch}}" bindchange="switch1Change"/>
-<text>昵称</text>
-<text>{{nickName}}</text>
+<view class="update-info-wrapper">
+    <view class="title">个人设置</view>
+    <view class="rank-switch-wrapper">
+        <text>微信运动排行榜</text>
+        <switch checked="{{rank_switch}}" bindchange="switch1Change" />
+    </view>
+    <view class="nick-name-wrapper">
+        <text>昵称</text>
+        <text>{{nickName}}</text>
+    </view>
+</view>

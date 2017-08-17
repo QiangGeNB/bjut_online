@@ -102,8 +102,8 @@ Page({
         var has_fav = res.data.coll;
         self.setData({
             detail_data: detail_data,
-            has_join: has_join,
-            has_fav: has_fav
+            has_join: res.data.join,
+            has_fav: res.data.coll
         });
     },
     click_tag: function (e) {
