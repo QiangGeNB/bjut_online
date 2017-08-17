@@ -1,18 +1,20 @@
 // update_info.js
+var app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  
+    rank_switch: false,
+    nickName: "123"
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    
   },
 
   /**
@@ -62,5 +64,8 @@ Page({
    */
   onShareAppMessage: function () {
   
+  },
+  switch1Change: function (e) {
+    app.SendRequest('/api/update_student', this.data);
   }
 })

@@ -1,2 +1,5 @@
 <!--update_info.wxml-->
-<text>update_info.wxml</text>
+<text>微信运动排行榜</text>
+<switch checked="{{rank_switch}}" bindchange="switch1Change"/>
+<text>昵称</text>
+<text>{{nickName}}</text>
