@@ -1,18 +1,19 @@
-// template/rank_item/rank_item.js
+// contact_us.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  
+    content: "海阔凭鱼跃，天高任鸟飞，北工大活动报名平台致力于为工大学子提供服务，如果你想加入我们的研发团队或者在使用过程中有任何问题，请联系我们！",
+    email: "bjut_wy@163.com"
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+  
   },
 
   /**

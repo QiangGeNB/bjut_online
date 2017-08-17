@@ -7,9 +7,6 @@ Page({
      * 页面的初始数据
      */
     data: {
-        //student_info: data.data.student,
-        //join_act: data.data.student.join_activity,
-        // fav_act: data.data.student.fav_activity,
         join_fav_mark: 1
     },
 
