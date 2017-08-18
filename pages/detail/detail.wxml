@@ -42,7 +42,7 @@
       <view class="td2">{{detail_data.duration}}分钟</view>
     </view>
     <view wx:if="{{detail_data.remark}}" class="other-wrapper">
-      *备注: {{detail_data.remark}}
+      *备注: {{detail_data.remark}} {{has_join}}
     </view>
   </view>
   <!-- 活动内容界面  -->
@@ -50,13 +50,13 @@
     <rich-text nodes="{{detail_data.content}}"></rich-text>
   </view>
   <view class="footer">
-    <view class=" button-common {{has_join?'un-has':'has'}}" bindtap="click_join">
-      <image class="button-icon" src="{{has_join?'/images/detail/join.svg':'/images/detail/has_join.svg'}}"></image>
-      <text class="button-text">{{has_join?'现在参加':'已参加'}}</text>
+    <view class=" button-common {{has_join == false?'un-has':'has'}}" bindtap="click_join">
+      <image class="button-icon" src="{{has_join == false?'/images/detail/join.svg':'/images/detail/has_join.svg'}}"></image>
+      <text class="button-text">{{has_join == false?'现在参加':'已参加'}}</text>
     </view>
-    <view class=" button-common {{has_fav?'un-has':'has'}}" bindtap="click_fav">
-      <image class="button-icon" src="{{has_fav?'/images/detail/fav.svg':'/images/detail/has_fav.svg'}}"></image>
-      <text class="button-text">{{has_fav?'收藏':'已收藏'}}</text>
+    <view class=" button-common {{has_fav == false?'un-has':'has'}}" bindtap="click_fav">
+      <image class="button-icon" src="{{has_fav == false?'/images/detail/fav.svg':'/images/detail/has_fav.svg'}}"></image>
+      <text class="button-text">{{has_fav == false?'收藏':'已收藏'}}</text>
       
     </view>
   </view>

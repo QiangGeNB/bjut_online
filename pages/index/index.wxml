@@ -43,7 +43,7 @@
               <image src="{{item.url}}" mode="aspectFill" class="slide-image" data-actid="{{item.actid}}" bindtap="click_activity" />
             </swiper-item>
           </block>
-        </swiper> 
+        </swiper>
         <!-- <swiper class="swiper" indicator-dots="true">
           <swiper-item>
             <image src="/images/swiper/1.jpg" mode="aspectFill" class="slide-image" data-actid="{{item.actid}}" bindtap="click_activity" />
