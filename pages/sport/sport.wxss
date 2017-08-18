@@ -44,7 +44,7 @@
     font-size: 3vw;
     text-align: center;
 }
-.userinfo-nickname{
+.userinfo-name{
     font-size: 4vw;
     font-weight: bold;
 }

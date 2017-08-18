@@ -12,7 +12,7 @@
         <view class="userinfo-wrapper">
             <image class="userinfo-avater" src="{{userinfo.avatar}}"></image>
             <view class="userinfo-info-wrapper">
-                <view class="userinfo-nickname">{{userinfo.nickName}}</view>
+                <view class="userinfo-name">{{userinfo.name}}</view>
                 <view class="userinfo-academy">{{userinfo.academy}}</view>
             </view>
         </view>
