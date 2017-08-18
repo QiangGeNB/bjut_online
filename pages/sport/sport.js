@@ -32,7 +32,7 @@ Page({
                   success: function () {
                       console.log('用户session没有过期');
                       console.log(sport_data);
-                      app.SendRequest('/api/get_wx_run_date', sport_data, self.sport_req_suc);
+                      app.SendRequest('/api/get_wx_run_data', sport_data, self.sport_req_suc);
                   },
                   fail: function () {
                       console.log('用户session已过期，需要重新登录获取session...');
@@ -123,7 +123,7 @@ Page({
                   sport_tab: 2
               });
               app.SendRequest('/api/wx_day_rank_10', { range: 0 }, function (res) {
-                  console.log(res);
+                  console.log(res.data.data);
                   self.setData({
                       rank_list_data: res.data.data
                   });
@@ -136,6 +136,7 @@ Page({
               break;
       }
   },
+  // 学院选择器变化时触发
   sport_aca_picker: function (e) {
       this.setData({
           sport_aca_picker_index: e.detail.value

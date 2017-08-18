@@ -92,6 +92,16 @@ App({
             }
         });
     },
+    formate_data: function (date) {
+      let month_add = date.getMonth() + 1;
+      var formate_result = date.getFullYear() + '年'
+        + month_add + '月'
+        + date.getDate() + '日'
+        + ' '
+        + date.getHours() + '点'
+        + date.getMinutes() + '分';
+      return formate_result;
+    },
     globalData: {
         userInfo: null,
         // ServerUrl: 'https://www.i-exshare.cn',
@@ -109,7 +119,8 @@ App({
           }
         ]
         //ServerUrl:'https://10.21.8.131:3000'
-    }
+    },
+    
 })
 
 

@@ -29,11 +29,11 @@
       <view class="td1">活动时间</view>
       <view class="td2">{{detail_data.duration}}分钟</view>
     </view>
-    <view class="tr" wx:if="{{detail_data.activityReporter}}">
+    <view class="tr" wx:if="{{detail_data.activityReporter  != null && detail_data.activityReporter  != 'null'}}">
       <view class="td1">主讲人</view>
       <view class="td2">{{detail_data.activityReporter}}</view>
     </view>
-    <view class="tr" wx:if="{{detail_data.activityHolder}}">
+    <view class="tr" wx:if="{{detail_data.activityHolder != null && detail_data.activityHolder != 'null'}}">
       <view class="td1">主办方</view>
       <view class="td2">{{detail_data.activityHolder}}</view>
     </view>
@@ -42,7 +42,7 @@
       <view class="td2">{{detail_data.duration}}分钟</view>
     </view>
     <view wx:if="{{detail_data.remark}}" class="other-wrapper">
-      *备注: {{detail_data.remark}} {{has_join}}
+      *备注: {{detail_data.remark}}
     </view>
   </view>
   <!-- 活动内容界面  -->

@@ -5,21 +5,21 @@
   <form bindsubmit="form_submit">
     <view class="input-wrapper">
       <view class="input-title">请输入您的学号</view>
-      <input name="studentID" />
+      <input name="studentID"/>
       <view class="input-title">请输入您的入学年份</view>
       <picker name="year" mode="selector" range="{{year}}" value="{{index_year}}" bindchange="year_picker">
-        <text class="selector-text">{{year[index_year]}}</text>
+        <text class="selector-text">{{year[index_year] + '年'}}</text>
       </picker>
       <view class="input-title">选择您的学院</view>
-      <picker name="academy" mode="selector" range="{{academy}}" value="{{index_academy}}" bindchange="academy_picker">
-        <text class="selector-text">{{academy[index_academy]}}</text>
+      <picker name="academy" mode="selector" range="{{academy_names}}" value="{{index_academy}}" bindchange="academy_picker">
+        <text class="selector-text">{{academy_names[index_academy]}}</text>
       </picker>
       <view class="input-title">请上传您的学生证（卡）正面照片</view>
       <view class="image-choose" bindtap="choose_image">
-        <image class="student-card-image" wx:if="{{stu_image}}" src="{{stu_image}}" mode="aspectFit"></image>
-        <image wx:if="{{!stu_image}}" class="album-icon" src="/images/icon/album.svg"></image>
+        <image class="student-card-image" wx:if="{{stu_image.length > 0}}" src="{{stu_image}}" mode="aspectFit"></image>
+        <image wx:if="{{stu_image.length == 0}}" class="album-icon" src="/images/icon/album.svg"></image>
         <view class="hover">
-          <view wx:if="{{!stu_image}}" class="hover-text">点击选择图片</view>
+          <view wx:if="{{stu_image.length == 0}}" class="hover-text">点击选择图片</view>
         </view>
       </view>
     </view>

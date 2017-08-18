@@ -2,10 +2,12 @@
 
 <view class="all">
   <view class="header-wrapper">
-    <image class="avatar" src="{{student_info.avatarUrl}}"></image>
-    <view class="nickname">{{student_info.nickName}}</view>
-    <image wx:if="{{student_info.studentID!=''}}" class="sign" src="/images/userinfo/sign.png" bindtap="click_sign"></image>
-    <image wx:else="{{student_info.studentID==''}}" class="sign" src="/images/userinfo/unsign.png" bindtap="click_sign"></image>
+    <view bindtap="update_info">
+      <image class="avatar" src="{{student_info.avatarUrl}}"></image>
+      <view class="nickname">{{student_info.nickName}}</view>
+    </view>
+    <image wx:if="{{student_info.verify_state == '0'}}" class="sign" src="/images/userinfo/sign.png" ></image>
+    <image wx:else="{{student_info.verify_state != '0'}}" class="sign" src="/images/userinfo/unsign.png" bindtap="click_sign"></image>
   </view>
   <view class="tab-wrapper">
     <view class="tab tab-right-border" bindtap="click_join">

@@ -24,7 +24,7 @@
             <view class="icon-fav iconfont vf-icon"></view>
             <view class="vf-data">{{collectionNumber}}</view>
         </view>
-        <view class="online-time">发布于 {{onlineTime_String}}</view>
+        <view class="online-time">发布于 {{onlineTime}}</view>
     </view>
   </view>
 </template>

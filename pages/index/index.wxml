@@ -24,7 +24,7 @@
         <text>学校通知</text>
       </view>
       <view class="botton-item1" data-list-index="5" bindtap="click_side_item">
-        <text>联系客服</text>
+        <text>联系我们</text>
       </view>
       <view class="botton-item2" data-list-index="6" bindtap="click_side_item">
         <text>关于我们</text>
@@ -33,7 +33,7 @@
   </view>
   <!--活动详情界面-->
   <view wx:if="{{page_index == 1}}" class="page-top {{open ? 'c-state1' : ''}}">
-    <view wx:if="{{open}}" class="filter"></view>
+    <view wx:if="{{open}}" class="filter" bindtap="click_filter"></view>
     <!--轮播图-->
     <scroll-view scroll-y="true" bindscroll="bindscroll" bindscrolltoupper="reach_top">
       <view class="swiper-wrapper">

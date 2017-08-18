@@ -1,0 +1,55 @@
+#container_first{
+  margin: 6vw;
+  font-size: 4vw;
+  color: rgba(0, 0, 0, 0.7);
+  background-color: #fafafa
+}
+
+#titile_first{
+  text-align: center;
+  font-size: black 
+}
+
+#content{
+  padding-top: 7px;
+  font-size: black
+}
+
+#titile_principle
+{
+  padding-top: 15px;
+  text-align: center;
+  font-size: black 
+}
+
+#principle{
+  padding-top: 7px;
+  font-size: black
+}
+
+#priviate_title{
+  text-align: center;
+  font-size: black;
+  padding-top: 15px;
+  padding-bottom: 10px
+}
+
+#descript{
+  padding-bottom: 2px
+}
+
+#private_info{
+  padding-top: 7px;
+  font-size: black
+}
+
+#copy_right_title{
+  text-align: center;
+  font-size: black;
+  padding-top: 15px;
+}
+
+#copy_right_message{
+  padding-top: 10px;
+  font-size: black
+}

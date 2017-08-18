@@ -1,0 +1,42 @@
+<!--about_us.wxml-->
+<view class="classname" id="container_first">
+
+    <view class="classname" id="titile_first">
+        <text id="title">{{title}}</text>
+    </view>
+
+    <view class="classname" id = "content">
+        <text id="content">{{content}}</text>
+    </view>
+
+    <view class="classname"id = "titile_principle">
+        <text id="content_principle">{{content_principle}}</text>
+    </view>
+    
+    <view id = "principle" wx:for="{{principle}}" wx:for-index="idx" wx:for-item="itemName">
+        {{idx+1}}: {{itemName.message}}
+    </view>
+
+    <view class="classname">
+        <view class="classname" id="priviate_title">
+          <text>{{private_info_title}}</text>
+        </view>
+        <view class="classname" id="descript">
+          <text>{{private_descript}}</text>
+        </view>
+        <view id="private_info" wx:for="{{private_info}}" wx:for-index="idx" wx:for-item="itemName">
+          <text class="info">{{idx+1}}: {{itemName.title}}\n</text>
+          <text>{{itemName.message}}</text>
+        </view>
+    </view>
+
+    <view class="classname">
+      <view class="classname" id="copy_right_title">
+          <text>{{copy_right_title}}\n</text>
+      </view>
+      <view class="classname" id="copy_right_message">
+          <text>{{copy_right_message}}</text>
+      </view>  
+    </view>
+
+</view>
