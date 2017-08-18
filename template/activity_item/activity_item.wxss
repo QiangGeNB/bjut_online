@@ -24,8 +24,8 @@
 .fire{
     display: inline-block;
     color: red;
-    vertical-align: 4px;
-    margin-left: 2px;
+    vertical-align: 1px;
+    margin-left: 1px;
 }
 .act_icon{
     display: inline-block;

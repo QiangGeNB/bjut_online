@@ -1,6 +1,7 @@
 /* template/user_info_act_item/user_info_act_item.wxss */
 .user-act-wrapper{
-    margin: 3vw;
+    margin: 3vw 0;
+    width: 86vw;
     padding: 2vw;
     border: 2px solid silver;
     border-radius: 5px;
@@ -13,11 +14,16 @@
     border-radius: 4px;
 }
 .user-act-info-wrapper{
-    margin-left: 5vw;
     display: inline-block;
+    margin-left: 5vw;
+    width:62vw;
     height: 15vw;
 }
 .user-title{
+    width:60vw;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
     font-size: 4vw;
     margin-bottom: 1vw;
 }

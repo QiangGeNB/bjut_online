@@ -1,5 +1,6 @@
 {
   "pages": [
+      "pages/update_info/update_info",
     "pages/index/index",
     "pages/myinfo/myinfo",
     "pages/auth/auth",
@@ -11,8 +12,8 @@
     "pages/search_result/search_result",
     "template/rank_item/rank_item",
     "pages/about_us/about_us",
-    "pages/contact_us/contact_us",
-    "pages/update_info/update_info"
+    "pages/contact_us/contact_us"
+    
   ],
   "window": {
     "backgroundTextStyle": "light",
