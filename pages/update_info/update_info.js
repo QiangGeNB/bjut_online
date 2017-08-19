@@ -10,7 +10,7 @@ Page({
         nickName: '',
         user_info: {},
         new_nickName: '',
-        switch_statu: true
+        switch_statu: ''
     },
 
     /**
@@ -77,19 +77,29 @@ Page({
         console.log(res);
         this.setData({
             user_info: res.data.user_info,
-            new_nickName: res.data.user_info.nickName
+            new_nickName: res.data.user_info.nickName,
+            switch_statu: res.data.user_info.rank_switch
         });
     },
     click_save: function () {
         let setting_data = {
-            bjut_id: user_info._id,
-            new_nickName: this.data.new_nickName,
-            switch_statu: this.data.switch_statu
+            _id: this.data.user_info._id,
+            nickName: this.data.new_nickName,
+            rank_switch: this.data.switch_statu
         }
-        // app.SendRequest('/api/user_setting', setting_data, this.user_setting_success_cb);
+        app.SendRequest('/api/update_student', setting_data, this.user_setting_success_cb);
     },
     user_setting_success_cb: function (res) {
         console.log(res);
+        wx.showToast({
+          title: '修改信息成功！',
+          duration: 2000,
+        })
+        setTimeout(function () {
+          wx.navigateBack({
+            delta: 1,
+          });
+        }, 2000)
     },
     input_change: function (e) {
         this.setData({
