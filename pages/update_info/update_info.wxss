@@ -44,3 +44,8 @@
 .remark > text{
     line-height: 5vw;
 }
+
+.save-button{
+    width: 80vw;
+    margin: 5vw auto;
+}

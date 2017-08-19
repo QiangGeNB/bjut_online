@@ -7,11 +7,11 @@
     <view class="content-wrapper">
         <view class="nick-name-wrapper">
             <text>昵称: </text>
-            <input type="text" value="123"/>
+            <input type="text" value="{{user_info.nickName}}" bindinput="input_change"/>
         </view>
         <view class="rank-switch-wrapper">
             <text>在微信运动排行榜中显示</text>
-            <switch checked="{{rank_switch}}" bindchange="switch1Change" />
+            <switch checked="{{switch_statu}}" bindchange="switch1Change" />
         </view>
         <view class="remark">
             *说明：
@@ -22,5 +22,5 @@
             </text>
         </view>
     </view>
-
+    <button class="save-button" type="primary" bindtap="click_save">保存设置</button>
 </view>
