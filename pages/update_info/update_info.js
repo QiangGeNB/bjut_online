@@ -90,6 +90,14 @@ Page({
         app.SendRequest('/api/update_student', setting_data, this.user_setting_success_cb);
     },
     user_setting_success_cb: function (res) {
+      var pages = getCurrentPages();
+      var currPage = pages[pages.length - 1];   //当前页面
+      var prevPage = pages[pages.length - 2]; 
+      var new_data = prevPage.data;
+      test_data.student_info.nickName = this.data.new_nickName;
+      prevPage.setData({
+        student_info : new_data.student_info
+      })
         console.log(res);
         wx.showToast({
           title: '修改信息成功！',
