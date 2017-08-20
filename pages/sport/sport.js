@@ -122,7 +122,7 @@ Page({
               self.setData({
                   sport_tab: 2
               });
-              app.SendRequest('/api/wx_day_rank_10', { range: 0 }, function (res) {
+              app.SendRequest('/api/wx_day_rank_10', { range: 0}, function (res) {
                   console.log(res.data.data);
                   self.setData({
                       rank_list_data: res.data.data
@@ -138,12 +138,16 @@ Page({
   },
   // 学院选择器变化时触发
   sport_aca_picker: function (e) {
+    let self = this;
       this.setData({
           sport_aca_picker_index: e.detail.value
       });
-      app.SendRequest('/api/wx_day_rank_10', { range: 0 }, function (res) {
+      app.SendRequest('/api/wx_day_rank_10', { range: this.data.academy[this.data.sport_aca_picker_index].academy_number }, function (res) {
           console.log('this is rank res:')
           console.log(res);
+          self.setData({
+            rank_list_data: res.data.data
+          })
       });
   }
 })

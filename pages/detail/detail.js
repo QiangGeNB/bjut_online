@@ -136,6 +136,9 @@ Page({
             title: '取消活动成功',
             icon: 'success'
           });
+          self.setData({
+            has_join: !temp_join
+          });
         }
       });
     } else {

@@ -94,7 +94,7 @@ Page({
       var currPage = pages[pages.length - 1];   //当前页面
       var prevPage = pages[pages.length - 2]; 
       var new_data = prevPage.data;
-      test_data.student_info.nickName = this.data.new_nickName;
+      new_data.student_info.nickName = this.data.new_nickName;
       prevPage.setData({
         student_info : new_data.student_info
       })
