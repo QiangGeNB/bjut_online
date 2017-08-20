@@ -19,16 +19,20 @@
 .fire{
     display: inline;
     color: orangered;
+    font-size: 5vw;
+    margin-left: 2vw;
 }
 .online-date{
     margin-top: 2vw;
     font-size: 3vw;
     color: gainsboro;
 }
+
 .tag-wrapper{
     display: flex;
     margin: 10px;
 }
+
 .tag{
     flex: 1;
     text-align: center;

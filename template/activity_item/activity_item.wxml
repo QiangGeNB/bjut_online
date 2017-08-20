@@ -2,11 +2,16 @@
   <view class="activity_item_wrapper">
     <!--标题栏-->
     <view class="title-wrapper">
-      <image mode="aspectFit" class="act_icon" src="{{activityType == 1 ? '/images/icon/icon_xueshu.png':'/images/icon/icon_xinsheng.png'}}"></image>
-      <view class="title">{{activityTitle}} <view wx:if="{{fire}}" class="fire iconfont icon-fire"></view></view>
-      
-      
+        <view class="image-wrapper">
+            <image mode="aspectFit" class="act_icon" src="{{activityType == 1 ? '/images/icon/icon_xueshu.png':'/images/icon/icon_xinsheng.png'}}"></image>
+        </view>
+        <view class="title">
+            {{activityTitle}} 
+            <view wx:if="{{fire}}" class="fire iconfont icon-fire"></view>
+        </view>
     </view>
+
+    <!-- 活动封面图片  -->
     <image class="item-image" mode="aspectFill" src="{{mainImage}}"></image>
 
     <!--活动简介-->

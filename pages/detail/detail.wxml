@@ -1,7 +1,7 @@
 <view class="all">
   <view class="header">
-    <view class="title">{{detail_data.activityTitle}}</view>
-    <view wx:if="{{detail_data.fire}}" class="fire iconfont icon-fire"></view>
+    <view class="title">{{detail_data.activityTitle}}<view wx:if="{{detail_data.fire}}" class="fire iconfont icon-fire"></view></view>
+    
     <view class="online-date">发布于{{formate_online_date}}</view>
   </view>
 

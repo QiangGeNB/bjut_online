@@ -17,6 +17,7 @@
 .title{
     display: inline-block;
     margin-left: 10px;
+    width:75vw;
     font-size: 16px;
     line-height: 20px;
     vertical-align: top;
@@ -27,10 +28,14 @@
     vertical-align: 1px;
     margin-left: 1px;
 }
+.image-wrapper{
+    width: 12vw;
+    display: inline-block;
+}
 .act_icon{
     display: inline-block;
-    width: 40px;
-    height: 20px;
+    width: 12vw;
+    height: 6vw;
     border-radius: 6px;
     vertical-align: top;
 }
