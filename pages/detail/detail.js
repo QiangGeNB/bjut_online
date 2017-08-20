@@ -166,7 +166,7 @@ Page({
             title: '参加活动成功',
             icon: 'success'
           });
-          this.setData({
+          self.setData({
             has_join: !temp_join
           });
         }

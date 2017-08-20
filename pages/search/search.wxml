@@ -7,7 +7,7 @@
     <view class="title">热门搜索</view>
     <view class="hot-tag-wrapper">
       <block wx:for="{{hot_tag}}">
-        <view class="hot-tag">{{item}}</view>
+        <view class="hot-tag" bindtap="click_hot_tag" data-htdata="{{item.tag_content}}">{{item.tag_content}}</view>
       </block>
     </view>
   </view>

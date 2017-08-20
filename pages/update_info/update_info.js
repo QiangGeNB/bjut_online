@@ -102,12 +102,12 @@ Page({
         wx.showToast({
           title: '修改信息成功！',
           duration: 2000,
-        })
+        });
         setTimeout(function () {
           wx.navigateBack({
             delta: 1,
           });
-        }, 2000)
+        }, 2000);
     },
     input_change: function (e) {
         this.setData({

@@ -9,7 +9,7 @@
 .setting{
     font-size: 7vw;
     color: #1296db;
-    margin-right: 2vw;
+    font-weight: bold;
 }
 .content-wrapper{
     margin: 0 10vw;
