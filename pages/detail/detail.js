@@ -73,7 +73,25 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-
+    return {
+      title: this.data.detail_data.activityTitle,
+      path: '/pages/detail / detail?actid ='+this.data.actid,
+      imageUrl: this.data.detail_data.mainImage,
+      success: function (res) {
+        // 转发成功
+        wx.showToast({
+          title: '转发成功',
+          icon: 'success'
+        });
+      },
+      fail: function (res) {
+        // 转发失败
+        wx.showToast({
+          title: '转发失败',
+          icon: 'fail'
+        });
+      }
+    }
   },
   // 页面初始化函数
   initPage: function (actid) {

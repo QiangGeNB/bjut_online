@@ -97,7 +97,24 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-  
+    return {
+      title: '今天我走了' + this.data.my_sport_data.step + '步,在北工大全校排名中排在第' + this.data.my_sport_data.schoolrank+'名',
+      path: '/pages/sport/sport',
+      success: function (res) {
+        // 转发成功
+        wx.showToast({
+          title: '转发成功',
+          icon: 'success'
+        });
+      },
+      fail: function (res) {
+        // 转发失败
+        wx.showToast({
+          title: '转发失败',
+          icon: 'fail'
+        });
+      }
+    }
   },
   // 请求微信运动的回调函数
   sport_req_suc: function (res) {
