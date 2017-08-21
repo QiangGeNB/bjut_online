@@ -96,6 +96,9 @@ Page({
             content: '对不起，您的学生验证未通过，请重新验证。',
             confirmText: '重新验证',
             success: function (res) {
+              app.SendRequest('/api/cancel_verify', { bjut_id: wx.getStorageSync('user_key') }, function(res){
+                console.log('认证拒绝后修改状态成功...');
+              });
               if (res.confirm) {
                 wx.navigateTo({
                   url: '/pages/auth/auth'
