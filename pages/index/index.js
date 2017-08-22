@@ -25,10 +25,6 @@ Page({
      */
     onLoad: function (options) {
         this.initPage();
-        for (let a = 0; a < 99; a++) {
-            console.log('123');
-        }
-        console.log('woca');
     },
 
     /**
