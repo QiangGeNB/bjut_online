@@ -37,6 +37,7 @@
     height: 15vw;
     border-radius: 50%;
     margin: 0 auto;
+    margin-top: 5vw;
 }
 .userinfo-info-wrapper{
     width: 100%;
