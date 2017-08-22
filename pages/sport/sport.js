@@ -8,7 +8,7 @@ Page({
    */
   data: {
       sport_tab: 1,
-      academy: app.globalData.academy,
+      academy: [],
       sport_aca_picker_index: 0,
   },
 
@@ -48,7 +48,7 @@ Page({
                   }
               })
           }
-      })
+      });
   },
 
   /**
@@ -140,14 +140,16 @@ Page({
                   sport_tab: 2
               });
               app.SendRequest('/api/wx_day_rank_10', { range: 0}, function (res) {
-                  console.log(res.data.data);
+                  console.log('this is wx_day_rank_10 res:');
+                  console.log(res);
                   self.setData({
                       rank_list_data: res.data.data
                   });
-                  app.SendRequest('/api/find_all_info_by_action', { action: 'academy' }, function (res) {
-                    self.setData({
+              });
+              // 获取学院列表
+              app.SendRequest('/api/find_all_info_by_action', { action: 'academy' }, function (res) {
+                  self.setData({
                       academy: res.data.data[0].academy
-                    })
                   })
               });
               break;
@@ -159,12 +161,13 @@ Page({
       this.setData({
           sport_aca_picker_index: e.detail.value
       });
-      app.SendRequest('/api/wx_day_rank_10', { range: this.data.academy[this.data.sport_aca_picker_index].academy_number }, function (res) {
+      
+      app.SendRequest('/api/wx_day_rank_10', { range: this.data.academy[e.detail.value].academy_number }, function (res) {
           console.log('this is rank res:')
           console.log(res);
           self.setData({
             rank_list_data: res.data.data
-          })
+          });
       });
   }
 })
