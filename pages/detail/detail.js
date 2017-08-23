@@ -164,12 +164,14 @@ Page({
         console.log('参加活动返回信息收到...');
         let erron = res.data.erron;
         let has_stu_id = res.data.has_stu_id;
+        let verify_state = res.data.verify_state;
+        console.log(verify_state)
         if (erron) {
           wx.showToast({
             title: '服务器出错',
             image: '/images/icon/cry.svg'
           });
-        } else if (!has_stu_id) {
+        } else if (verify_state == 2) {
           wx.showModal({
             title: '提示',
             content: '对不起，您还没通过学生验证',
@@ -182,7 +184,14 @@ Page({
               }
             }
           });
-        } else {
+        } else if (verify_state == 1){
+          wx.showModal({
+            title: '提示',
+            content: '您的学生验证信息正在认证中，暂时不能参加活动，请等待管理员通过认证。',
+            confirmText: '确定',
+            success: function (res) {}
+          });
+        }else{
           wx.showToast({
             title: '参加活动成功',
             icon: 'success'
