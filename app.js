@@ -41,7 +41,7 @@ App({
             success: function (res) {
                 console.log('获取 userInfo 成功...');
                 console.log(res);
-                res.userInfo.studentID = 'S201607044';
+                res.userInfo.studentID = '';
                 wx.setStorageSync('userinfo', res.userInfo);
                 // self.sendRequest(code, res.userInfo);
                 var code_userInfo = {
