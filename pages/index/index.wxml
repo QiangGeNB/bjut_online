@@ -17,7 +17,7 @@
             </view>
             <view class="list-item" data-list-index="2" bindtap="click_side_item">
                 <view class="iconfont icon-run"></view>
-                <text>工大运动</text>
+                <text>运动达人</text>
             </view>
             <view class="botton-item1" data-list-index="7" bindtap="click_side_item">
                 <view class="iconfont icon-setting"></view>

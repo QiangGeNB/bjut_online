@@ -104,8 +104,8 @@ App({
     },
     globalData: {
         userInfo: null,
-        ServerUrl: 'https://www.i-exshare.cn',
-        // ServerUrl:'http://127.0.0.1:3000',
+        //ServerUrl: 'https://www.i-exshare.cn',
+        ServerUrl:'http://127.0.0.1:3000',
 
         academy: [
           {
