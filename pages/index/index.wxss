@@ -53,13 +53,19 @@ scroll-view {
 }
 .botton-item1{
   position: absolute;
-  bottom: 5vw;
+  bottom: 25vw;
   left: 5vw;
   font-size: 4vw;
 }
 .botton-item2{
   position: absolute;
   bottom: 15vw;
+  left: 5vw;
+  font-size: 4vw;
+}
+.botton-item3{
+  position: absolute;
+  bottom: 5vw;
   left: 5vw;
   font-size: 4vw;
 }

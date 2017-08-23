@@ -1,0 +1,26 @@
+<!--update_info.wxml-->
+<view class="update-info-wrapper">
+    <view class="title-wrapper">
+        <view class="setting iconfont icon-setting"></view>个人设置
+    </view>
+
+    <view class="content-wrapper">
+        <view class="nick-name-wrapper">
+            <text>昵称: </text>
+            <input type="text" value="{{user_info.nickName}}" bindinput="input_change"/>
+        </view>
+        <view class="rank-switch-wrapper">
+            <text>在微信运动排行榜中显示</text>
+            <switch checked="{{switch_statu}}" bindchange="switch1Change" />
+        </view>
+        <view class="remark">
+            *说明：
+            <text>
+            1.昵称默认为微信昵称，修改后的昵称为小程序独立使用;
+            2.小程序默认将您的运动信息记入排行榜;
+            3.当您关闭排行榜显示功能后，您的运动信息将不计入活动排行榜中。
+            </text>
+        </view>
+    </view>
+    <button class="save-button" type="primary" bindtap="click_save">保存设置</button>
+</view>

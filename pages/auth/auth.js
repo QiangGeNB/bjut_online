@@ -36,6 +36,8 @@ Page({
                 return
             }
             var academy = res.data.data[0].academy
+            academy.shift();
+            academy.unshift(academy[academy.length-1]);
             that.setData({
                 academy : academy,
             })
@@ -112,7 +114,12 @@ Page({
     form_submit: function (e) {
         self = this;
         var page_data = e.detail.value;
-        if (page_data.studentID == "") {
+        if(page_data.name == ""){
+          wx.showToast({
+            title: '姓名不能为空',
+            image: '/images/icon/warn.svg'
+          });
+        } else if (page_data.studentID == "") {
             wx.showToast({
                 title: '学号不能为空',
                 image: '/images/icon/warn.svg'
@@ -159,6 +166,7 @@ Page({
             
             var student_data = {
                 _id: wx.getStorageSync('user_key'),
+                name: page_data.name,
                 studentID: page_data.studentID,
                 enter_year: self.data.year[page_data.year],
                 academy: self.data.academy[page_data.academy].academy_number,

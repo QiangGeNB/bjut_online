@@ -4,6 +4,8 @@
   </view>
   <form bindsubmit="form_submit">
     <view class="input-wrapper">
+      <view class="input-title">请输入您的真实姓名</view>
+      <input name="name"/>
       <view class="input-title">请输入您的学号</view>
       <input name="studentID"/>
       <view class="input-title">请输入您的入学年份</view>

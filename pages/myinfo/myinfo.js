@@ -28,7 +28,7 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-
+      this.initPage();
     },
 
     /**
@@ -81,7 +81,32 @@ Page({
     get_user_info_request_suc: function (res) {
         self = this;
         console.log('this is user-info res: ');
-        console.log(res);
+        console.log(res.data);
+        for (var i = 0; i < res.data.coll_activity.length; i++){
+            console.log(res.data.coll_activity[i].activityDate)
+            res.data.coll_activity[i].activityDate = this.formate_date(new Date(res.data.coll_activity[i].activityDate));
+        }
+        for (var i = 0; i < res.data.join_activity.length; i++) {
+            console.log(res.data.join_activity[i].activityDate)
+            res.data.join_activity[i].activityDate = this.formate_date(new Date(res.data.join_activity[i].activityDate));
+        }
+        if (res.data.user_info.verify_state == 3){
+          wx.showModal({
+            title: '提示',
+            content: '对不起，您的学生验证未通过，请重新验证。',
+            confirmText: '重新验证',
+            success: function (res) {
+              app.SendRequest('/api/cancel_verify', { bjut_id: wx.getStorageSync('user_key') }, function(res){
+                console.log('认证拒绝后修改状态成功...');
+              });
+              if (res.confirm) {
+                wx.navigateTo({
+                  url: '/pages/auth/auth'
+                });
+              }
+            }
+          });
+        }
         self.setData({
             student_info: res.data.user_info,
             join_act: res.data.join_activity,
@@ -110,5 +135,21 @@ Page({
         wx.navigateTo({
             url: '/pages/auth/auth'
         })
-    }
+    },
+    update_info: function(e) {
+      wx.navigateTo({
+        url: '/pages/update_info/update_info',
+      })
+    },
+    formate_date: function (date) {
+        let month_add = date.getMonth() + 1;
+        var formate_result = date.getFullYear() + '年'
+            + month_add + '月'
+            + date.getDate() + '日'
+            + ' '
+            + date.getHours() + '点'
+            + date.getMinutes() + '分';
+        return formate_result;
+    },
+
 })

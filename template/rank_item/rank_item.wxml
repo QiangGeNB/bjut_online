@@ -2,7 +2,7 @@
   <view class="rank-item-wrapper">
     <view class="rank-num {{rank==1?'rank-one-num':''}} {{rank==2?'rank-two-num':''}} {{rank==3?'rank-three-num':''}}">{{rank}}</view>
     <image class="rank-avater {{rank==1?'rank-one-avater':''}} {{rank==2?'rank-two-avater':''}} {{rank==3?'rank-three-avater':''}}" src="{{avatarUrl}}"></image>
-    <view class="rank-name {{rank==1?'rank-one-name':''}} {{rank==2?'rank-two-name':''}} {{rank==3?'rank-three-name':''}}">{{nickName}}</view>
+    <view class="rank-name {{rank==1?'rank-one-name':''}} {{rank==2?'rank-two-name':''}} {{rank==3?'rank-three-name':''}}">{{name}}</view>
     <view class="rank-step {{rank==1?'rank-one-step':''}} {{rank==2?'rank-two-step':''}} {{rank==3?'rank-three-step':''}}">{{step}} <text class="bu">步</text></view>
   </view>
 </template>

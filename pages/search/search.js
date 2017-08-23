@@ -6,7 +6,7 @@ Page({
      * 页面的初始数据
      */
     data: {
-        hot_tag: data.data.search.hotTag,
+        hot_tag: [],
         text:'text'
     },
 
@@ -14,6 +14,7 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
+        let self = this;
         // 加载历史记录
         var search_history = wx.getStorageSync('search_history');
         this.setData({
@@ -21,6 +22,12 @@ Page({
         });
         // 加载用户信息
         var user_key = wx.getStorageSync('user_key');
+        app.SendRequest('/api/get_all_hot_tag', '', function(res){
+            console.log(res);
+            self.setData({
+                hot_tag: res.data.hot_tag
+            })
+        });
     },
 
     /**
@@ -138,5 +145,15 @@ Page({
             input_key: his_data
         });
         app.SendRequest('/api/search_keyword', {keyword: his_data}, this.input_done_request_suc);
+    },
+    click_hot_tag: function(e){
+        var hot_tag_data = e.target.dataset.htdata;
+        this.setData({
+            input_key: hot_tag_data
+        });
+        let search_data = {
+            keyword: hot_tag_data
+        };
+        app.SendRequest('/api/search_keyword', search_data, this.input_done_request_suc);
     }
 })

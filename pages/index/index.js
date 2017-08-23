@@ -15,12 +15,9 @@ Page({
         swiper: '',
         tag_select: 0,
         open: false,
-        // sport_data: data.data.sport.sport_data,
-        // userinfo: data.data.sport.userinfo,
         sport_tab: 1,
         academy: app.globalData.academy,
         sport_aca_picker_index: 0,
-        //rank_list_data: data.data.sport.rank_data
     },
 
     /**
@@ -65,6 +62,9 @@ Page({
     // 请求成功回调函数
     initPage_request_suc: function (res) {
         console.log(res);
+        for (let i = 0; i < res.data.activity.length; i++) {
+            res.data.activity[i].onlineTime = app.formate_data(new Date(res.data.activity[i].onlineTime));
+        }
         self.setData({
             activity_data: res.data.activity,
             swiper: res.data.swiper
@@ -97,9 +97,9 @@ Page({
         // 根据点击item发送相应请求
         switch (list_index) {
             case "1": // 点击学生活动
-            wx.navigateTo({
-              url: '/pages/index/index',
-            });
+                wx.navigateTo({
+                    url: '/pages/index/index',
+                });
                 break;
             case "2": // 点击“每天行走一万步活动”
                 // 请求每天行走一万步的数据
@@ -112,15 +112,31 @@ Page({
                 });
                 break;
             case "5"://联系客服
+                this.setData({
+                    open: false,
+                    page_index: 1
+                })
                 wx.navigateTo({
-                  url: '/pages/contact_us/contact_us',
+                    url: '/pages/contact_us/contact_us',
                 });
-                break; 
+                break;
             case "6"://关于我们
+                this.setData({
+                    open: false,
+                    page_index: 1
+                })
                 wx.navigateTo({
-                  url: '/pages/about_us/about_us',
+                    url: '/pages/about_us/about_us',
                 });
-                break;   
+                break;
+            case "7"://设置
+                this.setData({
+                    open: false,
+                    page_index: 1
+                })
+                wx.navigateTo({
+                    url: '/pages/update_info/update_info',
+                });
         }
     },
 
@@ -158,6 +174,11 @@ Page({
     click_search: function () {
         wx.navigateTo({
             url: '/pages/search/search',
+        });
+    },
+    click_filter: function () {
+        this.setData({
+            open: false
         });
     }
 })

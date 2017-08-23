@@ -8,7 +8,7 @@ Page({
    */
   data: {
       sport_tab: 1,
-      academy: app.globalData.academy,
+      academy: [],
       sport_aca_picker_index: 0,
   },
 
@@ -32,7 +32,7 @@ Page({
                   success: function () {
                       console.log('用户session没有过期');
                       console.log(sport_data);
-                      app.SendRequest('/api/get_wx_run_date', sport_data, self.sport_req_suc);
+                      app.SendRequest('/api/get_wx_run_data', sport_data, self.sport_req_suc);
                   },
                   fail: function () {
                       console.log('用户session已过期，需要重新登录获取session...');
@@ -48,7 +48,7 @@ Page({
                   }
               })
           }
-      })
+      });
   },
 
   /**
@@ -62,7 +62,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+   
   },
 
   /**
@@ -97,7 +97,24 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-  
+    return {
+      title: '今天我走了' + this.data.my_sport_data.step + '步,在北工大全校排名中排在第' + this.data.my_sport_data.schoolrank+'名',
+      path: '/pages/sport/sport',
+      success: function (res) {
+        // 转发成功
+        wx.showToast({
+          title: '转发成功',
+          icon: 'success'
+        });
+      },
+      fail: function (res) {
+        // 转发失败
+        wx.showToast({
+          title: '转发失败',
+          icon: 'fail'
+        });
+      }
+    }
   },
   // 请求微信运动的回调函数
   sport_req_suc: function (res) {
@@ -122,28 +139,39 @@ Page({
               self.setData({
                   sport_tab: 2
               });
-              app.SendRequest('/api/wx_day_rank_10', { range: 0 }, function (res) {
-                  console.log(res.data.data);
+              app.SendRequest('/api/wx_day_rank_10', { range: 0}, function (res) {
+                  console.log('this is wx_day_rank_10 res:');
+                  console.log(res);
                   self.setData({
                       rank_list_data: res.data.data
                   });
-                  app.SendRequest('/api/find_all_info_by_action', { action: 'academy' }, function (res) {
-                    self.setData({
-                      academy: res.data.data[0].academy
-                    })
-                  })
               });
+              app.SendRequest('/api/find_all_info_by_action', { action: 'academy' }, function (res) {
+                var academy = res.data.data[0].academy;
+                var academy_temp = academy[1];
+                var academy_xxxb = academy[academy.length-1];
+                academy[academy.length-1] = academy_temp;
+                academy[1] = academy_xxxb;
+                self.setData({
+                  academy: academy
+                })
+              })
               break;
       }
   },
   // 学院选择器变化时触发
   sport_aca_picker: function (e) {
+    let self = this;
       this.setData({
           sport_aca_picker_index: e.detail.value
       });
-      app.SendRequest('/api/wx_day_rank_10', { range: 0 }, function (res) {
+      
+      app.SendRequest('/api/wx_day_rank_10', { range: this.data.academy[e.detail.value].academy_number }, function (res) {
           console.log('this is rank res:')
           console.log(res);
+          self.setData({
+            rank_list_data: res.data.data
+          });
       });
   }
 })

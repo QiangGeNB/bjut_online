@@ -41,7 +41,7 @@ App({
             success: function (res) {
                 console.log('获取 userInfo 成功...');
                 console.log(res);
-                res.userInfo.studentID = 'S201607044';
+                res.userInfo.studentID = '';
                 wx.setStorageSync('userinfo', res.userInfo);
                 // self.sendRequest(code, res.userInfo);
                 var code_userInfo = {
@@ -92,10 +92,21 @@ App({
             }
         });
     },
+    formate_data: function (date) {
+      let month_add = date.getMonth() + 1;
+      var formate_result = date.getFullYear() + '年'
+        + month_add + '月'
+        + date.getDate() + '日'
+        + ' '
+        + date.getHours() + '点'
+        + date.getMinutes() + '分';
+      return formate_result;
+    },
     globalData: {
         userInfo: null,
         ServerUrl: 'https://www.i-exshare.cn',
-        //ServerUrl:'http://127.0.0.1:3000',
+        // ServerUrl:'http://127.0.0.1:3000',
+
         academy: [
           {
             "_id": "598b0494fb89956113a5f19f",
@@ -109,7 +120,8 @@ App({
           }
         ]
         //ServerUrl:'https://10.21.8.131:3000'
-    }
+    },
+    
 })
 
 
