@@ -90,7 +90,7 @@ Page({
             console.log(res.data.join_activity[i].activityDate)
             res.data.join_activity[i].activityDate = this.formate_date(new Date(res.data.join_activity[i].activityDate));
         }
-        if (res.data.user_info.verify_state == 4){
+        if (res.data.user_info.verify_state == 3){
           wx.showModal({
             title: '提示',
             content: '对不起，您的学生验证未通过，请重新验证。',

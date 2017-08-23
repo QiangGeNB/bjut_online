@@ -75,7 +75,7 @@ Page({
   onShareAppMessage: function () {
     return {
       title: this.data.detail_data.activityTitle,
-      path: '/pages/detail / detail?actid ='+this.data.actid,
+      path: '/pages/detail/detail?actid='+this.data.actid,
       imageUrl: this.data.detail_data.mainImage,
       success: function (res) {
         // 转发成功

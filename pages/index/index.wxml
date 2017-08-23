@@ -12,10 +12,12 @@
     <view class="page-bottom">
         <view class="side-list-wrapper">
             <view class="list-item" data-list-index="1" bindtap="click_side_item">
+                <view class="iconfont icon-act"></view>
                 <text>学生活动</text>
             </view>
             <view class="list-item" data-list-index="2" bindtap="click_side_item">
-                <text>每天行走一万步</text>
+                <view class="iconfont icon-run"></view>
+                <text>工大运动</text>
             </view>
             <view class="botton-item1" data-list-index="7" bindtap="click_side_item">
                 <view class="iconfont icon-setting"></view>

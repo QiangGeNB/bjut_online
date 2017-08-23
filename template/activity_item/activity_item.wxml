@@ -6,7 +6,7 @@
             <image mode="aspectFit" class="act_icon" src="{{activityType == 1 ? '/images/icon/icon_xueshu.png':'/images/icon/icon_xinsheng.png'}}"></image>
         </view>
         <view class="title">
-            {{activityTitle}} 
+            {{activityTitle}}
             <view wx:if="{{fire}}" class="fire iconfont icon-fire"></view>
         </view>
     </view>
@@ -27,7 +27,7 @@
         </view>
         <view class="vf-wrapper">
             <view class="icon-fav iconfont vf-icon"></view>
-            <view class="vf-data">{{collectionNumber}}</view>
+            <view class="vf-data">{{collectionStu.length}}</view>
         </view>
         <view class="online-time">发布于 {{onlineTime}}</view>
     </view>
