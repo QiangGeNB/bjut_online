@@ -6,7 +6,7 @@
 }
 .item-image{
     width: 100%;
-    height: 130px;
+    height: 260rpx;
 }
 .title-wrapper{
     position: relative;
