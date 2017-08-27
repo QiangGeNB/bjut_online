@@ -98,7 +98,7 @@ Page({
    */
   onShareAppMessage: function () {
     return {
-      title: '今天我走了' + this.data.my_sport_data.step + '步,在北工大全校排名中排在第' + this.data.my_sport_data.schoolrank+'名',
+      title: '今天我已经走了' + this.data.my_sport_data.step + '步,在北工大全校排名中的第' + this.data.my_sport_data.schoolrank+'名',
       path: '/pages/sport/sport',
       success: function (res) {
         // 转发成功

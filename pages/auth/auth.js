@@ -158,7 +158,7 @@ Page({
             var j_res;
             if(res.statusCode != 200 || (j_res=JSON.parse(res.data)).errno != 0){
                 wx.showToast({
-                    title: '上传图片出现问题...',
+                    title: '上传异常',
                     image: '/images/icon/cry.svg'
                 })
                 return
@@ -177,14 +177,14 @@ Page({
         function updateStudentSuccessCallback(res){
             if(res.statusCode != 200 || res.data.errno != 0){
                 wx.showToast({
-                    title: '提交学生信息失败！',
+                    title: '提交失败！',
                     image: '/images/icon/cry.svg',
                 })
                 return
             }
             wx.hideLoading();
             wx.showToast({
-                title: '提交学生信息成功！',
+                title: '提交成功！',
                 duration: 2000,
             })
             setTimeout(function () {
