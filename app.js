@@ -31,7 +31,7 @@ App({
                     //getUserInfo(res.code);
                 }
             }
-        })
+        });
     },
 
     getUserInfo: function (code) {
@@ -41,7 +41,7 @@ App({
             success: function (res) {
                 console.log('获取 userInfo 成功...');
                 console.log(res);
-                res.userInfo.studentID = '';
+                res.userInfo.studentID = 'S201607044';
                 wx.setStorageSync('userinfo', res.userInfo);
                 // self.sendRequest(code, res.userInfo);
                 var code_userInfo = {
@@ -106,7 +106,6 @@ App({
         userInfo: null,
         ServerUrl: 'https://www.i-exshare.cn',
         //ServerUrl:'http://127.0.0.1:3000',
-
         academy: [
           {
             "_id": "598b0494fb89956113a5f19f",
