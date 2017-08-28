@@ -28,15 +28,7 @@
       <view class="td1">活动地点</view>
       <view class="td2">{{detail_data.activityLocation}}</view>
     </view>
-    <!-- <view class="tr tr-blue">
-      <view class="td1">活动时间</view>
-      <view class="td2">{{detail_data.duration}}分钟</view>
-    </view> -->
-    <view class="tr  tr-blue" wx:if="{{detail_data.activityType  == 1}}">
-      <view class="td1">主讲人</view>
-      <view class="td2">{{detail_data.activityReporter}}</view>
-    </view>
-    <view class="tr tr-blue" wx:if="{{detail_data.activityType  == 2}}">
+    <view class="tr tr-blue">
       <view class="td1">主办方</view>
       <view class="td2">{{detail_data.activityHolder}}</view>
     </view>
