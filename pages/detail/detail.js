@@ -7,9 +7,6 @@ Page({
    * 页面的初始数据
    */
   data: {
-    // detail_data: data.data.act_detail,
-    // has_join: data.data.act_detail.has_join,
-    // has_fav: data.data.act_detail.has_fav,
     tag_select: 0,
     formate_act_date: '',
     formate_online_date: ''

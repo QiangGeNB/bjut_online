@@ -121,7 +121,9 @@
     margin: 5vw;
     margin-bottom: 20vw;
 }
-
+rich-text > image {
+  width: 50vw;
+}
 .main-image{
     width: 90vw;
     height: 50vw;
