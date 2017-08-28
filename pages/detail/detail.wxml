@@ -10,10 +10,10 @@
   <view class="gap"></view>
 
   <view class="tag-wrapper">
-    <view class="tag {{tag_select == 0 ? 'tag-selected':''}}" data-tag-index="1" catchtap="click_tag">
+    <view class="tag {{tag_select == 0 ? 'tag-selected':''}}" data-tag-index="0" catchtap="click_tag">
       <view class="tag-text">活动内容</view>
     </view>
-    <view class="tag {{tag_select == 1 ? 'tag-selected':''}}" data-tag-index="0" catchtap="click_tag">
+    <view class="tag {{tag_select == 1 ? 'tag-selected':''}}" data-tag-index="1" catchtap="click_tag">
       <view class="tag-text">活动信息</view>
     </view>
 
