@@ -21,6 +21,10 @@
     display: inline-block;
     vertical-align: top;
     height: 10vw;
+    width: 40vw;
+    overflow:hidden;
+    white-space: nowrap;
+    text-overflow:ellipsis; 
     line-height: 10vw;
     margin: 5vw 0;
 }

@@ -24,7 +24,7 @@
 .rank-name {
   display: inline-block;
   font-size: 4vw;
-  width:35vw;
+  width:33vw;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
