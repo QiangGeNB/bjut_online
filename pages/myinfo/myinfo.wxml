@@ -6,8 +6,8 @@
       <image class="avatar" src="{{student_info.avatarUrl}}"></image>
       <view class="nickname">{{student_info.nickName}}</view>
     </view>
-    <image wx:if="{{student_info.verify_state == '0'}}" class="sign" src="/images/userinfo/sign.png" ></image>
-    <image wx:if="{{student_info.verify_state == '1'}}" class="sign" src="/images/userinfo/signing.png" ></image>
+    <image wx:if="{{student_info.verify_state == '0'}}" class="sign" src="/images/userinfo/sign.png" bindtap="click_sign"></image>
+    <image wx:if="{{student_info.verify_state == '1'}}" class="sign" src="/images/userinfo/signing.png" bindtap="click_sign"></image>
     <image wx:if="{{student_info.verify_state == '2' || student_info.verify_state == '3'}}" class="sign" src="/images/userinfo/unsign.png" bindtap="click_sign"></image>
   </view>
   <view class="tab-wrapper">
