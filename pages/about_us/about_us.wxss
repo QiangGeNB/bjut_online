@@ -1,5 +1,6 @@
 #container_first{
-  margin: 6vw;
+  margin: 3vw;
+  padding: 3vw;
   font-size: 4vw;
   color: rgba(0, 0, 0, 0.7);
   background-color: #fafafa
@@ -7,49 +8,68 @@
 
 #titile_first{
   text-align: center;
-  font-size: black 
+  font-size: 6vw;
+  font-weight: bold;
+  padding: 2vw;
+  color: #1296db;
 }
 
 #content{
+  font-size: 4vw;
+  text-indent:8vw;
   padding-top: 7px;
-  font-size: black
+  line-height: 6vw;
 }
 
 #titile_principle
 {
-  padding-top: 15px;
+  padding-top: 4.5vw;
   text-align: center;
-  font-size: black 
+  font-size: 5vw;
+  font-weight: 600;
 }
 
 #principle{
   padding-top: 7px;
-  font-size: black
+  font-size: black;
+  text-indent:4vw;
 }
 
 #priviate_title{
+  padding-top: 4.5vw;
   text-align: center;
-  font-size: black;
-  padding-top: 15px;
-  padding-bottom: 10px
+  font-size: 5vw;
+  font-weight: 600;
 }
 
 #descript{
-  padding-bottom: 2px
+    padding-top: 7px;
+    font-size: black;
+    text-indent:8vw;
+    line-height: 6vw;
 }
 
 #private_info{
   padding-top: 7px;
-  font-size: black
-}
-
-#copy_right_title{
-  text-align: center;
   font-size: black;
-  padding-top: 15px;
+  line-height: 6vw;
+}
+.info {
+  text-indent: 8vw;
+  font-weight: 550;
+}
+.info_text{
+  text-indent: 8vw;
+}
+#copy_right_title{
+  padding-top: 4.5vw;
+  text-align: center;
+  font-size: 5vw;
+  font-weight: 600;
 }
 
 #copy_right_message{
   padding-top: 10px;
-  font-size: black
+  font-size: black;
+  text-indent:8vw;
 }

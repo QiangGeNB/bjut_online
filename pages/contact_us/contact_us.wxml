@@ -1,15 +1,14 @@
 <!--contact_us.wxml-->
 <view class="all">
-    <view class="content">
-        <text>
-            {{content}}
-        </text>
+  <view class="content">
+    <view class="title">
+      <text>@ 联系我们</text>
     </view>
-    <view class="email">
-        <text>
-             官方邮箱：{{email}}
-        </text>
+    <view class="contact_content">
+      {{content}}
     </view>
+  </view>
+  <view class="email">
+    官方邮箱：<text>{{email}}</text>
+  </view>
 </view>
-
-
