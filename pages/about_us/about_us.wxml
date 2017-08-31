@@ -14,7 +14,7 @@
     </view>
     
     <view id = "principle" wx:for="{{principle}}" wx:for-index="idx" wx:for-item="itemName">
-        {{idx+1}}: {{itemName.message}}
+        {{idx+1}}. {{itemName.message}}
     </view>
 
     <view class="classname">
@@ -25,8 +25,8 @@
           <text>{{private_descript}}</text>
         </view>
         <view id="private_info" wx:for="{{private_info}}" wx:for-index="idx" wx:for-item="itemName">
-          <text class="info">{{idx+1}}: {{itemName.title}}\n</text>
-          <text>{{itemName.message}}</text>
+          <view class="info">{{idx+1}}. {{itemName.title}}\n</view>
+          <view class="info_text">{{itemName.message}}</view>
         </view>
     </view>
 
