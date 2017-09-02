@@ -142,10 +142,10 @@ Page({
         });
         app.SendRequest('/api/find_all_info_by_action', { action: 'academy' }, function (res) {
           var academy = res.data.data[0].academy;
-          var academy_temp = academy[1];
-          var academy_xxxb = academy[academy.length - 1];
-          academy[academy.length - 1] = academy_temp;
-          academy[1] = academy_xxxb;
+          //var academy_temp = academy[1];
+          //var academy_xxxb = academy[academy.length - 1];
+         //academy[academy.length - 1] = academy_temp;
+          //academy[1] = academy_xxxb;
           self.setData({
             academy: academy
           })
