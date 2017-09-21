@@ -167,5 +167,14 @@ Page({
         rank_list_data: res.data.data
       });
     });
+  },
+  click_record: function(){
+    console.log('click record...');
+    wx.navigateTo({
+      url: '/pages/record/record',
+      success: function(res) {},
+      fail: function(res) {},
+      complete: function(res) {},
+    })
   }
 })

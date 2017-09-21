@@ -1,0 +1,5 @@
+<view class="record_wrapper">
+  <view class='header'>
+    我的记录
+  </view>
+</view>
