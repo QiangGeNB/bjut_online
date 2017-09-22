@@ -1,7 +1,7 @@
 <view class="record_wrapper" bindtouchmove='handletouchmove' bindtouchstart = "handletouchstart" bindtouchend='handletouchend'>
   <scroll-view class='sv'>
     <image class='star' src='/images/record/star.jpg' mode='aspectFill' 
-      style='transform:translate({{show_x}}px,{{show_y}}px) scale({{touch_mark?1.5:1}},{{touch_mark?1.5:1}});transition: scale 2s;'></image>
+      style='transform:translate({{show_x}}px,{{show_y}}px);'></image>
     <!-- <view class='header' style="top:{{show_y}}px;left: {{show_x}}px">
       <image src='/images/icon/cry.svg'></image>
       <text>我的记录</text>

@@ -12,7 +12,6 @@ page{
   left: -25%;
   width: 150%;
   height: 150%;
-  
 }
 .record_wrapper{
   height: 100%;
