@@ -1,1 +1,28 @@
 /* pages/record/record.wxss */
+page{
+  height: 100%;
+}
+.sv{
+  height: 100%;
+  width: 100%;
+}
+.star{
+  position: absolute;
+  top: -25%;
+  left: -25%;
+  width: 150%;
+  height: 150%;
+  
+}
+.record_wrapper{
+  height: 100%;
+  width: 100%;
+}
+.header{
+position: absolute;
+text-align: center;
+}
+.header > image{
+  width: 100px;
+  height: 100px;
+}
