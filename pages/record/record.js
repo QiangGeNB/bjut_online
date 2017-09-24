@@ -9,14 +9,31 @@ Page({
     frist_tap_y: 0,
     show_x: 0,
     show_y: 0,
-    touch_mark: false
+    touch_mark: false,
+    x_move:0,
+    page_count: -1,
+    record_scale: 1,
+    is_changing: false,
+    sport_pic: 'fencing'
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    let self = this;
+    var sp_count = 0;
+    var sp = ['athlete', 'bowling', 'fencing', 'football-1', 'ping-pong', 'swimming', 'tennis'];
+    setInterval(function(){
+      if(sp_count > sp.length-1) {
+        sp_count = 0;
+      }
+      self.setData({
+        sport_pic: sp[sp_count]
+      });
+      console.log('this is swich_sport_pic...', sp[sp_count]);
+      sp_count++;
+    }, 2000);
   },
   //记录开始的坐标
   handletouchstart: function (event) {
@@ -28,7 +45,6 @@ Page({
       touch_mark: true
     })
   },
-
   handletouchmove: function(event){
     let now_x = event.touches[0].pageX;
     let now_y = event.touches[0].pageY;
@@ -39,13 +55,56 @@ Page({
     this.setData({
       show_x: gap_x,
       show_y: gap_y
-    })
+    });
+
+    //滑动信息模块
+    let x_move = this.data.frist_tap_x - now_x;
+    console.log('this is x_move: ' , x_move);
+    this.setData({
+      x_move: -x_move/4,
+      record_opcity: .5 - Math.abs(x_move) / wx.getStorageSync('sys_info_width') * 2,
+      record_scale:1- Math.abs(x_move)/wx.getStorageSync('sys_info_width')/2
+    });
+    if (Math.abs(x_move) > wx.getStorageSync('sys_info_width') / 2){
+      if (this.data.is_changing) {
+        console.log('正在切换页面...');
+      } else {//不在切换页面的时候才进行切换动作
+      this.setData({
+        is_changing: true
+      })
+        console.log('move');
+        let temp = this.data.page_count;
+        if (x_move > 0) {
+          console.log('向右划...');
+          if (temp == 2) {
+            console.log('已经是最右边了...');
+          } else {
+            this.setData({
+              page_count: temp + 1
+            });
+          }
+        } else {
+          console.log('向左滑...');
+          if (temp == 0) {
+            console.log('已经是最左边了...');
+          } else {
+            this.setData({
+              page_count: temp - 1
+            });
+          }
+        }
+      }
+    }
   },
 
   handletouchend: function (event) {
     console.log('this is handletouchend');
     this.setData({
-      touch_mark: false
+      touch_mark: false,
+      x_move: 0,
+      record_scale: 1,
+      record_opcity: .5,
+      is_changing: false
     });
   }
 })

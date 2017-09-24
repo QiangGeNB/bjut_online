@@ -102,6 +102,18 @@ App({
         + date.getMinutes() + '分';
       return formate_result;
     },
+    GetSysInfo: function(){
+      var self = this;
+      wx.getSystemInfo({
+        success: function(res) {
+          console.log(res.screenHeight);
+          wx.setStorageSync('sys_info_height', res.screenHeight);
+          wx.setStorageSync('sys_info_width', res.screenWidth);
+        },
+        fail: function(res) {},
+        complete: function(res) {},
+      })
+    },
     globalData: {
         userInfo: null,
         ServerUrl: 'https://www.i-exshare.cn',
@@ -117,7 +129,7 @@ App({
             "academy_name": "电控学院",
             "academy_number": 1
           }
-        ]
+        ],
         //ServerUrl:'https://10.21.8.131:3000'
     },
     
