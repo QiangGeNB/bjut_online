@@ -2,7 +2,10 @@
   <scroll-view class='sv'>
     <image class='star' src='/images/record/star.jpg' mode='aspectFill' 
       style='transform:translate({{show_x}}px,{{show_y}}px);'></image>
-      <view wx:if="{{page_count==-1}}" class='record-title'  style='transform:translateX({{x_move}}px) scale({{record_scale}},{{record_scale}}); opacity: {{record_opcity}};'>
+      <!--记录首页-->
+      <view wx:if="{{page_count==-1}}" 
+        class='record-title'  
+        style='transform:translateX({{x_move}}px) scale({{record_scale}},{{record_scale}}); opacity: {{record_opcity+0.5}};'>
         <image class='title-image' src='/images/record/record_title.png'></image>
         <image class='sport-pic' src='/images/record/{{sport_pic}}.svg' ></image>
         <view class='sport-pic-bg'></view>

@@ -1,0 +1,36 @@
+<view class='record-wrapper'>
+  <view class='bg-wrapper'>
+    <image src='/images/record/bg.jpg' mode='aspectFill'></image>
+  </view>
+  <view class='title'>
+    <text>我的运动记录</text>
+  </view>
+  <!--个人记录部分  -->
+  <view class='my_record_wrapper' bindtap='click_record'>
+    <image class='record_cup' src="/images/record/basketball-1.svg"></image>
+    <view class='cup_shadow'></view>
+  </view>
+  <view class='content-wrapper'>
+    <view class='content-item-wrapper'>
+      <image class='front-icon' src='/images/record/schedule.svg'></image>
+      <view class='content'>这是您第
+        <text>3</text>天连续登陆运动达人</view>
+    </view>
+    <view class='content-item-wrapper'>
+      <image class='front-icon' src='/images/record/medal.svg'></image>
+      <view class='content'>
+        2017年8月12日，您走了22222步，获得学院第1名
+      </view>
+    </view>
+    <view class='content-item-wrapper'>
+      <image class='front-icon' src='/images/record/crown.svg'></image>
+      <view class='content'>这是您第
+        <text>3</text>天连续登陆运动达人</view>
+    </view>
+    <view class='content-item-wrapper'>
+      <image class='front-icon' src='/images/record/suggest.svg'></image>
+      <view class='content'>这是您第
+        <text>3</text>天连续登陆运动达人</view>
+    </view>
+  </view>
+</view>

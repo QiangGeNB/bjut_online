@@ -25,9 +25,9 @@ page{
   height: 15vw;
 }
 .title-image2{
-  width: 60vw;
-  height: 15vw;
-  margin-left: 21vw;
+  width: 80vw;
+  height: 20vw;
+  margin-left: 11vw;
   margin-top: 10vw; 
 }
 .sport-pic {
@@ -73,6 +73,6 @@ page{
   position: absolute;
   width: 12vw;
   height: 12vw;
-  top: 81.5vw;
+  top: 85vw;
   left: 45.5vw;
 }
