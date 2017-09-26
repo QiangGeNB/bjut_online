@@ -25,6 +25,7 @@ Page({
      */
     onLoad: function (options) {
       this.initPage();
+      app.GetSysInfo();
     },
 
     /**
