@@ -12,13 +12,8 @@ App({
             }
             return false;
         }
-
-        if (wx.getStorageSync('user_key')) {
-            console.log('缓存中存在user_key...');
-        } else {
-            console.log('缓存中不存在user_key...');
-            self.getUserKey();
-        }
+        //每次登陆时都向后台发送code验证bjut_id, 保证bjut_id 的实时性
+        self.getUserKey();
     },
 
     getLogin: function (getUserInfo) {
@@ -27,8 +22,6 @@ App({
                 // 成功获取code
                 if (res.code) {
                     console.log('获取 code 成功...');
-                    console.log(res.code);
-                    //getUserInfo(res.code);
                 }
             }
         });
@@ -50,8 +43,6 @@ App({
                 };
                 // 发送 getuserkey 请求（有点复杂）
                 self.SendRequest('/api/get_user_key', code_userInfo, function (res) {
-                    console.log('/api/get_user_key response success...');
-                    console.log(res.data);
                     res = res.data;
                     if (res.errno == '0') {
                         console.log('user_key存入缓存...');
@@ -102,6 +93,7 @@ App({
         + date.getMinutes() + '分';
       return formate_result;
     },
+    // 获取设备高度and宽度
     GetSysInfo: function(){
       var self = this;
       wx.getSystemInfo({
@@ -114,6 +106,8 @@ App({
         complete: function(res) {},
       })
     },
+
+    
     globalData: {
         userInfo: null,
         ServerUrl: 'https://www.i-exshare.cn',

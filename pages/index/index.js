@@ -57,7 +57,7 @@ Page({
 
     },
     // 页面初始化函数
-    initPage() {
+    initPage: function() {
         self = this;
         app.SendRequest('/api/index_info', {}, self.initPage_request_suc);
     },

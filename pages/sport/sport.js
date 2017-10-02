@@ -171,7 +171,7 @@ Page({
   click_record: function(){
     console.log('click record...');
     wx.navigateTo({
-      url: '/pages/record/record',
+      url: '/pages/record2/record2',
       success: function(res) {},
       fail: function(res) {},
       complete: function(res) {},
