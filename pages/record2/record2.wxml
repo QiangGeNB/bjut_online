@@ -13,17 +13,25 @@
   <view class='content-wrapper'>
     <view class='content-item-wrapper'>
       <image class='front-icon front-icon-special' src='/images/record/schedule.svg'></image>
-      <view class='content'>这是您第
-        <text>3</text>天连续登陆运动达人</view>
+      <view class='content'>这是您第<text class='clock-in'>{{clock_in_count}}</text> 天连续登陆运动达人</view>
     </view>
     <view class='content-item-wrapper'>
       <image class='front-icon front-icon-special' src='/images/record/medal.svg'></image>
-      <view class='content'>
-        2017年8月12日，您走了22222步，击败了全校89%的人
+      <!--没获得冠军冠军-->
+      <view class='content' wx:if="{{school_champion_dates.length == 0}}">
+        您在{{most_step.date}}那天走了{{most_step.step}}步，击败了工大{{most_step.percent}}%的人
+      </view>
+      <!--获得一次冠军-->
+      <view class='content' wx:elif="{{school_champion_dates.length == 1}}">
+        {{school_champion_dates[0]}}，那天您第一次获得了全校冠军，成为了工大的运动达人！
+      </view>
+      <!--获得过多次冠军  -->
+      <view class='content' wx:else="{{school_champion_dates.length > 1}}">
+        自从使用工大运动达人以来，您已经连续 <text class='champion-count'>{{school_champion_dates.length}}</text> 次获得工大冠军！
       </view>
     </view>
     <view class='content-item-wrapper'>
-      <image class='front-icon' src='/images/record/crown.svg'></image>
+      <image class='front-icon front-icon-special' src='/images/record/crown.svg'></image>
       <view class='content'>您近七天的平均步数为19203</view>
     </view>
     <view class='content-item-wrapper'>

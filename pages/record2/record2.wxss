@@ -74,3 +74,15 @@ to {transform: scale(1.2,1.1); opacity: .8;}
   width: 65vw;
   font-size: 4vw;
 }
+.clock-in{
+  color: #FF4040;
+  font-size: 7vw;
+  font-weight: bold;
+  font-style: italic;
+}
+.champion-count{
+  color: #FFA500;
+  font-size: 7vw;
+  font-weight: bold;
+  font-style: italic;
+}
