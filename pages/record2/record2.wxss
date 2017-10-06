@@ -64,18 +64,17 @@ to {transform: scale(1.2,1.1); opacity: .8;}
   height: 6vw;
   display: inline-block;
   vertical-align: top;
-  margin-right: 2vw;
-}
-.front-icon-special{
+  margin-right: 1vw;
   margin-top: 1vw;
 }
 .content{
   display: inline-block;
-  width: 65vw;
+  /* width: 65vw; */
+  width: calc(100% - 8vw);
   font-size: 4vw;
 }
 .clock-in{
-  color: #FF4040;
+  color: #CC3333;
   font-size: 7vw;
   font-weight: bold;
   font-style: italic;
@@ -83,6 +82,12 @@ to {transform: scale(1.2,1.1); opacity: .8;}
 .champion-count{
   color: #FFA500;
   font-size: 7vw;
+  font-weight: bold;
+  font-style: italic;
+}
+.ave-step{
+  color: #99CC33;
+  font-size: 6vw;
   font-weight: bold;
   font-style: italic;
 }

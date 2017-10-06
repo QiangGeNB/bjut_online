@@ -12,24 +12,27 @@
 	"projectname": "bjut_online",
 	"condition": {
 		"weapp": {
-			"current": 0,
+			"current": 2,
 			"list": [
 				{
 					"id": -1,
 					"name": "运动界面",
 					"pathName": "pages/sport/sport",
+					"query": "",
 					"scene": "1001"
 				},
 				{
 					"id": -1,
 					"name": "记录界面",
 					"pathName": "pages/record/record",
+					"query": "",
 					"scene": "1001"
 				},
 				{
 					"id": -1,
 					"name": "记录界面2",
-					"pathName": "pages/record2/record2"
+					"pathName": "pages/record2/record2",
+					"query": ""
 				}
 			]
 		},

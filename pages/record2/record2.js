@@ -6,7 +6,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+    // 用户近七天平均步数
+    ave_step: 0
   },
 
   /**
@@ -33,6 +34,12 @@ Page({
         clock_in_count: temp.clockInCount,
         school_champion_dates: school_champion_dates
       });
+    });
+    // 获得近七天平均步数
+    app.SendRequest('/api/get_wx_avg_step_by_id', {'bjut_id': wx.getStorageSync('user_key')}, function(res) {
+      self.setData({
+        ave_step: res.data.data
+      })
     });
   },
   get_wx_avg_rank_request_suc: function (res) {
