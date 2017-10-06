@@ -17,21 +17,33 @@ Page({
    */
   onLoad: function (options) {
     var self = this;
+    // 获取用户运动信息
+    self.get_user_sport_relate_data();
+    // 用户打卡
+    self.user_clock_in();
+  },
+  // 打卡函数
+  user_clock_in: function(){
+    app.SendRequest('/api/clock_in', { 'bjut_id': wx.getStorageSync('user_key')}, function(res){
+      console.log('用户打卡回调函数...', res);
+    });
+  },
+  //登录 + 得到用户运动信息所需的相关秘钥 + 向后端请求获取运动信息
+  get_user_sport_relate_data: function () {
+    var self = this;
     wx.login({
       success: function (res) {
         let sport_code = res.code;
-        console.log('获取code成功:' , sport_code);
         wx.getWeRunData({
-          success (res) {
+          success(res) {
             var encryptedData = res.encryptedData;
             var iv = res.iv;
             var sport_data = {
-                bjut_id: wx.getStorageSync('user_key'),
-                code: sport_code,
-                encryptedData: encryptedData,
-                iv: iv
+              bjut_id: wx.getStorageSync('user_key'),
+              code: sport_code,
+              encryptedData: encryptedData,
+              iv: iv
             };
-            console.log('用户微信运动获取各项数据准备完成: ', sport_data);
             app.SendRequest('/api/get_wx_run_data', sport_data, self.sport_req_suc);
           }
         })
@@ -39,49 +51,17 @@ Page({
       fail: function (res) {
         console.log("获取code失败...");
       }
-    })
+    });
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
+  // 请求微信运动的回调函数
+  sport_req_suc: function (res) {
+    var self = this;
+    // 将运动首页数据付给my_sport_data
+    this.setData({
+      my_sport_data: res.data.sport_data,
+      userinfo: res.data.userinfo
+    });
   },
 
   /**
@@ -107,19 +87,7 @@ Page({
       }
     }
   },
-  // 请求微信运动的回调函数
-  sport_req_suc: function (res) {
-    var self = this;
-    console.log('this is sport callback:')
-    console.log(res);
 
-    // 将运动首页数据付给my_sport_data
-    this.setData({
-      my_sport_data: res.data.sport_data,
-      userinfo: res.data.userinfo
-    });
-
-  },
   click_sport_tab: function (e) {
     self = this;
     let sport_tab_index = e.currentTarget.dataset.sportTabIndex;

@@ -1,0 +1,48 @@
+{
+	"description": "项目配置文件。",
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": false,
+		"minified": true
+	},
+	"compileType": "weapp",
+	"libVersion": "1.5.3",
+	"appid": "wxbd2bf078a3d48007",
+	"projectname": "bjut_online",
+	"condition": {
+		"weapp": {
+			"current": 2,
+			"list": [
+				{
+					"id": -1,
+					"name": "运动界面",
+					"pathName": "pages/sport/sport",
+					"query": "",
+					"scene": "1001"
+				},
+				{
+					"id": -1,
+					"name": "记录界面",
+					"pathName": "pages/record/record",
+					"query": "",
+					"scene": "1001"
+				},
+				{
+					"id": -1,
+					"name": "记录界面2",
+					"pathName": "pages/record2/record2",
+					"query": ""
+				}
+			]
+		},
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		}
+	}
+}

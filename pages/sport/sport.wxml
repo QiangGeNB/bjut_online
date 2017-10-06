@@ -6,7 +6,7 @@
     <image class="head-back" src="/images/sport/titleback3.jpg" mode="aspectFill"></image>
     <view class="head-back-filter"></view>
 
-    <!--个人记录部分  -->
+    <!--个人记录部分 (奖杯) -->
     <view class='my_record_wrapper' bindtap='click_record'>
       <image class='record_cup' src="/images/icon/cup.png" mode="aspectFill"></image>
       <view class='cup_shadow'></view>
