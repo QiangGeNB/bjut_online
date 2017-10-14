@@ -66,15 +66,11 @@ Page({
 
     },
     initPage: function () {
+      console.log('this is hahah');
         self = this;
         var user_key = wx.getStorageSync('user_key');
         var send_data = { bjut_id: user_key };
-        if (user_key == undefined) {
-            app.getUserKey();
-            app.SendRequest('/api/get_user_info', { bjut_id: wx.getStorageSync('user_key') }, self.get_user_info_request_suc);
-        } else {
-            app.SendRequest('/api/get_user_info', send_data, self.get_user_info_request_suc);
-        }
+        app.SendRequest('/api/get_user_info', send_data, self.get_user_info_request_suc);
     },
     // 收到查询结果回调函数
     get_user_info_request_suc: function (res) {
@@ -107,7 +103,6 @@ Page({
             join_act: res.data.join_activity,
             fav_act: res.data.coll_activity
         });
-
     },
     click_join: function () {
         this.setData({
@@ -125,16 +120,19 @@ Page({
             url: '/pages/detail/detail?actid=' + actid,
         });
     },
+    // 
     click_sign: function () {
         wx.navigateTo({
             url: '/pages/auth/auth'
         })
     },
+    // 点击头像跳转设置界面
     update_info: function(e) {
       wx.navigateTo({
         url: '/pages/update_info/update_info',
       })
     },
+    // 格式化时间（年月日）
     formate_date: function (date) {
         let month_add = date.getMonth() + 1;
         var formate_result = date.getFullYear() + '年'
