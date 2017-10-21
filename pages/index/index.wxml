@@ -1,77 +1,74 @@
 <import src="/template/activity_item/activity_item.wxml" />
 <import src="/template/rank_item/rank_item.wxml" />
 <view class="page">
-    <!--收缩框-->
-    <view class="search-wrapper {{show_search_back?'search-wrapper-blue':''}}">
-        <view class="side-list iconfont icon-list {{show_search_back?'side-list-white':''}}" bindtap="open_side_list"></view>
-        <view class="search-button" bindtap="click_search">
-            <view class="iconfont icon-sousuo"></view>
-            搜索活动
+  <!--收缩框-->
+  <view class="search-wrapper {{show_search_back?'search-wrapper-blue':''}}">
+    <view class="side-list iconfont icon-list {{show_search_back?'side-list-white':''}}" bindtap="open_side_list"></view>
+    <view class="search-button" bindtap="click_search">
+      <view class="iconfont icon-sousuo"></view>
+      搜索活动
+    </view>
+  </view>
+  <view class="page-bottom">
+    <view class="side-list-wrapper">
+      <view class="list-item" data-list-index="1" bindtap="click_side_item">
+        <view class="iconfont icon-act"></view>
+        <text>学生活动</text>
+      </view>
+      <view class="list-item" data-list-index="2" bindtap="click_side_item">
+        <view class="iconfont icon-run"></view>
+        <text>运动达人</text>
+      </view>
+      <view class="botton-item1" data-list-index="7" bindtap="click_side_item">
+        <view class="iconfont icon-setting"></view>
+        <text>设置</text>
+      </view>
+      <view class="botton-item2" data-list-index="5" bindtap="click_side_item">
+        <view class="iconfont icon-connect"></view>
+        <text>联系我们</text>
+      </view>
+      <view class="botton-item3" data-list-index="6" bindtap="click_side_item">
+        <view class="iconfont icon-about"></view>
+        <text>关于我们</text>
+      </view>
+    </view>
+  </view>
+  <!--活动详情界面-->
+  <view wx:if="{{page_index == 1}}" class="page-top {{open ? 'c-state1' : ''}}">
+    <view wx:if="{{open}}" class="filter" bindtap="click_filter"></view>
+    <scroll-view scroll-y="true" bindscroll="bindscroll" bindscrolltoupper="reach_top">
+    <!--轮播图-->
+      <view class="swiper-wrapper">
+        <swiper class="swiper" indicator-dots="true">
+          <block wx:for="{{swiper}}">
+            <swiper-item>
+              <image src="{{item.url}}" mode="aspectFill" class="slide-image" data-actid="{{item.actid}}" bindtap="click_activity" />
+            </swiper-item>
+          </block>
+        </swiper>
+      </view>
+      <!-- 选择条形栏  -->
+      <view class="tag-wrapper">
+        <view class="tag {{tag_select == 0 ? 'tag-select':''}}" data-tag-index="0" catchtap="click_tag">
+          <view class="iconfont icon-quanbu"></view>
+          <view class="tag-text">全部</view>
         </view>
-    </view>
-    <view class="page-bottom">
-        <view class="side-list-wrapper">
-            <view class="list-item" data-list-index="1" bindtap="click_side_item">
-                <view class="iconfont icon-act"></view>
-                <text>学生活动</text>
-            </view>
-            <view class="list-item" data-list-index="2" bindtap="click_side_item">
-                <view class="iconfont icon-run"></view>
-                <text>运动达人</text>
-            </view>
-            <view class="botton-item1" data-list-index="7" bindtap="click_side_item">
-                <view class="iconfont icon-setting"></view>
-                <text>设置</text>
-            </view>
-            <view class="botton-item2" data-list-index="5" bindtap="click_side_item">
-                <view class="iconfont icon-connect"></view>
-                <text>联系我们</text>
-            </view>
-            <view class="botton-item3" data-list-index="6" bindtap="click_side_item">
-                <view class="iconfont icon-about"></view>
-                <text>关于我们</text>
-            </view>
+        <view class="tag {{tag_select == 1 ? 'tag-select':''}}" data-tag-index="1" catchtap="click_tag">
+          <view class="iconfont icon-xueshu"></view>
+          <view class="tag-text">学术活动</view>
         </view>
-    </view>
-    <!--活动详情界面-->
-    <view wx:if="{{page_index == 1}}" class="page-top {{open ? 'c-state1' : ''}}">
-        <view wx:if="{{open}}" class="filter" bindtap="click_filter"></view>
-        <!--轮播图-->
-        <scroll-view scroll-y="true" bindscroll="bindscroll" bindscrolltoupper="reach_top">
-            <view class="swiper-wrapper">
-                <swiper class="swiper" indicator-dots="true">
-                    <block wx:for="{{swiper}}">
-                        <swiper-item>
-                            <image src="{{item.url}}" mode="aspectFill" class="slide-image" data-actid="{{item.actid}}" bindtap="click_activity" />
-                        </swiper-item>
-                    </block>
-                </swiper>
-                <!-- <swiper class="swiper" indicator-dots="true">
-          <swiper-item>
-            <image src="/images/swiper/1.jpg" mode="aspectFill" class="slide-image" data-actid="{{item.actid}}" bindtap="click_activity" />
-          </swiper-item>
-        </swiper> -->
-            </view>
-            <view class="tag-wrapper">
-                <view class="tag {{tag_select == 0 ? 'tag-select':''}}" data-tag-index="0" catchtap="click_tag">
-                    <view class="iconfont icon-quanbu"></view>
-                    <view class="tag-text">全部</view>
-                </view>
-                <view class="tag {{tag_select == 1 ? 'tag-select':''}}" data-tag-index="1" catchtap="click_tag">
-                    <view class="iconfont icon-xueshu"></view>
-                    <view class="tag-text">学术活动</view>
-                </view>
-                <view class="tag {{tag_select == 2 ? 'tag-select':''}}" data-tag-index="2" catchtap="click_tag">
-                    <view class="iconfont icon-zhidao"></view>
-                    <view class="tag-text">新生指导</view>
-                </view>
-            </view>
-            <block wx:for="{{activity_data}}">
-                <view wx:if="{{item.activityType == tag_select || tag_select==0}}" data-actid="{{item.activityID}}" bindtap="click_activity">
-                    <view class="gap"></view>
-                    <template is="activity_item" data="{{...item}}" />
-                </view>
-            </block>
-        </scroll-view>
-    </view>
+        <view class="tag {{tag_select == 2 ? 'tag-select':''}}" data-tag-index="2" catchtap="click_tag">
+          <view class="iconfont icon-zhidao"></view>
+          <view class="tag-text">新生指导</view>
+        </view>
+      </view>
+      <!--活动  -->
+      <block wx:for="{{activity_data}}">
+        <view wx:if="{{item.activityType == tag_select || tag_select==0}}" data-actid="{{item.activityID}}" bindtap="click_activity">
+          <view class="gap"></view>
+          <template is="activity_item" data="{{...item}}" />
+        </view>
+      </block>
+    </scroll-view>
+  </view>
 </view>
