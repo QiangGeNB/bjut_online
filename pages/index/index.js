@@ -26,8 +26,17 @@ Page({
   onLoad: function (options) {
     this.initPage();
     app.GetSysInfo();
+    console.log(this.test(1));
   },
-
+  test: function(chenl){
+    this.test2(chenl);
+    return chenl;
+  },
+  test2: function(c) {
+    for(let i=1; i< 199; i++){
+      c = c + i;
+    }
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

@@ -15,7 +15,6 @@ App({
         //每次登陆时都向后台发送code验证bjut_id, 保证bjut_id 的实时性
         self.getUserKey();
     },
-  //o4D4P0c1k0jAlcQgBOr8HeEx8cS0
     getLogin: function (getUserInfo) {
         wx.login({
             success: function (res) {

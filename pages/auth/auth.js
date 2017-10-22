@@ -37,10 +37,9 @@ Page({
             }
             var academy = res.data.data[0].academy
             academy.shift();
-            //academy.unshift(academy[academy.length-1]);
             that.setData({
                 academy : academy,
-            })
+            });
             var names = [];
             for (var i = 0; i < academy.length; i++) {
                 names.push(academy[i].academy_name);
