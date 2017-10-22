@@ -33,6 +33,12 @@
 					"name": "记录界面2",
 					"pathName": "pages/record2/record2",
 					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "123",
+					"pathName": "pages/detail/detail",
+					"query": ""
 				}
 			]
 		},
