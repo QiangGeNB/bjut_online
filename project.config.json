@@ -7,12 +7,12 @@
 		"minified": true
 	},
 	"compileType": "weapp",
-	"libVersion": "1.5.3",
+	"libVersion": "1.6.0",
 	"appid": "wxbd2bf078a3d48007",
 	"projectname": "bjut_online",
 	"condition": {
 		"weapp": {
-			"current": -1,
+			"current": 2,
 			"list": [
 				{
 					"id": -1,

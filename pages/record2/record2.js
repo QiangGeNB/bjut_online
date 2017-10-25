@@ -41,6 +41,30 @@ Page({
         ave_step: res.data.data
       })
     });
+    // 在没有获得冠军的情况下 获取最优记录
+    app.SendRequest('/api/get_best_rank_by_bjut_id', { 'bjut_id': wx.getStorageSync('user_key') }, function(res){
+      console.log('this is best success');
+      console.log(res);
+      
+      if(res.data.data == null){
+        self.setData({
+          best_mark: false
+        });
+      } else {
+        var date_list =[];
+        
+        var best_record = res.data.data.ranks;
+        date_list.push(best_record.date);
+        var best_date = self.date_formate(date_list);
+        self.setData({
+          best_date: best_date[0],
+          best_rank: best_record.rank,
+          best_percentage: best_record.defeatPercentage,
+          best_mark: true
+        });
+      }
+
+    });
   },
   get_wx_avg_rank_request_suc: function (res) {
     console.log('this is get_wx_avg_rank_request_suc...');

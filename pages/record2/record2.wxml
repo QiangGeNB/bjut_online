@@ -19,7 +19,9 @@
       <image class='front-icon' src='/images/record/medal.svg'></image>
       <!--没获得冠军冠军-->
       <view class='content' wx:if="{{school_champion_dates.length == 0}}">
-        您在{{most_step.date}}那天走了{{most_step.step}}步，击败了工大{{most_step.percent}}%的人
+        <text wx:if='{{!best_mark}}'>暂无记录</text>
+        <text wx:else>您在{{best_date}}那天名次为第{{best_rank}}名，击败了工大{{best_percentage}}%的人</text>
+        
       </view>
       <!--获得一次冠军-->
       <view class='content' wx:elif="{{school_champion_dates.length == 1}}">
