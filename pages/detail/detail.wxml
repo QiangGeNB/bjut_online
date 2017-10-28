@@ -21,7 +21,7 @@
   <!--活动信息页面-->
   <view wx:if="{{tag_select == 1}}" class="act-info-wrapper">
     <view class="tr tr-blue">
-      <view class="td1">活动时间</view>
+      <view class="td1">截止时间</view>
       <view class="td2">{{formate_act_date}}</view>
     </view>
     <view class="tr">
