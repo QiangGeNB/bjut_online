@@ -35,10 +35,16 @@
 					"query": ""
 				},
 				{
-					"id": -1,
-					"name": "123",
+					"id": 4,
+					"name": "活动详情页面",
 					"pathName": "pages/detail/detail",
-					"query": ""
+					"query": "actid=2"
+				},
+				{
+					"id": 4,
+					"name": "退出活动界面",
+					"pathName": "pages/quit_activity/quit_activity",
+					"query": "actid=2&act_title=乔布斯演讲我是个测试题目塑料科技电话费了看见爱上"
 				}
 			]
 		},

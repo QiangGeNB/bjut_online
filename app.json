@@ -14,7 +14,8 @@
     "pages/contact_us/contact_us",
     "pages/about_us/about_us",
     "pages/record/record",
-    "pages/record2/record2"
+    "pages/record2/record2",
+    "pages/quit_activity/quit_activity"
   ],
   "window": {
     "backgroundTextStyle": "light",
