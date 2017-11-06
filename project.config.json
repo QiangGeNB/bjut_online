@@ -12,7 +12,7 @@
 	"projectname": "bjut_online",
 	"condition": {
 		"weapp": {
-			"current": -1,
+			"current": 4,
 			"list": [
 				{
 					"id": -1,
@@ -39,6 +39,11 @@
 					"name": "123",
 					"pathName": "pages/detail/detail",
 					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "auth",
+					"pathName": "pages/auth/auth"
 				}
 			]
 		},
