@@ -194,9 +194,7 @@ Page({
     sign_suc: function (res) {
         console.log('注册学生信息返回成功:');
         console.log(res);
-        // if(erron == 0){
         if (1) {
-            //if(res.sign == true){
             if (1) {
                 wx.showToast({
                     title: '注册成功！',

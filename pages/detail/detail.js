@@ -131,75 +131,83 @@ Page({
   // 点击参加按钮，参加或者退出活动
   click_join: function () {
     self = this;
-    let temp_join = this.data.has_join;
-
+    var temp_join = this.data.has_join;
+    
     var join_data = {
       bjut_id: wx.getStorageSync('user_key'),
       activityID: self.data.actid
     };
     // 发送 参加/取消 活动请求
-    if (temp_join == true) {
-      app.SendRequest('/api/quit_activity', join_data, function (res) {
-        console.log('取消活动返回信息收到...');
-        if (res.data.erron) {
-          wx.showToast({
-            title: '服务器出错',
-            icon: 'fail'
-          });
-        } else {
-          wx.showToast({
-            title: '取消活动成功',
-            icon: 'success'
-          });
-          self.setData({
-            has_join: !temp_join
-          });
+    if (temp_join == true) { // 取消活动
+      wx.showModal({
+        title: '退出活动',
+        content: '您确定要退出活动？',
+        success: function(res){
+          if(res.confirm) {
+            console.log('用户点击取消活动...');
+            wx.navigateTo({
+              url: '/pages/quit_activity/quit_activity?actid=' + self.data.actid + "&act_title=" + self.data.detail_data.activityTitle,
+            })
+          }
         }
-      });
+      })
+      
     } else {
-      app.SendRequest('/api/join_activity', join_data, function (res) {
-        console.log('参加活动返回信息收到...');
-        let erron = res.data.erron;
-        let has_stu_id = res.data.has_stu_id;
-        let verify_state = res.data.verify_state;
-        console.log(verify_state)
-        if (erron) {
-          wx.showToast({
-            title: '服务器出错',
-            image: '/images/icon/cry.svg'
-          });
-        } else if (verify_state == 2) {
-          wx.showModal({
-            title: '提示',
-            content: '对不起，您还没通过学生验证',
-            confirmText: '去验证',
-            success: function (res) {
-              if (res.confirm) {
-                wx.navigateTo({
-                  url: '/pages/auth/auth'
-                });
-              }
-            }
-          });
-        } else if (verify_state == 1){
-          wx.showModal({
-            title: '提示',
-            content: '您的学生验证信息正在认证中，暂时不能参加活动，请等待管理员通过认证。',
-            confirmText: '确定',
-            success: function (res) {}
-          });
-        }else{
-          wx.showToast({
-            title: '参加活动成功',
-            icon: 'success'
-          });
-          self.setData({
-            has_join: !temp_join
-          });
+      wx.showModal({
+        title: '确定参加活动',
+        content: '您确定参加活动吗？参加活动后则不能随意退出活动，需提交相应的退出申请。',
+        confirmText: '确认参加',
+        success: function (res) {
+          if (res.confirm){
+            console.log('用户点击了确认参加');
+            app.SendRequest('/api/join_activity', join_data, self.join_activity_callback);
+          } else {
+            console.log('用户点击了取消');
+          }
         }
       });
     }
-
+  },
+  join_activity_callback: function(res){
+    console.log('参加活动返回信息收到...');
+    console.log(res);
+    let erron = res.data.erron;
+    let has_stu_id = res.data.has_stu_id;
+    let verify_state = res.data.verify_state;
+    if (erron) {
+      wx.showToast({
+        title: '服务器出错',
+        image: '/images/icon/cry.svg'
+      });
+    } else if (verify_state == 2) {
+      wx.showModal({
+        title: '提示',
+        content: '对不起，您还没通过学生验证',
+        confirmText: '去验证',
+        success: function (res) {
+          if (res.confirm) {
+            wx.navigateTo({
+              url: '/pages/auth/auth'
+            });
+          }
+        }
+      });
+    } else if (verify_state == 1) {
+      wx.showModal({
+        title: '提示',
+        content: '您的学生验证信息正在认证中，暂时不能参加活动，请等待管理员通过认证。',
+        confirmText: '确定',
+        success: function (res) { }
+      });
+    } else {
+      wx.showToast({
+        title: '参加活动成功',
+        icon: 'success'
+      });
+      self.setData({
+        has_join: !self.data.has_join
+      });
+    }
   },
   click_fav: function () {
     let temp_fav = this.data.has_fav;

@@ -9,10 +9,10 @@
 	"compileType": "weapp",
 	"libVersion": "1.6.0",
 	"appid": "wxbd2bf078a3d48007",
-	"projectname": "bjut_online",
+	"projectname": "bjut",
 	"condition": {
 		"weapp": {
-			"current": 4,
+			"current": -1,
 			"list": [
 				{
 					"id": -1,
@@ -43,7 +43,8 @@
 				{
 					"id": -1,
 					"name": "auth",
-					"pathName": "pages/auth/auth"
+					"pathName": "pages/auth/auth",
+					"query": ""
 				}
 			]
 		},
