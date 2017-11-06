@@ -91,3 +91,13 @@ to {transform: scale(1.2,1.1); opacity: .8;}
   font-weight: bold;
   font-style: italic;
 }
+
+.remark{
+  margin: 5vw 7.5vw;
+  padding: 0 5vw;
+  width: calc(100%-10vw);
+  font-size: 3vw;
+}
+.remark view{
+  line-height: 5vw;
+}

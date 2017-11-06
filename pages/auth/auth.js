@@ -37,10 +37,9 @@ Page({
             }
             var academy = res.data.data[0].academy
             academy.shift();
-            //academy.unshift(academy[academy.length-1]);
             that.setData({
                 academy : academy,
-            })
+            });
             var names = [];
             for (var i = 0; i < academy.length; i++) {
                 names.push(academy[i].academy_name);
@@ -195,9 +194,7 @@ Page({
     sign_suc: function (res) {
         console.log('注册学生信息返回成功:');
         console.log(res);
-        // if(erron == 0){
         if (1) {
-            //if(res.sign == true){
             if (1) {
                 wx.showToast({
                     title: '注册成功！',

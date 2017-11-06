@@ -21,7 +21,7 @@
   <!--活动信息页面-->
   <view wx:if="{{tag_select == 1}}" class="act-info-wrapper">
     <view class="tr tr-blue">
-      <view class="td1">活动时间</view>
+      <view class="td1">截止时间</view>
       <view class="td2">{{formate_act_date}}</view>
     </view>
     <view class="tr">
@@ -51,7 +51,7 @@
   <view class="footer">
     <view class=" button-common {{has_join == false?'un-has':'has'}}" bindtap="click_join">
       <image class="button-icon" src="{{has_join == false?'/images/detail/join.svg':'/images/detail/has_join.svg'}}"></image>
-      <text class="button-text">{{has_join == false?'现在参加':'已参加'}}</text>
+      <text class="button-text">{{has_join == false?'现在参加':'退出活动'}}</text>
     </view>
     <view class=" button-common {{has_fav == false?'un-has':'has'}}" bindtap="click_fav">
       <image class="button-icon" src="{{has_fav == false?'/images/detail/fav.svg':'/images/detail/has_fav.svg'}}"></image>

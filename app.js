@@ -1,6 +1,7 @@
 //app.js
 App({
     onLaunch: function () {
+      console.log('this is onlauch')
         self = this;
         // 添加数组包含方法
         Array.prototype.contains = function (obj) {
@@ -15,13 +16,21 @@ App({
         //每次登陆时都向后台发送code验证bjut_id, 保证bjut_id 的实时性
         self.getUserKey();
     },
-  //o4D4P0c1k0jAlcQgBOr8HeEx8cS0
-    getLogin: function (getUserInfo) {
+    // 获取 user_key
+    getUserKey: function () {
+      self = this;
+      self.getLogin(self.getUserInfo);
+    },
+    getLogin: function (login_success_cb) {
+      console.log('this is app login...');
         wx.login({
             success: function (res) {
                 // 成功获取code
                 if (res.code) {
                     console.log('获取 code 成功...');
+                    login_success_cb(res.code);
+                } else {
+                  console.log("app getLogin function: 获取code失败...");
                 }
             }
         });
@@ -33,10 +42,8 @@ App({
         wx.getUserInfo({
             success: function (res) {
                 console.log('获取 userInfo 成功...');
-                console.log(res);
                 res.userInfo.studentID = '';
                 wx.setStorageSync('userinfo', res.userInfo);
-                // self.sendRequest(code, res.userInfo);
                 var code_userInfo = {
                     code: code,
                     userInfo: res.userInfo
@@ -44,9 +51,12 @@ App({
                 // 发送 getuserkey 请求（有点复杂）
                 self.SendRequest('/api/get_user_key', code_userInfo, function (res) {
                     res = res.data;
+                    // 后台存入用户数据并返回bjut_id，前端存入缓存
                     if (res.errno == '0') {
                         console.log('user_key存入缓存...');
                         wx.setStorageSync('user_key', res.data);
+                        // 获取用户运动信息（此时code并没有过期）
+                        self.GetRunData(code);
                     }
                 });
             },
@@ -55,18 +65,32 @@ App({
             }
         })
     },
-    // 获取 user_key
-    getUserKey: function () {
-        self = this;
-        wx.login({
-            success: function (res) {
-                var code = res.code;
-                console.log(code);
-                if (code) {
-                    self.getUserInfo(code);
-                }
+    // 传入user的code（login获取），获取用户的 获取运动必要解密信息 并发往后端进行获取并存储
+    GetRunData: function (sport_code){
+      self = this;
+      wx.login({
+        success: function (res) {
+          let sport_code = res.code;
+          wx.getWeRunData({
+            success(res) {
+              var encryptedData = res.encryptedData;
+              var iv = res.iv;
+              var sport_data = {
+                bjut_id: wx.getStorageSync('user_key'),
+                code: sport_code,
+                encryptedData: encryptedData,
+                iv: iv
+              };
+              self.SendRequest('/api/get_wx_run_data', sport_data, function(res){
+                console.log('app getrundata success!');
+              });
             }
-        });
+          })
+        },
+        fail: function (res) {
+          console.log("app getrundata: 获取code失败...");
+        }
+      });
     },
     SendRequest: function(url, data, success_cb){
         console.log(url + ' is sending request...');
@@ -98,7 +122,6 @@ App({
       var self = this;
       wx.getSystemInfo({
         success: function(res) {
-          console.log(res.screenHeight);
           wx.setStorageSync('sys_info_height', res.screenHeight);
           wx.setStorageSync('sys_info_width', res.screenWidth);
         },
@@ -107,7 +130,6 @@ App({
       })
     },
 
-    
     globalData: {
         userInfo: null,
         //ServerUrl: 'https://www.i-exshare.cn',

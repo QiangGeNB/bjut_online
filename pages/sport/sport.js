@@ -29,6 +29,7 @@ Page({
     });
   },
   //登录 + 得到用户运动信息所需的相关秘钥 + 向后端请求获取运动信息
+  // 登录-->获取code-->wx.getWeRunData() 获取encryptedData&iv -->发送数据到后台
   get_user_sport_relate_data: function () {
     var self = this;
     wx.login({
@@ -110,10 +111,6 @@ Page({
         });
         app.SendRequest('/api/find_all_info_by_action', { action: 'academy' }, function (res) {
           var academy = res.data.data[0].academy;
-          //var academy_temp = academy[1];
-          //var academy_xxxb = academy[academy.length - 1];
-         //academy[academy.length - 1] = academy_temp;
-          //academy[1] = academy_xxxb;
           self.setData({
             academy: academy
           })
