@@ -4,15 +4,24 @@
 		"urlCheck": false,
 		"es6": true,
 		"postcss": false,
-		"minified": true
+		"minified": true,
+		"newFeature": true
 	},
-	"compileType": "weapp",
+	"compileType": "miniprogram",
 	"libVersion": "1.6.0",
 	"appid": "wxbd2bf078a3d48007",
 	"projectname": "bjut_online",
 	"condition": {
-		"weapp": {
+		"search": {
 			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 5,
 			"list": [
 				{
 					"id": -1,
@@ -45,16 +54,13 @@
 					"name": "退出活动界面",
 					"pathName": "pages/quit_activity/quit_activity",
 					"query": "actid=2&act_title=乔布斯演讲我是个测试题目塑料科技电话费了看见爱上"
+				},
+				{
+					"id": -1,
+					"name": "注册界面",
+					"pathName": "pages/auth/auth"
 				}
 			]
-		},
-		"search": {
-			"current": -1,
-			"list": []
-		},
-		"conversation": {
-			"current": -1,
-			"list": []
 		}
 	}
 }

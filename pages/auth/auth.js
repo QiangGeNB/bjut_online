@@ -13,6 +13,8 @@ Page({
         index_year: 0,
         verify_state: 3,
         stu_image : [],
+        school_names:["北京工业大学", "北京传媒大学", "首都经济贸易大学"],
+        index_school: 0
     },
 
     /**
@@ -108,6 +110,12 @@ Page({
         this.setData({
             index_year: e.detail.value
         });
+    },
+    // 学校的选择
+    school_picker: function (e) {
+      this.setData({
+        index_school: e.detail.value
+      });
     },
     // 点击上传按钮
     form_submit: function (e) {
@@ -218,4 +226,5 @@ Page({
             }
         })
     },
+
 })

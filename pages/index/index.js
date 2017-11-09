@@ -59,6 +59,10 @@ Page({
   initPage: function () {
     self = this;
     app.SendRequest('/api/index_info', {}, self.initPage_request_suc);
+    this.setData({
+      index_step: wx.getStorageSync('day_step'),
+      index_schoolrank: wx.getStorageSync('schoolrank')
+    });
   },
   // 请求成功回调函数
   initPage_request_suc: function (res) {
@@ -183,5 +187,11 @@ Page({
     this.setData({
       open: false
     });
+  },
+  //点击首页活动信息条
+  click_sport_info: function(){
+    wx.navigateTo({
+      url: '/pages/sport/sport',
+    })
   }
 })

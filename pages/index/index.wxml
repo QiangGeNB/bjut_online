@@ -9,6 +9,7 @@
       搜索活动
     </view>
   </view>
+  
   <view class="page-bottom">
     <view class="side-list-wrapper">
       <view class="list-item" data-list-index="1" bindtap="click_side_item">
@@ -39,6 +40,11 @@
     <scroll-view scroll-y="true" bindscroll="bindscroll" bindscrolltoupper="reach_top">
     <!--轮播图-->
       <view class="swiper-wrapper">
+        <!-- 运动信息通知栏  -->
+        <view class='sport-info-wrapper' bindtap='click_sport_info'>
+          <view class='iconfont icon-info'></view>
+          <view class='sport-info-content '>您今天走了 <text class='index-step'>{{index_step}}</text> 步，在学校中排第 <text class='index-step'>{{index_schoolrank}}</text> 名 (点我跳转)</view>
+        </view>
         <swiper class="swiper" indicator-dots="true">
           <block wx:for="{{swiper}}">
             <swiper-item>

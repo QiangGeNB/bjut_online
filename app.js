@@ -83,6 +83,15 @@ App({
               };
               self.SendRequest('/api/get_wx_run_data', sport_data, function(res){
                 console.log('app getrundata success!');
+                console.log(res);
+                wx.setStorage({
+                  key: 'day_step',
+                  data: res.data.sport_data.step,
+                });
+                wx.setStorage({
+                  key: 'schoolrank',
+                  data: res.data.sport_data.schoolrank,
+                });
               });
             }
           })
@@ -132,8 +141,8 @@ App({
 
     globalData: {
         userInfo: null,
-        //ServerUrl: 'https://www.i-exshare.cn',
-        ServerUrl:'http://127.0.0.1:3000',
+        ServerUrl: 'https://www.i-exshare.cn',
+        //ServerUrl:'http://127.0.0.1:3000',
         academy: [
           {
             "_id": "598b0494fb89956113a5f19f",
