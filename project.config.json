@@ -10,7 +10,7 @@
 	"compileType": "miniprogram",
 	"libVersion": "1.6.0",
 	"appid": "wxbd2bf078a3d48007",
-	"projectname": "bjut_online",
+	"projectname": "bjut",
 	"condition": {
 		"search": {
 			"current": -1,
@@ -44,10 +44,10 @@
 					"query": ""
 				},
 				{
-					"id": 4,
-					"name": "活动详情页面",
+					"id": -1,
+					"name": "123",
 					"pathName": "pages/detail/detail",
-					"query": "actid=2"
+					"query": ""
 				},
 				{
 					"id": 4,
@@ -59,6 +59,7 @@
 					"id": -1,
 					"name": "注册界面",
 					"pathName": "pages/auth/auth"
+
 				}
 			]
 		}

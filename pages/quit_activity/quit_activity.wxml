@@ -24,7 +24,7 @@
         <text>{{quit_reason[index_reason]}}</text>
       </picker>
     </view>
-    <view class='reason-text' wx:if="{{index_reason==5}}">
+    <view class='reason-text' wx:if="{{index_reason==4}}">
       <view class='reason-text-title'>* 其他原因：</view>
       <textarea name='reason_text' placeholder="placeholder颜色是红色的" placeholder-style="color:#C0C0C0; font-size: 3.5vw;" />
     </view>
