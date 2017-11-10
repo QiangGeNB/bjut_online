@@ -20,7 +20,7 @@
       <!--没获得冠军冠军-->
       <view class='content' wx:if="{{school_champion_dates.length == 0}}">
         <text wx:if='{{!best_mark}}'>暂无记录</text>
-        <text wx:else>您在{{best_date}}那天名次为第{{best_rank}}名，击败了工大{{best_percentage}}%的人</text>
+        <text wx:else>您在{{best_date}}那天名次为第{{best_rank}}名,在{{defeat_date}}那天，您击败了工大{{defeat_percentage}}%的人</text>
         
       </view>
       <!--获得一次冠军-->

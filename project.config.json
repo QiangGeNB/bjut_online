@@ -21,7 +21,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": -1,
+			"current": 3,
 			"list": [
 				{
 					"id": -1,
@@ -44,9 +44,9 @@
 					"query": ""
 				},
 				{
-					"id": -1,
-					"name": "123",
-					"pathName": "pages/detail/detail",
+					"id": 3,
+					"name": "记录界面",
+					"pathName": "pages/record2/record2",
 					"query": ""
 				},
 				{
