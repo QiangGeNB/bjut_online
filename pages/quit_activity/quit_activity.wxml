@@ -26,7 +26,7 @@
     </view>
     <view class='reason-text' wx:if="{{index_reason==4}}">
       <view class='reason-text-title'>* 其他原因：</view>
-      <textarea name='reason_text' placeholder="placeholder颜色是红色的" placeholder-style="color:#C0C0C0; font-size: 3.5vw;" />
+      <textarea name='reason_text' placeholder="请填写您取消活动的原因" placeholder-style="color:#C0C0C0; font-size: 3.5vw;" />
     </view>
     <button type='warn' form-type='submit'>提交</button>
   </form>

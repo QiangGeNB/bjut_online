@@ -19,6 +19,8 @@ Page({
     });
     this.get_user_name();
   },
+  onShow: function(){
+  },
   reason_picker: function (e) {
     console.log('this is reason_picker');
     var r_index = e.detail.value;
@@ -30,7 +32,6 @@ Page({
     self = this;
     var send_data = { bjut_id: wx.getStorageSync('user_key') };
     app.SendRequest('/api/get_user_info', send_data, function (res) {
-      console.log(res.data.user_info)
       var user_info = res.data.user_info;
       self.setData({
         user_name: user_info.name,
@@ -42,17 +43,7 @@ Page({
   form_submit: function (e) {
     self = this;
     var quit_data = {};
-    // if (e.detail.value.reson_text){
-    //   quit_data = {
-    //     quit_reason: this.quit_reason[index_reason],
-    //     quit_reson_text: e.detail.value.reson_text
-    //   }
-    // } else {
-    //   quit_data = {
-    //     quit_reason: this.quit_reason[this.data.index_reason],
-    //     quit_reson_text: ""
-    //   }
-    // }
+
     if (this.data.index_reason == 0) {
       console.log("用户没有选择原因");
       wx.showModal({
@@ -74,7 +65,7 @@ Page({
           setTimeout(function () {
             wx.navigateTo({
               url: '/pages/detail/detail?actid=' + self.data.actid,
-            })
+            });
           }, 1500);
         } else {
           wx.showToast({
@@ -82,9 +73,10 @@ Page({
             icon: 'success'
           });
           setTimeout(function () {
-            wx.navigateTo({
-              url: '/pages/detail/detail?actid=' + self.data.actid,
-            })
+            wx.navigateBack({});
+            // wx.navigateTo({
+            //   url: '/pages/detail/detail?actid=' + self.data.actid,
+            // })
           }, 1500);
         }
       });
