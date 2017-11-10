@@ -20,9 +20,9 @@
       <!--没获得冠军冠军-->
       <view class='content' wx:if="{{school_champion_dates.length == 0}}">
         <text wx:if='{{!best_mark}}'>暂无记录</text>
-        <text wx:else>您在{{best_date}}那天名次为第{{best_rank}}名,在{{defeat_date}}那天，您击败了工大{{defeat_percentage}}%的人</text>
-        
+        <text wx:else>您最好的名次是在{{best_date}}那天获得的全校第{{best_rank}}名</text>
       </view>
+
       <!--获得一次冠军-->
       <view class='content' wx:elif="{{school_champion_dates.length == 1}}">
         {{school_champion_dates[0]}}，那天您第一次获得了全校冠军，成为了工大的运动达人！
@@ -30,6 +30,13 @@
       <!--获得过多次冠军  -->
       <view class='content' wx:else="{{school_champion_dates.length > 1}}">
         自从使用工大运动达人以来，您已经连续 <text class='champion-count'>{{school_champion_dates.length}}</text> 次获得工大冠军！
+      </view>
+    </view>
+    <view wx:if="{{school_champion_dates.length == 0}}"  class='content-item-wrapper'>
+      <image class='front-icon' src='/images/record/medal.svg'></image>
+      <view class='content'>
+        <text wx:if='{{!best_mark}}'>暂无记录</text>
+        <text wx:else>在{{defeat_date}}那天，您击败了工大{{defeat_percentage}}%的人</text>
       </view>
     </view>
     <view class='content-item-wrapper'>
