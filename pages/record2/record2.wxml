@@ -32,9 +32,9 @@
         自从使用工大运动达人以来，您已经连续 <text class='champion-count'>{{school_champion_dates.length}}</text> 次获得工大冠军！
       </view>
     </view>
-    <view class='content-item-wrapper'>
+    <view wx:if="{{school_champion_dates.length == 0}}"  class='content-item-wrapper'>
       <image class='front-icon' src='/images/record/medal.svg'></image>
-      <view class='content' wx:if="{{school_champion_dates.length == 0}}">
+      <view class='content'>
         <text wx:if='{{!best_mark}}'>暂无记录</text>
         <text wx:else>在{{defeat_date}}那天，您击败了工大{{defeat_percentage}}%的人</text>
       </view>
