@@ -120,8 +120,6 @@ Page({
         success: uploadFileSuccessedCallback,
         fail: function (res) { },
         complete: function (res) {
-          console.log('上传图片完成')
-          console.log(res)
         }
       });
     }
@@ -150,14 +148,12 @@ Page({
       if (!self.data.index_school) {
         // 填写学院信息
         student_data.academy = self.data.academy[page_data.academy].academy_number;
-        console.log('send bjut data:', student_data);
         app.SendRequest('/api/update_student', student_data, updateStudentSuccessCallback);
       } else { // 发送外校用户注册信息
         // 外校无学院，将学院置为-1
         student_data.academy = -1;
         // 通过 school_list 以及 index_school 查询 school_number
         student_data.school = self.data.school_list[self.data.index_school].school_number;
-        console.log('send other school data:', student_data);
         app.SendRequest('/api/update_student', student_data, updateStudentSuccessCallback);
       }
     }
@@ -183,15 +179,10 @@ Page({
   },
   sign_suc: function (res) {
     console.log('注册学生信息返回成功:');
-    console.log(res);
-    if (1) {
-      if (1) {
-        wx.showToast({
-          title: '注册成功！',
-          image: '/images/icon/success.svg'
-        });
-      }
-    }
+    wx.showToast({
+      title: '注册成功！',
+      image: '/images/icon/success.svg'
+    });
   },
   choose_image: function () {
     self = this;
