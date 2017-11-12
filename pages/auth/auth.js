@@ -38,7 +38,8 @@ Page({
         })
         return
       }
-      var academy = res.data.data[0].academy
+      var academy = res.data.data[0].academy;
+      // 去除全校
       academy.shift();
       that.setData({
         academy: academy,
@@ -55,6 +56,10 @@ Page({
     app.SendRequest('/api/other_school/all', {}, function (res) {
       console.log('this is /api/other_school/all callback...', res);
       var temp = res.data.data[0].other_school;
+      // 为schoolk_list 赋值，之后向后端发数据时查询school的school_number
+      that.setData({
+        school_list: temp,
+      });
       var school_list = [];
       for (let i = 0; i < temp.length; i++) {
         school_list.push(temp[i].school_name);
@@ -115,13 +120,12 @@ Page({
         success: uploadFileSuccessedCallback,
         fail: function (res) { },
         complete: function (res) {
-          console.log('上传图片完成')
-          console.log(res)
         }
       });
     }
-
+    // 上传图片成功后 上传其他信息
     function uploadFileSuccessedCallback(res) {
+      console.log('uploadFileSuccessedCallback...');
       var j_res;
       if (res.statusCode != 200 || (j_res = JSON.parse(res.data)).errno != 0) {
         wx.showToast({
@@ -146,7 +150,10 @@ Page({
         student_data.academy = self.data.academy[page_data.academy].academy_number;
         app.SendRequest('/api/update_student', student_data, updateStudentSuccessCallback);
       } else { // 发送外校用户注册信息
-        student_data.school = self.data.index_school;
+        // 外校无学院，将学院置为-1
+        student_data.academy = -1;
+        // 通过 school_list 以及 index_school 查询 school_number
+        student_data.school = self.data.school_list[self.data.index_school].school_number;
         app.SendRequest('/api/update_student', student_data, updateStudentSuccessCallback);
       }
     }
@@ -172,15 +179,10 @@ Page({
   },
   sign_suc: function (res) {
     console.log('注册学生信息返回成功:');
-    console.log(res);
-    if (1) {
-      if (1) {
-        wx.showToast({
-          title: '注册成功！',
-          image: '/images/icon/success.svg'
-        });
-      }
-    }
+    wx.showToast({
+      title: '注册成功！',
+      image: '/images/icon/success.svg'
+    });
   },
   choose_image: function () {
     self = this;
