@@ -3,7 +3,12 @@
     <!--标题栏-->
     <view class="title-wrapper">
         <view class="image-wrapper">
-            <image mode="aspectFit" class="act_icon" src="{{activityType == 1 ? '/images/icon/icon_xueshu.png':'/images/icon/icon_xinsheng.png'}}"></image>
+            <view wx:if="{{activityType == 1}}">
+              <image mode="aspectFit" class="act_icon" src="/images/icon/icon_xueshu.png"></image>
+            </view>
+            <view wx:if="{{activityType == 2}}">
+              <image mode="aspectFit" class="act_icon" src="/images/icon/icon_xinsheng.png"></image>
+            </view>
         </view>
         <view class="title">
             {{activityTitle}}

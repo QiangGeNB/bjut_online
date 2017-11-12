@@ -1,13 +1,12 @@
 <import src="/template/user_info_act_item/user_info_act_item.wxml" />
-
 <view class="all">
   <view class="header-wrapper">
-    <view bindtap="update_info">
-      <image class="avatar" src="{{student_info.avatarUrl}}"></image>
+    <view>
+      <image class="avatar" src="{{student_info.avatarUrl}}" bindtap="update_info"></image>
       <view class="nickname">{{student_info.nickName}}</view>
     </view>
-    <image wx:if="{{student_info.verify_state == '0'}}" class="sign" src="/images/userinfo/sign.png" ></image>
-    <image wx:if="{{student_info.verify_state == '1'}}" class="sign" src="/images/userinfo/signing.png" ></image>
+    <image wx:if="{{student_info.verify_state == '0'}}" class="sign" src="/images/userinfo/sign.png"></image>
+    <image wx:if="{{student_info.verify_state == '1'}}" class="sign" src="/images/userinfo/signing.png"></image>
     <image wx:if="{{student_info.verify_state == '2' || student_info.verify_state == '3'}}" class="sign" src="/images/userinfo/unsign.png" bindtap="click_sign"></image>
   </view>
   <view class="tab-wrapper">

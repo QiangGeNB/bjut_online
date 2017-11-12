@@ -92,7 +92,7 @@ Page({
     user_setting_success_cb: function (res) {
         console.log(res);
         wx.showToast({
-          title: '修改信息成功！',
+          title: '修改成功！',
           duration: 2000,
         });
         setTimeout(function () {

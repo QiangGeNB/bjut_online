@@ -5,9 +5,12 @@
   <view class="sport-wrapper">
     <image class="head-back" src="/images/sport/titleback3.jpg" mode="aspectFill"></image>
     <view class="head-back-filter"></view>
-    <!-- <view class="head-wrapper">
-      <image class="title-image" src="/images/sport/title.png"></image>
-    </view> -->
+
+    <!--个人记录部分 (奖杯) -->
+    <view class='my_record_wrapper' bindtap='click_record'>
+      <image class='record_cup' src="/images/icon/cup.png" mode="aspectFill"></image>
+      <view class='cup_shadow'></view>
+    </view>
     <!--头像 昵称 学院-->
     <view class="userinfo-wrapper">
       <image class="userinfo-avater" src="{{userinfo.avatar}}"></image>
@@ -30,7 +33,8 @@
     <!--我的排名-->
     <view class="myrank-wrapper" wx:if="{{sport_tab == 1}}">
       <view class="myrank-step-wrapper">
-        今天您已经走了 <text>{{my_sport_data.step}}</text> 步
+        今天您已经走了
+        <text>{{my_sport_data.step}}</text> 步
       </view>
       <view class="myrank-detail">
         <view class="myrank-item-wrapper">
@@ -40,8 +44,11 @@
             <view class="rank-gap">学院第一</view>
           </view>
           <view wx:else class="rank-gap">
-          <view class="rank-gap">距离学院上一名还差<text>{{my_sport_data.aca_gap}}<text class="bu">步</text></text>
-          </view>
+            <view class="rank-gap">距离学院上一名还差
+              <text>{{my_sport_data.aca_gap}}
+                <text class="bu">步</text>
+              </text>
+            </view>
           </view>
         </view>
         <view class="myrank-item-wrapper">
@@ -51,7 +58,10 @@
             <view class="rank-gap">全校第一</view>
           </view>
           <view wx:else class="rank-gap">
-            <view class="rank-gap">距离全校上一名还差<text>{{my_sport_data.bjut_gap}}<text class="bu">步</text></text>
+            <view class="rank-gap">距离全校上一名还差
+              <text>{{my_sport_data.bjut_gap}}
+                <text class="bu">步</text>
+              </text>
             </view>
           </view>
         </view>

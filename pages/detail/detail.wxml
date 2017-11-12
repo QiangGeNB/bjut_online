@@ -11,31 +11,24 @@
 
   <view class="tag-wrapper">
     <view class="tag {{tag_select == 0 ? 'tag-selected':''}}" data-tag-index="0" catchtap="click_tag">
-      <view class="tag-text">活动信息</view>
-    </view>
-    <view class="tag {{tag_select == 1 ? 'tag-selected':''}}" data-tag-index="1" catchtap="click_tag">
       <view class="tag-text">活动内容</view>
     </view>
+    <view class="tag {{tag_select == 1 ? 'tag-selected':''}}" data-tag-index="1" catchtap="click_tag">
+      <view class="tag-text">活动信息</view>
+    </view>
+
   </view>
   <!--活动信息页面-->
-  <view wx:if="{{tag_select == 0}}" class="act-info-wrapper">
+  <view wx:if="{{tag_select == 1}}" class="act-info-wrapper">
     <view class="tr tr-blue">
-      <view class="td1">活动时间</view>
+      <view class="td1">截止时间</view>
       <view class="td2">{{formate_act_date}}</view>
     </view>
     <view class="tr">
       <view class="td1">活动地点</view>
       <view class="td2">{{detail_data.activityLocation}}</view>
     </view>
-    <!-- <view class="tr tr-blue">
-      <view class="td1">活动时间</view>
-      <view class="td2">{{detail_data.duration}}分钟</view>
-    </view> -->
-    <view class="tr  tr-blue" wx:if="{{detail_data.activityReporter  != null && detail_data.activityReporter  != 'null'}}">
-      <view class="td1">主讲人</view>
-      <view class="td2">{{detail_data.activityReporter}}</view>
-    </view>
-    <view class="tr tr-blue" wx:if="{{detail_data.activityHolder != null && detail_data.activityHolder != 'null'}}">
+    <view class="tr tr-blue">
       <view class="td1">主办方</view>
       <view class="td2">{{detail_data.activityHolder}}</view>
     </view>
@@ -43,7 +36,7 @@
       <view class="td1">活动时长</view>
       <view class="td2">{{detail_data.duration}}分钟</view>
     </view>
-    <view wx:if="detail_data.joinStu.length > 5" class="tr  tr-blue">
+    <view wx:if="detail_data.joinStu.length > 5" class="tr tr-blue">
       <view class="td1">报名人数</view>
       <view class="td2">{{detail_data.joinStu.length}}人</view>
     </view>
@@ -52,18 +45,17 @@
     </view>
   </view>
   <!-- 活动内容界面  -->
-  <view wx:if="{{tag_select == 1}}" class="act-detail-wrapper">
+  <view wx:if="{{tag_select == 0}}" class="act-detail-wrapper">
     <rich-text nodes="{{detail_data.content}}"></rich-text>
   </view>
   <view class="footer">
     <view class=" button-common {{has_join == false?'un-has':'has'}}" bindtap="click_join">
       <image class="button-icon" src="{{has_join == false?'/images/detail/join.svg':'/images/detail/has_join.svg'}}"></image>
-      <text class="button-text">{{has_join == false?'现在参加':'已参加'}}</text>
+      <text class="button-text">{{has_join == false?'现在参加':'退出活动'}}</text>
     </view>
     <view class=" button-common {{has_fav == false?'un-has':'has'}}" bindtap="click_fav">
       <image class="button-icon" src="{{has_fav == false?'/images/detail/fav.svg':'/images/detail/has_fav.svg'}}"></image>
       <text class="button-text">{{has_fav == false?'收藏':'已收藏'}}</text>
-
     </view>
   </view>
 </view>

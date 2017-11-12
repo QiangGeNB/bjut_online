@@ -1,0 +1,33 @@
+<view>
+  <view class='header'>取消活动报名</view>
+  <view class='mark'>
+    <view>温馨提示：</view>
+    <view>1.本页面提交的内容是为了方便活动举办方统计参与人数，请您谅解</view>
+    <view>2.请您认真核对相关信息，认真填写取消活动原因</view>
+    <view>3.提交本页面后则可成功取消活动</view>
+  </view>
+  <view class='content'>
+    <view class='content-title'>相关信息：</view>
+    <view class='content-item'>
+      <view class='item-name'>退出活动名称：</view>
+      <view class='item-data'>{{act_title}}</view>
+      <view class='item-name'>相关联系人：</view>
+      <view class='item-data'>{{user_name}}</view>
+      <view class='item-name'>联系人学号：</view>
+      <view class='item-data'>{{student_id}}</view>
+    </view>
+  </view>
+  <form bindsubmit='form_submit'>
+    <view class='picker-rapper'>
+      <view class='picker-title'>退出理由</view>
+      <picker mode="selector" range="{{quit_reason}}" value="{{index_reason}}" bindchange="reason_picker">
+        <text>{{quit_reason[index_reason]}}</text>
+      </picker>
+    </view>
+    <view class='reason-text' wx:if="{{index_reason==4}}">
+      <view class='reason-text-title'>* 其他原因：</view>
+      <textarea name='reason_text' placeholder="请填写您取消活动的原因" placeholder-style="color:#C0C0C0; font-size: 3.5vw;" />
+    </view>
+    <button type='warn' form-type='submit'>提交</button>
+  </form>
+</view>

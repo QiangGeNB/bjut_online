@@ -1,0 +1,103 @@
+/* pages/record2/record2.wxss */
+.bg-wrapper > image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -10;
+  width: 100%;
+  height: 100%;
+}
+.title{
+  margin-top: 10vw;
+  text-align: center;
+  font-size: 10vw;
+}
+.my_record_wrapper {
+  margin-top: 5vw;
+}
+.record_cup{
+  width: 9vw;
+  height: 9vw;
+  margin: 2vw 45.5vw;
+  animation:move_cup .5s infinite;
+  animation-direction:alternate;
+  z-index: 200;
+}
+
+@keyframes move_cup
+{
+from {transform: translate(0,0vw);}
+to {transform: translate(0,-2vw);}
+}
+
+.cup_shadow{
+  margin: 0 auto;
+  margin-top: -2vw;
+  margin-bottom: 5vw;
+  padding: 0;
+  width: 7vw;
+  height: 2vw;
+  background-color: grey;
+  border-radius: 50%;
+  animation:cup_shadow .5s infinite;
+  animation-direction:alternate;
+}
+@keyframes cup_shadow
+{
+from {transform: scale(1,1); opacity: 1;}
+to {transform: scale(1.2,1.1); opacity: .8;}
+}
+
+.content-wrapper{
+  width: 75vw;
+  padding: 5vw;
+  background-color: rgba(255, 255, 255, .3);
+  margin: 0 7.5vw;
+  border-top-right-radius: 10vw;
+  border-bottom-left-radius: 10vw;
+}
+.content-item-wrapper{
+  margin: 5vw 0;
+}
+.front-icon {
+  width: 6vw;
+  height: 6vw;
+  display: inline-block;
+  vertical-align: top;
+  margin-right: 1vw;
+  margin-top: 1vw;
+}
+.content{
+  display: inline-block;
+  /* width: 65vw; */
+  width: calc(100% - 8vw);
+  font-size: 4vw;
+}
+.clock-in{
+  color: #CC3333;
+  font-size: 7vw;
+  font-weight: bold;
+  font-style: italic;
+}
+.champion-count{
+  color: #FFA500;
+  font-size: 7vw;
+  font-weight: bold;
+  font-style: italic;
+}
+.ave-step{
+  color: #99CC33;
+  font-size: 6vw;
+  font-weight: bold;
+  font-style: italic;
+}
+
+.remark{
+  margin: 5vw 7.5vw;
+  padding: 0 5vw;
+  width: calc(100%-10vw);
+  font-size: 3vw;
+}
+.remark view{
+  line-height: 5vw;
+}

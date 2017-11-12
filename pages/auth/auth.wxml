@@ -12,8 +12,12 @@
       <picker name="year" mode="selector" range="{{year}}" value="{{index_year}}" bindchange="year_picker">
         <text class="selector-text">{{year[index_year] + '年'}}</text>
       </picker>
-      <view class="input-title">选择您的学院</view>
-      <picker name="academy" mode="selector" range="{{academy_names}}" value="{{index_academy}}" bindchange="academy_picker">
+      <view class="input-title">选择您的学校</view>
+      <picker name="academy" mode="selector" range="{{school_names}}" value="{{index_school}}" bindchange="school_picker">
+        <text class="selector-text">{{school_names[index_school]}}</text>
+      </picker>
+      <view wx:if="{{index_school==0}}" class="input-title">选择您的学院</view>
+      <picker wx:if="{{index_school==0}}" name="academy" mode="selector" range="{{academy_names}}" value="{{index_academy}}" bindchange="academy_picker">
         <text class="selector-text">{{academy_names[index_academy]}}</text>
       </picker>
       <view class="input-title">请上传您的学生证（卡）正面照片</view>

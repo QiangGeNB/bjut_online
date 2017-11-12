@@ -1,0 +1,57 @@
+<view class='record-wrapper'>
+  <view class='bg-wrapper'>
+    <image src='/images/record/bg.jpg' mode='aspectFill'></image>
+  </view>
+  <view class='title'>
+    <text>我的运动记录</text>
+  </view>
+  <!--个人记录部分  -->
+  <view class='my_record_wrapper' bindtap='click_record'>
+    <image class='record_cup' src="/images/record/basketball-1.svg"></image>
+    <view class='cup_shadow'></view>
+  </view>
+  <view class='content-wrapper'>
+    <view class='content-item-wrapper'>
+      <image class='front-icon' style='margin-top: 3vw;' src='/images/record/schedule.svg'></image>
+      <view class='content'>这是您第<text class='clock-in'>{{clock_in_count}}</text> 天连续登陆运动达人</view>
+    </view>
+    <view class='content-item-wrapper'>
+      <image class='front-icon' src='/images/record/medal.svg'></image>
+      <!--没获得冠军冠军-->
+      <view class='content' wx:if="{{school_champion_dates.length == 0}}">
+        <text wx:if='{{!best_mark}}'>暂无记录</text>
+        <text wx:else>您最好的名次是在{{best_date}}那天获得的全校第{{best_rank}}名</text>
+      </view>
+
+      <!--获得一次冠军-->
+      <view class='content' wx:elif="{{school_champion_dates.length == 1}}">
+        {{school_champion_dates[0]}}，那天您第一次获得了全校冠军，成为了工大的运动达人！
+      </view>
+      <!--获得过多次冠军  -->
+      <view class='content' wx:else="{{school_champion_dates.length > 1}}">
+        自从使用工大运动达人以来，您已经连续 <text class='champion-count'>{{school_champion_dates.length}}</text> 次获得工大冠军！
+      </view>
+    </view>
+    <view wx:if="{{school_champion_dates.length == 0}}"  class='content-item-wrapper'>
+      <image class='front-icon' src='/images/record/medal.svg'></image>
+      <view class='content'>
+        <text wx:if='{{!best_mark}}'>暂无记录</text>
+        <text wx:else>在{{defeat_date}}那天，您击败了工大{{defeat_percentage}}%的人</text>
+      </view>
+    </view>
+    <view class='content-item-wrapper'>
+      <image class='front-icon' src='/images/record/crown.svg'></image>
+      <view class='content'>您近七天的平均步数为<text class='ave-step'>{{ave_step}}</text> 步</view>
+    </view>
+    <view class='content-item-wrapper'>
+      <image class='front-icon' src='/images/record/suggest.svg'></image>
+      <view wx:if="{{ave_step>=10000}}" class='content'>您近期的运动状况良好，请继续保持~</view>
+      <view wx:if="{{ave_step<10000}}" class='content'>您最近运动量有点少，请注意坚持锻炼身体哦~</view>
+    </view>
+  </view>
+  <!-- <view class='remark'>
+    <view>*注：</view>
+    <view>1.未注册用户不能显示工大运动记录</view>
+    <view>2.记录每日0点进行数据清算，因此第一天签到的用户没有相关记录</view>
+  </view> -->
+</view>

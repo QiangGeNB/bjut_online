@@ -1,6 +1,7 @@
 //app.js
 App({
     onLaunch: function () {
+      console.log('this is onlauch')
         self = this;
         // 添加数组包含方法
         Array.prototype.contains = function (obj) {
@@ -12,26 +13,27 @@ App({
             }
             return false;
         }
-
-        if (wx.getStorageSync('user_key')) {
-            console.log('缓存中存在user_key...');
-        } else {
-            console.log('缓存中不存在user_key...');
-            self.getUserKey();
-        }
+        //每次登陆时都向后台发送code验证bjut_id, 保证bjut_id 的实时性
+        self.getUserKey();
     },
-
-    getLogin: function (getUserInfo) {
+    // 获取 user_key
+    getUserKey: function () {
+      self = this;
+      self.getLogin(self.getUserInfo);
+    },
+    getLogin: function (login_success_cb) {
+      console.log('this is app login...');
         wx.login({
             success: function (res) {
                 // 成功获取code
                 if (res.code) {
                     console.log('获取 code 成功...');
-                    console.log(res.code);
-                    //getUserInfo(res.code);
+                    login_success_cb(res.code);
+                } else {
+                  console.log("app getLogin function: 获取code失败...");
                 }
             }
-        })
+        });
     },
 
     getUserInfo: function (code) {
@@ -40,22 +42,21 @@ App({
         wx.getUserInfo({
             success: function (res) {
                 console.log('获取 userInfo 成功...');
-                console.log(res);
                 res.userInfo.studentID = '';
                 wx.setStorageSync('userinfo', res.userInfo);
-                // self.sendRequest(code, res.userInfo);
                 var code_userInfo = {
                     code: code,
                     userInfo: res.userInfo
                 };
                 // 发送 getuserkey 请求（有点复杂）
                 self.SendRequest('/api/get_user_key', code_userInfo, function (res) {
-                    console.log('/api/get_user_key response success...');
-                    console.log(res.data);
                     res = res.data;
+                    // 后台存入用户数据并返回bjut_id，前端存入缓存
                     if (res.errno == '0') {
                         console.log('user_key存入缓存...');
                         wx.setStorageSync('user_key', res.data);
+                        // 获取用户运动信息（此时code并没有过期）
+                        self.GetRunData(code);
                     }
                 });
             },
@@ -64,18 +65,41 @@ App({
             }
         })
     },
-    // 获取 user_key
-    getUserKey: function () {
-        self = this;
-        wx.login({
-            success: function (res) {
-                var code = res.code;
-                console.log(code);
-                if (code) {
-                    self.getUserInfo(code);
-                }
+    // 传入user的code（login获取），获取用户的 获取运动必要解密信息 并发往后端进行获取并存储
+    GetRunData: function (sport_code){
+      self = this;
+      wx.login({
+        success: function (res) {
+          let sport_code = res.code;
+          wx.getWeRunData({
+            success(res) {
+              var encryptedData = res.encryptedData;
+              var iv = res.iv;
+              var sport_data = {
+                bjut_id: wx.getStorageSync('user_key'),
+                code: sport_code,
+                encryptedData: encryptedData,
+                iv: iv
+              };
+              self.SendRequest('/api/get_wx_run_data', sport_data, function(res){
+                console.log('app getrundata success!');
+                console.log(res);
+                wx.setStorage({
+                  key: 'day_step',
+                  data: res.data.sport_data.step,
+                });
+                wx.setStorage({
+                  key: 'schoolrank',
+                  data: res.data.sport_data.schoolrank,
+                });
+              });
             }
-        });
+          })
+        },
+        fail: function (res) {
+          console.log("app getrundata: 获取code失败...");
+        }
+      });
     },
     SendRequest: function(url, data, success_cb){
         console.log(url + ' is sending request...');
@@ -102,11 +126,23 @@ App({
         + date.getMinutes() + '分';
       return formate_result;
     },
+    // 获取设备高度and宽度
+    GetSysInfo: function(){
+      var self = this;
+      wx.getSystemInfo({
+        success: function(res) {
+          wx.setStorageSync('sys_info_height', res.screenHeight);
+          wx.setStorageSync('sys_info_width', res.screenWidth);
+        },
+        fail: function(res) {},
+        complete: function(res) {},
+      })
+    },
+
     globalData: {
         userInfo: null,
         ServerUrl: 'https://www.i-exshare.cn',
-        // ServerUrl:'http://127.0.0.1:3000',
-
+        //ServerUrl:'http://127.0.0.1:3000',
         academy: [
           {
             "_id": "598b0494fb89956113a5f19f",
@@ -118,7 +154,7 @@ App({
             "academy_name": "电控学院",
             "academy_number": 1
           }
-        ]
+        ],
         //ServerUrl:'https://10.21.8.131:3000'
     },
     

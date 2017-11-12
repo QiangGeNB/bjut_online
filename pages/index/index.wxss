@@ -71,9 +71,7 @@ scroll-view {
 }
 .c-state1{
   transform: translate(50%,0%);
-}  
-
-
+}
 
 .page-top{
   position: fixed;
@@ -123,22 +121,44 @@ scroll-view {
 .search-wrapper-blue {
   background-color: #1296db;
 }
+/*运动通知栏  */
+.sport-info-wrapper{
+  padding: 0 2vw;
+  height: 6vw;
+  line-height: 6vw;
+  background-color: #FFFACD;
+}
 
+.sport-info-wrapper > view {
+  display: inline-block;
+  text-align: center;
+}
+.sport-info-content{
+  padding-left: 3vw;
+  font-size: 3.5vw;
+}
+.index-step{
+  font-weight: bold;
+}
 .swiper-wrapper {
   width: 100%;
   margin-top: 50px;
 }
 
 .swiper {
-  width: 100%;
-  height: 200px;
+  width: 100vw;
+  height: 45vw;
 }
 
 .slide-image {
   width: 100%;
+  height: 45vw;
   border-radius: 2px;
 }
-
+.info{
+  margin-top: 50px;
+  z-index: 100;
+}
 .tag-wrapper {
   display: flex;
   width: 100%;
@@ -311,3 +331,4 @@ scroll-view {
   font-size: 4vw;
   padding-bottom: 2vw;
 }
+
