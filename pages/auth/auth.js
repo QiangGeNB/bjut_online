@@ -136,7 +136,7 @@ Page({
         name: page_data.name,
         studentID: page_data.studentID,
         enter_year: self.data.year[page_data.year],
-        academy: null,
+        academy: -1,
         verify_state: 1,
         school: 0 // 北京工业大学
       }
