@@ -20,7 +20,7 @@ Page({
       actid: options.actid
     });
 
-    this.initPage(options.actid);
+    // this.initPage(options.actid);
   },
 
   /**
