@@ -144,7 +144,6 @@ Page({
         verify_state: 1,
         school: 0 // 北京工业大学
       }
-      console.log(self.data.academy[page_data.academy].academy_number)
       // 发送北工大用户注册信息
       if (self.data.index_school == '0') {
         // 填写学院信息
