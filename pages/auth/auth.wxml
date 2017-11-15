@@ -21,6 +21,7 @@
         <text class="selector-text">{{academy_names[index_academy]}}</text>
       </picker>
       <view class="input-title">请上传您的学生证（卡）正面照片</view>
+      <view class="input-remind">（请包含您的姓名、学号、学院信息以进行认证）</view>
       <view class="image-choose" bindtap="choose_image">
         <image class="student-card-image" wx:if="{{stu_image.length > 0}}" src="{{stu_image}}" mode="aspectFit"></image>
         <image wx:if="{{stu_image.length == 0}}" class="album-icon" src="/images/icon/album.svg"></image>

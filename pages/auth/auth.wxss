@@ -13,6 +13,14 @@
     margin-top: 5vw;
     font-weight: bold;
 }
+
+.input-remind{
+    font-size: 3vw;
+    text-align: center;
+    margin-top: 4vw;
+    font-weight: normal;
+}
+
 input{
     border-bottom: 1px solid rgba(0,0,0,.1);
     margin:0vw auto;
