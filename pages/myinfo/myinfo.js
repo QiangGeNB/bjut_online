@@ -1,4 +1,4 @@
-var data = require('../../data.js');
+
 var app = getApp();
 // pages/myinfo/myinfo.js
 Page({
@@ -14,7 +14,6 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        this.initPage();
     },
 
     /**
@@ -32,31 +31,10 @@ Page({
     },
 
     /**
-     * 生命周期函数--监听页面隐藏
-     */
-    onHide: function () {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面卸载
-     */
-    onUnload: function () {
-
-    },
-
-    /**
      * 页面相关事件处理函数--监听用户下拉动作
      */
     onPullDownRefresh: function () {
         this.initPage();
-    },
-
-    /**
-     * 页面上拉触底事件的处理函数
-     */
-    onReachBottom: function () {
-
     },
 
     /**
@@ -74,6 +52,9 @@ Page({
     },
     // 收到查询结果回调函数
     get_user_info_request_suc: function (res) {
+        console.log('this is 获取用户信息界面返回数据:', res);
+        var un_verify_reason = res.data.user_info.un_verify_reason;
+        console.log(un_verify_reason);
         self = this;
         for (var i = 0; i < res.data.coll_activity.length; i++){
             res.data.coll_activity[i].activityDate = this.formate_date(new Date(res.data.coll_activity[i].activityDate));
@@ -84,7 +65,7 @@ Page({
         if (res.data.user_info.verify_state == 3){
           wx.showModal({
             title: '提示',
-            content: '对不起，您的学生验证未通过，请重新验证。',
+            content: '对不起，您的学生验证未通过，请重新验证。未通过原因：'+ un_verify_reason,
             confirmText: '重新验证',
             success: function (res) {
               app.SendRequest('/api/cancel_verify', { bjut_id: wx.getStorageSync('user_key') }, function(res){
