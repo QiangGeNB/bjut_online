@@ -52,7 +52,6 @@ Page({
     },
     // 收到查询结果回调函数
     get_user_info_request_suc: function (res) {
-        console.log('this is 获取用户信息界面返回数据:', res);
         var un_verify_reason = res.data.user_info.un_verify_reason;
         console.log(un_verify_reason);
         self = this;
