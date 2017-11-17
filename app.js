@@ -92,6 +92,10 @@ App({
                   key: 'schoolrank',
                   data: res.data.sport_data.schoolrank,
                 });
+                wx.setStorage({
+                  key: 'school_gap',
+                  data: res.data.sport_data.bjut_gap,
+                });
               });
             }
           })
