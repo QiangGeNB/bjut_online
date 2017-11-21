@@ -1,73 +1,25 @@
 // update_info.js
 var app = getApp();
 Page({
-
-    /**
-     * 页面的初始数据
-     */
     data: {
         rank_switch: false,
         nickName: '',
         user_info: {},
         new_nickName: '',
-        switch_statu: ''
+        switch_statu: '',
+        phone_input_mark: false
     },
 
-    /**
-     * 生命周期函数--监听页面加载
-     */
-    onLoad: function (options) {
-        app.SendRequest('/api/get_user_info', { bjut_id: wx.getStorageSync('user_key') }, this.get_user_info_request_suc);
+    onLoad: function (options) {       
     },
 
-    /**
-     * 生命周期函数--监听页面初次渲染完成
-     */
     onReady: function () {
-
     },
 
-    /**
-     * 生命周期函数--监听页面显示
-     */
     onShow: function () {
-
+      app.SendRequest('/api/get_user_info', { bjut_id: wx.getStorageSync('user_key') }, this.get_user_info_request_suc);
     },
 
-    /**
-     * 生命周期函数--监听页面隐藏
-     */
-    onHide: function () {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面卸载
-     */
-    onUnload: function () {
-
-    },
-
-    /**
-     * 页面相关事件处理函数--监听用户下拉动作
-     */
-    onPullDownRefresh: function () {
-
-    },
-
-    /**
-     * 页面上拉触底事件的处理函数
-     */
-    onReachBottom: function () {
-
-    },
-
-    /**
-     * 用户点击右上角分享
-     */
-    onShareAppMessage: function () {
-
-    },
     switch1Change: function (e) {
         this.setData({
             switch_statu: e.detail.value
@@ -75,10 +27,20 @@ Page({
     },
     get_user_info_request_suc: function (res) {
         console.log(res);
+        var phone = res.data.user_info.phone_number;
+        if(phone == "" || phone == null){
+          console.log('用户没有手机号');
+        } else {
+          console.log('用户有手机号');
+          this.setData({
+            phone_input_mark: true
+          });
+        }
         this.setData({
             user_info: res.data.user_info,
             new_nickName: res.data.user_info.nickName,
-            switch_statu: res.data.user_info.rank_switch
+            switch_statu: res.data.user_info.rank_switch,
+            phone_number: phone
         });
     },
     click_save: function () {
@@ -105,5 +67,5 @@ Page({
         this.setData({
             new_nickName: e.detail.value
         });
-    }
+    },
 })

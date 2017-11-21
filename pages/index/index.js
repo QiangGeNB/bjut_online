@@ -67,6 +67,7 @@ Page({
   },
   // 请求成功回调函数
   initPage_request_suc: function (res) {
+    console.log('index_info success:', res);
     for (let i = 0; i < res.data.activity.length; i++) {
       res.data.activity[i].onlineTime = app.formate_data(new Date(res.data.activity[i].onlineTime));
     }
