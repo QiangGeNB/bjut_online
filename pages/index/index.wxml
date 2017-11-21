@@ -43,7 +43,7 @@
         <!-- 运动信息通知栏  -->
         <view class='sport-info-wrapper' bindtap='click_sport_info'>
           <view class='iconfont icon-info'></view>
-          <view class='sport-info-content '>您今天走了 <text class='index-step'>{{index_step}}</text> 步，在学校中排第 <text class='index-step'>{{index_schoolrank}}</text> 名 (点我跳转)</view>
+          <view class='sport-info-content '>您当前走了 <text class='index-step'>{{index_step}}</text> 步，全校第 <text class='index-step'>{{index_schoolrank}}</text> 名，距离上一名 <text class='index-step'>{{index_school_gap}} 步</text></view>
         </view>
         <swiper class="swiper" indicator-dots="true">
           <block wx:for="{{swiper}}">

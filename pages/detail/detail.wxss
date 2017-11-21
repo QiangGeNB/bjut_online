@@ -124,6 +124,10 @@
   background: rgba(18, 150, 219, 1);
 }
 
+.expired {
+  background-color: grey;
+}
+
 .other-wrapper {
   margin-top: 5vw;
   font-size: 3vw;

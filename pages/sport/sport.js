@@ -17,9 +17,9 @@ Page({
    */
   onLoad: function (options) {
     var self = this;
-    // 获取用户运动信息
+    //获取用户运动信息
     self.get_user_sport_relate_data();
-    // 用户打卡
+    //用户打卡
     self.user_clock_in();
   },
   // 打卡函数

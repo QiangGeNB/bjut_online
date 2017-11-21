@@ -61,7 +61,8 @@ Page({
     app.SendRequest('/api/index_info', {}, self.initPage_request_suc);
     this.setData({
       index_step: wx.getStorageSync('day_step'),
-      index_schoolrank: wx.getStorageSync('schoolrank')
+      index_schoolrank: wx.getStorageSync('schoolrank'),
+      index_school_gap: wx.getStorageSync('school_gap')
     });
   },
   // 请求成功回调函数

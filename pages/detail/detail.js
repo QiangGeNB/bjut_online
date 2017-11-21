@@ -109,7 +109,8 @@ Page({
     var formate_online_date = this.formate_data(new Date(res.data.data[0].onlineTime));
     this.setData({
       formate_act_date: formate_act_date,
-      formate_online_date: formate_online_date
+      formate_online_date: formate_online_date,
+      expired: res.data.data[0].expired
     });
 
     var has_join = res.data.join;
@@ -170,15 +171,20 @@ Page({
   join_activity_callback: function(res){
     console.log('参加活动返回信息收到...');
     console.log(res);
-    let erron = res.data.erron;
+    let errno = res.data.errno;
     let has_stu_id = res.data.has_stu_id;
     let verify_state = res.data.verify_state;
-    if (erron) {
+    if (errno != 0 && errno != 5) {
       wx.showToast({
         title: '服务器出错',
         image: '/images/icon/cry.svg'
       });
-    } else if (verify_state == 2) {
+    } else if(errno == 5){
+      wx.showToast({
+        title: '报名人数已满',
+        image: '/images/icon/cry.svg'
+      })
+    }else if (verify_state == 2) {
       wx.showModal({
         title: '提示',
         content: '对不起，您还没通过学生验证',

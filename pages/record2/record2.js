@@ -76,7 +76,8 @@ Page({
     var result_date_list = [];
     for (let i=0; i<t_date.length; i++){
       var date = new Date(t_date[i]);
-      result_date_list.push(date.getFullYear() + '年' + date.getMonth() + '月' + date.getDate() + '日');
+      var month = date.getMonth()+1;
+      result_date_list.push(date.getFullYear() + '年' + month + '月' + date.getDate() + '日');
     }
     return result_date_list;
   }
