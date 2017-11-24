@@ -31,23 +31,11 @@
 					"scene": "1001"
 				},
 				{
-					"id": -1,
+					"id": 1,
 					"name": "记录界面",
-					"pathName": "pages/record/record",
+					"pathName": "pages/record2/record2",
 					"query": "",
 					"scene": "1001"
-				},
-				{
-					"id": -1,
-					"name": "记录界面2",
-					"pathName": "pages/record2/record2",
-					"query": ""
-				},
-				{
-					"id": 3,
-					"name": "记录界面",
-					"pathName": "pages/record2/record2",
-					"query": ""
 				},
 				{
 					"id": 4,
@@ -60,6 +48,13 @@
 					"name": "注册界面",
 					"pathName": "pages/auth/auth",
 					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "个人设置界面",
+					"pathName": "pages/update_info/update_info",
+					"query": "",
+					"scene": "1001"
 				}
 			]
 		}

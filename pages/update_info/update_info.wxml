@@ -6,11 +6,22 @@
 
     <view class="content-wrapper">
         <view class="nick-name-wrapper">
-            <text>昵称: </text>
+            <text class='usual-text'>昵称: </text>
             <input type="text" value="{{user_info.nickName}}" bindinput="input_change"/>
         </view>
+        <view class='phone-number-wrapper'>
+          <text class='usual-text'>手机号码: </text>
+          <input class='phone-number-input' type='text' value='{{phone_number}}' placeholder="请填写手机号" placeholder-style="font-size:4vw;"></input>
+        </view>
+        <view class='remark'>
+          <text>*手机号相关说明：</text>
+          <view>1.平台上某些活动报名需要您的手机号信息，方便管理员与您取得联系。</view>
+          <view>2.并非所有活动均需认证手机号</view>
+          <view>3.请填写正确的手机号，一经提交后便不得修改</view>
+          <view>4.涉及个人信息的部分均会被加密处理,请您放心填写</view>
+        </view>
         <view class="rank-switch-wrapper">
-            <text>在微信运动排行榜中显示</text>
+            <text>参加“工大活动达人”</text>
             <switch checked="{{switch_statu}}" bindchange="switch1Change" />
         </view>
         <view class="remark">

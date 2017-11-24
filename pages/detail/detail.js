@@ -170,7 +170,7 @@ Page({
   },
   join_activity_callback: function(res){
     console.log('参加活动返回信息收到...');
-    console.log(res);
+    // console.log(res);
     let errno = res.data.errno;
     let has_stu_id = res.data.has_stu_id;
     let verify_state = res.data.verify_state;

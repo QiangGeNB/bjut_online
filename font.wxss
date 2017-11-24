@@ -107,5 +107,5 @@
 
 .icon-info:before {
   content: "\e60e";
-  font-size: 4vw;
+  font-size: 3.5vw;
 }
