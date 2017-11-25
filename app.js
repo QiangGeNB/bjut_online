@@ -33,9 +33,11 @@ App({
   },
   useAuthSetting: function () {
     let self = this;
+    // 获取用户设置
     wx.getSetting({
       success(res) {
-        console.log(res);
+        // console.log(res);
+        // 没有通过验证
         if (res.authSetting['scope.userInfo'] === false ) {
           wx.showModal({
             title: '授权信息',
@@ -43,8 +45,10 @@ App({
             confirmText: '进行授权',
             success: function (res) {
               if (res.confirm) {
+                // 打开用户设置页面
                 wx.openSetting({
                   success: (res) => {
+                    console.log('this is openSetting res:', res);
                     res.authSetting = {
                       "scope.userInfo": true,
                       "scope.werun": true

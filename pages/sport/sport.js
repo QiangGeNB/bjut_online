@@ -1,5 +1,4 @@
 // pages/sport/sport.js
-var data = require('../../data.js');
 var app = getApp();
 Page({
 
