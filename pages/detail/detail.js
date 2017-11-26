@@ -170,21 +170,30 @@ Page({
   },
   join_activity_callback: function(res){
     console.log('参加活动返回信息收到...');
-    console.log(res);
+    // console.log(res);
     let errno = res.data.errno;
     let has_stu_id = res.data.has_stu_id;
     let verify_state = res.data.verify_state;
-    if (errno != 0 && errno != 5) {
-      wx.showToast({
-        title: '服务器出错',
-        image: '/images/icon/cry.svg'
+    // 没有手机号
+    if (errno == 7) {
+      wx.showModal({
+        title: '手机号验证',
+        content: '对不起，本活动要求用户填写手机号',
+        confirmText: '填手机号',
+        success: function(res){
+          if(res.confirm){
+            wx.navigateTo({
+              url: '/pages/update_info/update_info',
+            });
+          }
+        }
       });
     } else if(errno == 5){
       wx.showToast({
         title: '报名人数已满',
         image: '/images/icon/cry.svg'
-      })
-    }else if (verify_state == 2) {
+      });
+    } else if (verify_state == 2) {
       wx.showModal({
         title: '提示',
         content: '对不起，您还没通过学生验证',

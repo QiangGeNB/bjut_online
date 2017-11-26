@@ -1,5 +1,4 @@
 // pages/sport/sport.js
-var data = require('../../data.js');
 var app = getApp();
 Page({
 
@@ -15,16 +14,58 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onShow: function (options) {
     var self = this;
-    //获取用户运动信息
-    self.get_user_sport_relate_data();
-    //用户打卡
-    self.user_clock_in();
+    // //获取用户运动信息
+    // self.get_user_sport_relate_data();
+    // //用户打卡
+    // self.user_clock_in();
+    // 可以通过 wx.getSetting 先查询一下用户是否授权了 "scope.record" 这个 scope
+    wx.getSetting({
+      success(res) {
+        console.log(res);
+        if (!res.authSetting['scope.werun']) {
+          wx.showModal({
+            title: '授权信息',
+            content: '该功能需要授权微信运动',
+            confirmText: '进行授权',
+            success: function (res) {
+              if (res.confirm) {
+                wx.openSetting({
+                  success: (res) => {
+                    res.authSetting = {
+                      "scope.userInfo": true,
+                      "scope.werun": true
+                    }
+                    //获取用户运动信息
+                    self.get_user_sport_relate_data();
+                    //用户打卡
+                    self.user_clock_in();
+                  }
+                })
+              }
+              else {
+                console.log("取消");
+                wx.navigateBack({
+                  delta: 1
+                })
+              }
+            }
+          })
+
+        }
+        else {
+          //获取用户运动信息
+          self.get_user_sport_relate_data();
+          //用户打卡
+          self.user_clock_in();
+        }
+      }
+    })
   },
   // 打卡函数
-  user_clock_in: function(){
-    app.SendRequest('/api/clock_in', { 'bjut_id': wx.getStorageSync('user_key')}, function(res){
+  user_clock_in: function () {
+    app.SendRequest('/api/clock_in', { 'bjut_id': wx.getStorageSync('user_key') }, function (res) {
       console.log('用户打卡回调函数...', res);
     });
   },
@@ -133,13 +174,13 @@ Page({
       });
     });
   },
-  click_record: function(){
+  click_record: function () {
     console.log('click record...');
     wx.navigateTo({
       url: '/pages/record2/record2',
-      success: function(res) {},
-      fail: function(res) {},
-      complete: function(res) {},
+      success: function (res) { },
+      fail: function (res) { },
+      complete: function (res) { },
     })
   }
 })

@@ -90,6 +90,7 @@ Page({
   form_submit: function (e) {
     self = this;
     var page_data = e.detail.value;
+    // 检查信息是否完整
     if (page_data.name == "") {
       wx.showToast({
         title: '姓名不能为空',
@@ -118,22 +119,25 @@ Page({
         },
         formData: { _id: wx.getStorageSync('user_key') },
         success: uploadFileSuccessedCallback,
-        fail: function (res) { },
-        complete: function (res) {
-        }
+        fail: function (res) {
+          wx.showToast({
+            title: '上传图片异常',
+            image: '/images/icon/cry.svg'
+          });
+         }
       });
     }
     // 上传图片成功后 上传其他信息
     function uploadFileSuccessedCallback(res) {
       console.log('uploadFileSuccessedCallback...');
       var j_res;
-      if (res.statusCode != 200 || (j_res = JSON.parse(res.data)).errno != 0) {
-        wx.showToast({
-          title: '上传异常',
-          image: '/images/icon/cry.svg'
-        })
-        return
-      }
+      // if (res.statusCode != 200 || (j_res = JSON.parse(res.data)).errno != 0) {
+      //   wx.showToast({
+      //     title: '上传异常',
+      //     image: '/images/icon/cry.svg'
+      //   });
+      //   return
+      // }
 
       var student_data = {
         _id: wx.getStorageSync('user_key'),
@@ -142,7 +146,8 @@ Page({
         enter_year: self.data.year[page_data.year],
         academy: -1,
         verify_state: 1,
-        school: 0 // 北京工业大学
+        school: 0, // 北京工业大学
+        phone_number: page_data.phone_number
       }
       // 发送北工大用户注册信息
       if (self.data.index_school == '0') {

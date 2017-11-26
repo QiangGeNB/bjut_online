@@ -127,6 +127,7 @@ scroll-view {
   height: 6vw;
   line-height: 6vw;
   background-color: #FFFACD;
+  
 }
 
 .sport-info-wrapper > view {
@@ -135,7 +136,8 @@ scroll-view {
 }
 .sport-info-content{
   padding-left: 3vw;
-  font-size: 3.5vw;
+  font-size: 3vw;
+  line-height: 6vw;
 }
 .index-step{
   font-weight: bold;
