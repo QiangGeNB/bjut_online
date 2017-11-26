@@ -8,7 +8,7 @@
       <input name="name"/>
       <view class="input-title">请输入您的学号</view>
       <input name="studentID"/>
-      <view class="input-title">请输入您的手机号码（可选）</view>
+      <view class="input-title">请输入您的手机号码（选填）</view>
       <input name="phone_number"/>
       <view class="input-title">请输入您的入学年份</view>
       <picker name="year" mode="selector" range="{{year}}" value="{{index_year}}" bindchange="year_picker">

@@ -11,7 +11,11 @@
         </view>
         <view class='phone-number-wrapper'>
           <text class='usual-text'>手机号码: </text>
-          <input class='phone-number-input' type='text' value='{{phone_number}}' placeholder="请填写手机号" placeholder-style="font-size:4vw;"></input>
+          <input class='phone-number-input' type='text' value='{{phone_number}}' 
+            placeholder="请填写手机号" 
+            placeholder-style="font-size:4vw;" disabled='{{phone_input_mark}}' 
+            style='{{phone_input_mark==true?"background-color: gainsboro;":""}}'
+            bindinput='phone_number_change'></input>
         </view>
         <view class='remark'>
           <text>*手机号相关说明：</text>

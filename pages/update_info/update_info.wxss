@@ -16,6 +16,7 @@
 
 .content-wrapper {
   margin: 0 10vw;
+  
 }
 
 .nick-name-wrapper {
