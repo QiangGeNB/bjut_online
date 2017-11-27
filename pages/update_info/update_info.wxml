@@ -25,7 +25,7 @@
           <view>4.涉及个人信息的部分均会被加密处理,请您放心填写</view>
         </view>
         <view class="rank-switch-wrapper">
-            <text>参加“工大活动达人”</text>
+            <text>参加“工大运动达人”</text>
             <switch checked="{{switch_statu}}" bindchange="switch1Change" />
         </view>
         <view class="remark">
