@@ -65,7 +65,7 @@
         </view>
         <view class="tag {{tag_select == 2 ? 'tag-select':''}}" data-tag-index="2" catchtap="click_tag">
           <view class="iconfont icon-zhidao"></view>
-          <view class="tag-text">新生指导</view>
+          <view class="tag-text">课余活动</view>
         </view>
       </view>
       <!--活动  -->
