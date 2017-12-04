@@ -110,7 +110,8 @@ Page({
     this.setData({
       formate_act_date: formate_act_date,
       formate_online_date: formate_online_date,
-      expired: res.data.data[0].expired
+      expired: res.data.data[0].expired,
+      enroll: res.data.data[0].enroll
     });
 
     var has_join = res.data.join;

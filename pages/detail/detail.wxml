@@ -48,7 +48,7 @@
   <view wx:if="{{tag_select == 0}}" class="act-detail-wrapper">
     <rich-text nodes="{{detail_data.content}}"></rich-text>
   </view>
-  <view class="footer" wx:if="{{!expired}}">
+  <view class="footer" wx:if="{{!expired&&enroll}}">
     <view class=" button-common {{has_join == false?'un-has':'has'}}" bindtap="click_join">
       <image class="button-icon" src="{{has_join == false?'/images/detail/join.svg':'/images/detail/has_join.svg'}}"></image>
       <text class="button-text">{{has_join == false?'现在参加':'退出活动'}}</text>
@@ -62,6 +62,12 @@
     <view class='activity-over'>
       <image class="button-icon" src='/images/icon/cry.svg'></image>
       <text>活动已结束</text>
+    </view>
+  </view>
+  <view class='footer' wx:elif="{{!enroll}}">
+    <view class="activity-enroll {{has_fav == false?'un-has':'has'}}" bindtap="click_fav">
+    <image class="button-icon" src="{{has_fav == false?'/images/detail/fav.svg':'/images/detail/has_fav.svg'}}"></image>
+      <text class="button-text">{{has_fav == false?'收藏':'已收藏'}}</text>
     </view>
   </view>
 </view>
