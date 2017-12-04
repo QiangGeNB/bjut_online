@@ -1,0 +1,43 @@
+/* pages/trainee/trainee.wxss */
+
+.circular-button {
+  position: absolute;
+  bottom: 10vw;
+  right: 10vw;
+  width: 15vw;
+  height: 15vw;
+  background-color: gainsboro;
+  border-radius: 50%;
+  z-index: 100;
+}
+
+.c-button-image {
+  width: 8vw;
+  height: 8vw;
+  margin: 3.5vw;
+}
+
+.button-sub{
+  width: 10vw;
+  height: 10vw;
+  z-index: 90;
+}
+.button-sub > image{
+  width: 5vw;
+  height: 5vw;
+  margin: 2.5vw;
+}
+
+.circular-button-my {
+  transform: translate(-28vw, 0);
+}
+
+.circular-button-send {
+  transform: translate(0, -28vw);
+}
+
+.circular-button-auth-result {
+  transform: translate(-20vw, -20vw);
+}
+
+

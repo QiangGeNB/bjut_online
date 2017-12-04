@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'iconfont';  /* project id 346498 */
-  src: url('//at.alicdn.com/t/font_346498_2cex9y44gs7tlnmi.eot');
-  src: url('//at.alicdn.com/t/font_346498_2cex9y44gs7tlnmi.eot?#iefix') format('embedded-opentype'),
-  url('//at.alicdn.com/t/font_346498_2cex9y44gs7tlnmi.woff') format('woff'),
-  url('//at.alicdn.com/t/font_346498_2cex9y44gs7tlnmi.ttf') format('truetype'),
-  url('//at.alicdn.com/t/font_346498_2cex9y44gs7tlnmi.svg#iconfont') format('svg');
+  src: url('//at.alicdn.com/t/font_346498_h52qhe0vdl2chaor.eot');
+  src: url('//at.alicdn.com/t/font_346498_h52qhe0vdl2chaor.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_346498_h52qhe0vdl2chaor.woff') format('woff'),
+  url('//at.alicdn.com/t/font_346498_h52qhe0vdl2chaor.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_346498_h52qhe0vdl2chaor.svg#iconfont') format('svg');
 }
 .iconfont {
   display: inline;
@@ -111,4 +111,12 @@
 
 .icon-phone:before {
   content: "\e6d5";
+}
+
+.icon-trainee:before {
+  content: "\e6c0";
+  font-size: 4.5vw;
+  font-weight: 600;
+  margin-right: 3vw;
+  margin-left: .5vw;
 }

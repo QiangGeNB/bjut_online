@@ -15,7 +15,8 @@
     "pages/about_us/about_us",
     "pages/record2/record2",
     "pages/quit_activity/quit_activity",
-    "pages/phone_auth/phone_auth"
+    "pages/phone_auth/phone_auth",
+    "pages/trainee/trainee"
   ],
   "window": {
     "backgroundTextStyle": "light",
