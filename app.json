@@ -13,9 +13,10 @@
     "pages/update_info/update_info",
     "pages/contact_us/contact_us",
     "pages/about_us/about_us",
-    "pages/record/record",
     "pages/record2/record2",
-    "pages/quit_activity/quit_activity"
+    "pages/quit_activity/quit_activity",
+    "pages/phone_auth/phone_auth",
+    "pages/trainee/trainee"
   ],
   "window": {
     "backgroundTextStyle": "light",

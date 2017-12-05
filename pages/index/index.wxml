@@ -20,6 +20,10 @@
         <view class="iconfont icon-run"></view>
         <text>运动达人</text>
       </view>
+      <view class="list-item" data-list-index="3" bindtap="click_side_item">
+        <view class="iconfont icon-trainee"></view>
+        <text>实习信息</text>
+      </view>
       <view class="botton-item1" data-list-index="7" bindtap="click_side_item">
         <view class="iconfont icon-setting"></view>
         <text>设置</text>
@@ -35,7 +39,7 @@
     </view>
   </view>
   <!--活动详情界面-->
-  <view wx:if="{{page_index == 1}}" class="page-top {{open ? 'c-state1' : ''}}">
+  <view class="page-top {{open ? 'c-state1' : ''}}">
     <view wx:if="{{open}}" class="filter" bindtap="click_filter"></view>
     <scroll-view scroll-y="true" bindscroll="bindscroll" bindscrolltoupper="reach_top">
     <!--轮播图-->
@@ -43,7 +47,7 @@
         <!-- 运动信息通知栏  -->
         <view class='sport-info-wrapper' bindtap='click_sport_info'>
           <view class='iconfont icon-info'></view>
-          <view class='sport-info-content '>您今天走了 <text class='index-step'>{{index_step}}</text> 步，在学校中排第 <text class='index-step'>{{index_schoolrank}}</text> 名 (点我跳转)</view>
+          <view class='sport-info-content '>您当前走了 <text class='index-step'>{{index_step}}</text> 步，全校第 <text class='index-step'>{{index_schoolrank}}</text> 名，距离上一名 <text class='index-step'>{{index_school_gap}} 步</text></view>
         </view>
         <swiper class="swiper" indicator-dots="true">
           <block wx:for="{{swiper}}">
@@ -65,7 +69,7 @@
         </view>
         <view class="tag {{tag_select == 2 ? 'tag-select':''}}" data-tag-index="2" catchtap="click_tag">
           <view class="iconfont icon-zhidao"></view>
-          <view class="tag-text">新生指导</view>
+          <view class="tag-text">课余活动</view>
         </view>
       </view>
       <!--活动  -->

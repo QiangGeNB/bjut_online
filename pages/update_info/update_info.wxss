@@ -1,51 +1,73 @@
 /* update_info.wxss */
 @import '/font.wxss';
-.title-wrapper{
-    margin: 5vw;
-    padding-bottom: 3vw;
-    font-size: 7vw;
-    border-bottom: 1.5px solid gainsboro;
-}
-.setting{
-    font-size: 7vw;
-    color: #1296db;
-    font-weight: bold;
-}
-.content-wrapper{
-    margin: 0 10vw;
-}
-.nick-name-wrapper{
-    display: flex;
-    width: 100%;
-    font-size: 5vw;
-    margin-bottom: 5vw;
-}
-.nick-name-wrapper > text {
-    display: inline-block;
-    vertical-align: -4px;
-}
-.nick-name-wrapper > input {
-    display: inline-block;
-    margin-left: 2vw;
-    height: 7vw;
-    border: 1px solid gainsboro;
-    border-radius: 4px;
-    text-align: center;
+
+.title-wrapper {
+  margin: 5vw;
+  padding-bottom: 3vw;
+  font-size: 7vw;
+  border-bottom: 1.5px solid gainsboro;
 }
 
-.rank-switch-wrapper > switch{
-    margin-left: 3vw;
-}
-.remark{
-    margin-top: 5vw;
-    font-size: 3vw;
-    color: gray;
-}
-.remark > text{
-    line-height: 5vw;
+.setting {
+  font-size: 7vw;
+  color: #1296db;
+  font-weight: bold;
 }
 
-.save-button{
-    width: 80vw;
-    margin: 5vw auto;
+.content-wrapper {
+  margin: 0 10vw;
+  
+}
+
+.nick-name-wrapper {
+  display: flex;
+  width: 100%;
+  font-size: 5vw;
+  margin-bottom: 5vw;
+}
+
+.usual-text {
+  display: inline-block;
+  vertical-align: -4px;
+  width: 25vw;
+  text-align: right;
+}
+
+input {
+  display: inline-block;
+  margin-left: 2vw;
+  height: 7vw;
+  border: 1px solid gainsboro;
+  border-radius: 4px;
+  text-align: center;
+  width: 50vw;
+}
+
+.phone-number-wrapper {
+  display: flex;
+  width: 100%;
+  font-size: 5vw;
+  margin-bottom: 5vw;
+}
+.rank-switch-wrapper > switch {
+  margin-left: 3vw;
+}
+
+.remark {
+  margin: 5vw 0;
+  padding: 4vw;
+  background-color: ghostwhite;
+  color: gray;
+  border-radius: 3vw;
+  font-size: 3.2vw;
+  line-height: 5vw;
+}
+
+.remark > text {
+  line-height: 5vw;
+}
+
+.save-button {
+  width: 80vw;
+  margin: 5vw auto;
 }

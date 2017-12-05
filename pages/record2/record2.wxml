@@ -31,7 +31,7 @@
       </view>
       <!--获得过多次冠军  -->
       <view class='content' wx:else="{{school_champion_dates.length > 1}}">
-        自从使用工大运动达人以来，您已经连续 <text class='champion-count'>{{school_champion_dates.length}}</text> 次获得工大冠军！
+        自从使用工大运动达人以来，您已经获得 <text class='champion-count'>{{school_champion_dates.length}}</text> 次工大冠军！
       </view>
     </view>
     <view wx:if="{{school_champion_dates.length == 0}}"  class='content-item-wrapper'>

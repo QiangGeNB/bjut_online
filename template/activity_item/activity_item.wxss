@@ -28,6 +28,13 @@
     vertical-align: 1px;
     margin-left: 1px;
 }
+.phone{
+   display: inline-block;
+    vertical-align: 1px;
+    margin-left: 1px;
+    font-size: 4vw;
+    font-weight: bold;
+}
 .image-wrapper{
     width: 12vw;
     display: inline-block;

@@ -1,0 +1,14 @@
+<view class="all_wrapper">
+  <view class='circular-button'>
+    <image class='c-button-image' src='/images/icon/flat.svg'></image>
+  </view>
+   <view class='circular-button button-sub circular-button-send'>
+    <image class='c-button-image' src='/images/icon/trainee-send2.svg'></image>
+  </view>
+   <view class='circular-button button-sub circular-button-auth-result'>
+    <image class='c-button-image' src='/images/icon/trainee-auth-result.svg'></image>
+  </view>
+   <view class='circular-button button-sub circular-button-my'>
+    <image class='c-button-image' src='/images/icon/trainee-my.svg'></image>
+  </view>
+</view>

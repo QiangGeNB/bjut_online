@@ -109,7 +109,9 @@ Page({
     var formate_online_date = this.formate_data(new Date(res.data.data[0].onlineTime));
     this.setData({
       formate_act_date: formate_act_date,
-      formate_online_date: formate_online_date
+      formate_online_date: formate_online_date,
+      expired: res.data.data[0].expired,
+      enroll: res.data.data[0].enroll
     });
 
     var has_join = res.data.join;
@@ -169,13 +171,27 @@ Page({
   },
   join_activity_callback: function(res){
     console.log('参加活动返回信息收到...');
-    console.log(res);
-    let erron = res.data.erron;
+    // console.log(res);
+    let errno = res.data.errno;
     let has_stu_id = res.data.has_stu_id;
     let verify_state = res.data.verify_state;
-    if (erron) {
+    // 没有手机号
+    if (errno == 7) {
+      wx.showModal({
+        title: '手机号验证',
+        content: '对不起，本活动要求用户填写手机号',
+        confirmText: '填手机号',
+        success: function(res){
+          if(res.confirm){
+            wx.navigateTo({
+              url: '/pages/update_info/update_info',
+            });
+          }
+        }
+      });
+    } else if(errno == 5){
       wx.showToast({
-        title: '服务器出错',
+        title: '报名人数已满',
         image: '/images/icon/cry.svg'
       });
     } else if (verify_state == 2) {

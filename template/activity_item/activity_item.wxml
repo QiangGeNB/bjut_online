@@ -13,6 +13,7 @@
         <view class="title">
             {{activityTitle}}
             <view wx:if="{{fire}}" class="fire iconfont icon-fire"></view>
+            <view wx:if="{{phone}}" class="phone iconfont icon-phone"></view>
         </view>
     </view>
 

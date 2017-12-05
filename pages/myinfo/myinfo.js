@@ -1,4 +1,4 @@
-var data = require('../../data.js');
+
 var app = getApp();
 // pages/myinfo/myinfo.js
 Page({
@@ -14,7 +14,6 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        this.initPage();
     },
 
     /**
@@ -27,22 +26,47 @@ Page({
     /**
      * 生命周期函数--监听页面显示
      */
-    onShow: function () {
-      this.initPage();
-    },
+    // onShow: function () {
+    //   let self = this;
+    //   wx.getSetting({
+    //     success(res) {
+    //       console.log(res);
+    //       if (!res.authSetting['scope.userInfo']) {
+    //         wx.showModal({
+    //           title: '授权信息',
+    //           content: '该功能需要授权获取你的公开信息',
+    //           confirmText: '进行授权',
+    //           success: function (res) {
+    //             if (res.confirm) {
+    //               wx.openSetting({
+    //                 success: (res) => {
+    //                   res.authSetting = {
+    //                     "scope.userInfo": true,
+    //                     "scope.werun": true
+    //                   }
+    //                   self.initPage();
+    //                 }
+    //               })
+    //             }
+    //             else {
+    //               console.log("取消");
+    //               wx.navigateTo({
+    //                 url: '/pages/index/index'
+    //               })
+    //             }
+    //           }
+    //         })
 
-    /**
-     * 生命周期函数--监听页面隐藏
-     */
-    onHide: function () {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面卸载
-     */
-    onUnload: function () {
-
+    //       }
+    //       else {
+    //         self.initPage();
+    //       }
+    //     }
+    //   })
+    // },
+    onShow: function() {
+      let self = this;
+      self.initPage();
     },
 
     /**
@@ -50,13 +74,6 @@ Page({
      */
     onPullDownRefresh: function () {
         this.initPage();
-    },
-
-    /**
-     * 页面上拉触底事件的处理函数
-     */
-    onReachBottom: function () {
-
     },
 
     /**
@@ -74,6 +91,8 @@ Page({
     },
     // 收到查询结果回调函数
     get_user_info_request_suc: function (res) {
+        var un_verify_reason = res.data.user_info.un_verify_reason;
+        console.log(un_verify_reason);
         self = this;
         console.log('this is get_user_info_request_suc')
         console.log(res);
@@ -86,7 +105,7 @@ Page({
         if (res.data.user_info.verify_state == 3){
           wx.showModal({
             title: '提示',
-            content: '对不起，您的学生验证未通过，请重新验证。',
+            content: '对不起，您的学生验证未通过，请重新验证。未通过原因：'+ un_verify_reason,
             confirmText: '重新验证',
             success: function (res) {
               app.SendRequest('/api/cancel_verify', { bjut_id: wx.getStorageSync('user_key') }, function(res){

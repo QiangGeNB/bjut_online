@@ -124,6 +124,10 @@
   background: rgba(18, 150, 219, 1);
 }
 
+.expired {
+  background-color: grey;
+}
+
 .other-wrapper {
   margin-top: 5vw;
   font-size: 3vw;
@@ -154,4 +158,29 @@ rich-text > image {
 .other-image {
   width: 90vw;
   height: 50vw;
+}
+
+/*活动结束按钮样式  */
+.activity-over{
+  width: 95vw;
+  height: 12vw;
+  margin: 2.5vw;
+  border-radius: 5px;
+  line-height: 12vw;
+  background-color: gainsboro;
+  text-align: center;
+}
+
+/* 活动不需要报名按钮样式 */
+.activity-enroll{
+  width: 95vw;
+  height: 12vw;
+  margin: 2.5vw;
+  border-radius: 5px;
+  line-height: 12vw;
+  text-align: center;
+  transition: all 0.5s;
+  color: white;
+  font-size: 4vw;
+  display: inline-block;
 }
