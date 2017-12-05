@@ -16,7 +16,8 @@
     "pages/record2/record2",
     "pages/quit_activity/quit_activity",
     "pages/phone_auth/phone_auth",
-    "pages/trainee/trainee"
+    "pages/trainee/trainee",
+    "template/trainee_item/train_item"
   ],
   "window": {
     "backgroundTextStyle": "light",

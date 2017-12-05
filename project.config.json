@@ -59,7 +59,8 @@
 				{
 					"id": -1,
 					"name": "实习界面",
-					"pathName": "pages/trainee/trainee"
+					"pathName": "pages/trainee/trainee",
+					"query": ""
 				}
 			]
 		}
