@@ -2,11 +2,12 @@ var trainee = {
   trainee_data: [
     {
       id: 1,
-      company:'阿里巴巴',
+      company:'深圳市腾讯计算机系统有限公司',
       posion: 'java开发',
       brand: '/images/sport/title.png',
       salary: '1000/月',
       location: '北京中关村',
+      target: '4天/周',
       coordinate: '116.222,12.235416854',
       education_background: '本科及本科以上',
       demand_number: 10,
@@ -18,6 +19,7 @@ var trainee = {
       id: 2,
       company: '腾讯科技',
       posion: '产品经理',
+      target: '4天/周',
       brand: '/images/sport/title.png',
       salary: '1000/月',
       location: '北京中关村',

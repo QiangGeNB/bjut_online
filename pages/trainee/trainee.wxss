@@ -1,5 +1,6 @@
 /* pages/trainee/trainee.wxss */
 @import '/font.wxss';
+@import '/template/trainee_item/trainee_item.wxss';
 .circular-button {
   position: fixed;
   bottom: 10vw;
@@ -125,7 +126,8 @@
   }
 }
 .header-wrapper{
-  position: relative;
+  position: absolute;
+  top: 0;
 }
 .header-image{
   position: absolute;
@@ -152,7 +154,6 @@
 }
 .sub-title{
   margin:3vw 10vw;
-  padding-top: 3vw;
   font-size:5vw;
   font-weight:bold;
   border-top: 1px solid ghostwhite;
@@ -167,11 +168,14 @@
 }
 
 .my-info-wrapper{
+  width: 94vw;
   padding: 3vw 5vw;
+  margin-top: 43vw;
 }
 .my-info-wrapper > image{
   width: 8vw;
   height: 8vw;
+  border: 1px solid gainsboro;
   border-radius: 50%;
 }
 .my-info-content{

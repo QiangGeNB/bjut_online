@@ -17,7 +17,7 @@
     "pages/quit_activity/quit_activity",
     "pages/phone_auth/phone_auth",
     "pages/trainee/trainee",
-    "template/trainee_item/train_item"
+    "template/trainee_item/trainee_item"
   ],
   "window": {
     "backgroundTextStyle": "light",

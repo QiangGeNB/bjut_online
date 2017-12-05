@@ -1,0 +1,27 @@
+<template name="trainee_item">
+  <view class='gap'></view>
+  <view class='trainee-template-wrapper'>
+    <view class='logo-wrapper'>
+      <image class='logo-image' src='/images/trainee/timg.jpg'></image>
+    </view>
+    <view class='info-wrapper'>
+      <view class='update-date'>更新于{{publish_date}}</view>
+      <view class='position-wrapper'>{{posion}}</view>
+      <view class='company-wrapper'>{{company}}</view>
+      <view class='sub-info-wrapper'>
+        <view class='chenlongnb'>
+          <view class='iconfont icon-location'></view>
+          <text>{{location}}</text>
+        </view>
+        <view class='chenlongnb'>
+          <view class='iconfont icon-target'></view>
+          <text>{{target}}</text>
+        </view>
+         <view class='chenlongnb'>
+          <view class='iconfont icon-money'></view>
+          <text>{{salary}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</template>

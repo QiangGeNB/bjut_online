@@ -1,0 +1,59 @@
+/* template/trainee_item/trainee_item.wxss */
+.trainee-template-wrapper{
+  width: 100%;
+  padding: 3vw 0;
+  position: relative;
+}
+.gap{
+  width: 100%;
+  height: 10px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  background-color: ghostwhite;
+}
+
+.logo-wrapper{
+  width: 25vw;
+  display: inline-block;
+}
+
+.logo-image{
+  margin: 0 5vw;
+  width: 15vw;
+  height: 15vw;
+  border-radius: 50%;
+}
+
+.info-wrapper{
+  display: inline-block;
+  width: 70vw;
+  padding-left: 3vw;
+  vertical-align: top;
+}
+/*更新日期  */
+.update-date{
+  position: absolute;
+  top: 3vw;
+  right: 1vw;
+  width: 23vw;
+  font-size: 3vw;
+  text-align: right;
+}
+.position-wrapper{
+  font-size: 4vw;
+  width: 47vw;
+}
+.company-wrapper{
+  margin-top: 1vw;
+  font-size: 3vw;
+  color: gray;
+}
+
+.sub-info-wrapper{
+  margin-top: 2vw;
+  font-size: 3vw;
+}
+.chenlongnb{
+  display: inline-block;
+  margin-right: 3vw;
+}

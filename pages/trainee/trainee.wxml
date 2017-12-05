@@ -1,4 +1,5 @@
-<view class="all_wrapper">
+<import src="/template/trainee_item/trainee_item.wxml" />
+<view class="all-wrapper">
   <view class='header-wrapper'>
     <image class='header-image' src='/images/trainee/trainee2.jpg' mode='aspectFill'></image>
     <view class='filter'></view>
@@ -9,20 +10,30 @@
         <view class='sub-title'>今天有
           <text style='color:#00BFFF;font-size:8vw;font-weight:900;'> 15 </text>条招聘信息供您挑选</view>
       </view>
-      <view class='my-info-wrapper'>
-        <image src='/images/record/athlete.svg'></image>
-        <view class='my-info-content'>
-          <view class="iconfont icon-name"></view>陈龙
-        </view>
-        <view class='my-info-content'>
-          <view class="iconfont icon-sex"></view>男
-        </view>
-        <view class='my-info-content'>
-          <view class="iconfont icon-academy"></view>计算机学院
-        </view>
-      </view>
+    </view>
+
+  </view>
+  <view class='my-info-wrapper'>
+    <image src='/images/record/athlete.svg'></image>
+    <view class='my-info-content'>
+      <view class="iconfont icon-name"></view>陈龙
+    </view>
+    <view class='my-info-content'>
+      <view class="iconfont icon-sex"></view>男
+    </view>
+    <view class='my-info-content'>
+      <view class="iconfont icon-academy"></view>计算机学院
     </view>
   </view>
+
+  <!--实习信息流  -->
+  <view class='trainee-wrapper'>
+    <block wx:for="{{trainee_data}}">
+      <template is="trainee_item" data="{{...item}}" />
+    </block>
+  </view>
+
+
   <!--按钮wrapper  -->
   <view class='button-wrapper'>
     <view class='circular-button circular-button-animation' bindtap='click_function_button'>
