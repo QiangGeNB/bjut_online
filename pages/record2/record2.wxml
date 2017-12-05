@@ -12,7 +12,9 @@
   </view>
   <view class='content-wrapper'>
     <view class='content-item-wrapper'>
-      <image class='front-icon' style='margin-top: 3vw;' src='/images/record/schedule.svg'></image>
+      <image class='front-icon'
+      
+      sssssssss style='margin-top: 3vw;' src='/images/record/schedule.svg'></image>
       <view class='content'>这是您第<text class='clock-in'>{{clock_in_count}}</text> 天连续登陆运动达人</view>
     </view>
     <view class='content-item-wrapper'>

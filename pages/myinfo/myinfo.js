@@ -75,6 +75,8 @@ Page({
     // 收到查询结果回调函数
     get_user_info_request_suc: function (res) {
         self = this;
+        console.log('this is get_user_info_request_suc')
+        console.log(res);
         for (var i = 0; i < res.data.coll_activity.length; i++){
             res.data.coll_activity[i].activityDate = this.formate_date(new Date(res.data.coll_activity[i].activityDate));
         }
