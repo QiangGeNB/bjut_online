@@ -167,7 +167,6 @@
 }
 
 .my-info-wrapper{
-  width: 100vw;
   padding: 3vw 5vw;
 }
 .my-info-wrapper > image{
