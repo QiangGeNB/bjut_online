@@ -1,3 +1,4 @@
+/* pages/trainee/trainee_index/trainee_index.wxss */
 /* pages/trainee/trainee.wxss */
 @import '/font.wxss';
 @import '/template/trainee_item/trainee_item.wxss';
@@ -32,7 +33,7 @@
 .button-sub {
   width: 10vw;
   height: 10vw;
-  z-index: 90;
+  z-index: 0;
   transition: all 0.2s;
   transition-timing-function: ease-in-out;
   opacity: 0;

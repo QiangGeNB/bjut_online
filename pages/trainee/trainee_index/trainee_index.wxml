@@ -29,23 +29,27 @@
   <!--实习信息流  -->
   <view class='trainee-wrapper'>
     <block wx:for="{{trainee_data}}">
-      <template is="trainee_item" data="{{...item}}" />
+      <view bindtap='click_item' data-traineeID='{{item.id}}'>
+        <template is="trainee_item" data="{{...item}}" />
+      </view>
     </block>
   </view>
 
 
   <!--按钮wrapper  -->
   <view class='button-wrapper'>
-    <view class='circular-button circular-button-animation' bindtap='click_function_button'>
+    <!--总按钮  -->
+    <view class='circular-button circular-button-animation' bindtap='click_function_button' >
       <image class='c-button-image' src='/images/icon/flat.svg'></image>
     </view>
-    <view class='circular-button button-sub {{pop?"circular-button-send shake-send":""}}'>
+    <!--次级按钮  -->
+    <view class='circular-button button-sub {{pop?"circular-button-send shake-send":""}}' bindtap='click_trainee_aplication'>
       <image class='c-button-image' src='/images/icon/trainee-send2.svg'></image>
     </view>
-    <view class='circular-button button-sub {{pop?"circular-button-auth-result shake-auth":""}}'>
+    <view class='circular-button button-sub {{pop?"circular-button-auth-result shake-auth":""}}' bindtap='click_tarinee_auth_result'>
       <image class='c-button-image' src='/images/icon/trainee-auth-result.svg'></image>
     </view>
-    <view class='circular-button button-sub {{pop?"circular-button-my shake-my":""}}'>
+    <view class='circular-button button-sub {{pop?"circular-button-my shake-my":""}}' bindtap='click_trainee_my'>
       <image class='c-button-image' src='/images/icon/trainee-my.svg'></image>
     </view>
   </view>

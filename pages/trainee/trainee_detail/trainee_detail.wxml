@@ -1,0 +1,10 @@
+<view class='all-wrapper'>
+  <view class='header-wrapper'>
+    <view class='position-wrapper'>
+      {{trainee_data.position}}
+    </view>
+    <view class='company-wrapper'>
+      {{trainee_data.company}}
+    </view>
+  </view>
+</view>
