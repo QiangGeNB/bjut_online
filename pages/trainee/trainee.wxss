@@ -170,7 +170,7 @@
 .my-info-wrapper{
   width: 94vw;
   padding: 3vw 5vw;
-  margin-top: 43vw;
+  margin-top: 45vw;
 }
 .my-info-wrapper > image{
   width: 8vw;

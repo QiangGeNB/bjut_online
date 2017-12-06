@@ -1,8 +1,0 @@
-<template name="trainee_item">
-  <view class='all-wrapper'>123
-    <view class='logo-wrapper'>
-      <image></image>
-    </view>
-    <view class='info-wrapper'>123</view>
-  </view>
-</template>

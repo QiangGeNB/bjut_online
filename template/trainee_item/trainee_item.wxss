@@ -33,11 +33,12 @@
 /*更新日期  */
 .update-date{
   position: absolute;
-  top: 3vw;
+  top: 3.5vw;
   right: 1vw;
   width: 23vw;
   font-size: 3vw;
   text-align: right;
+  color: gray
 }
 .position-wrapper{
   font-size: 4vw;
