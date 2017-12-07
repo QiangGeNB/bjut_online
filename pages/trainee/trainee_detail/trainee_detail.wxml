@@ -1,10 +1,66 @@
 <view class='all-wrapper'>
+  <view class='collection-button-wrapper'>
+    <image src='/images/trainee/collection.svg'></image>
+    <!-- <image src='/images/trainee/uncollection.svg'></image> -->
+  </view>
   <view class='header-wrapper'>
     <view class='position-wrapper'>
       {{trainee_data.position}}
     </view>
     <view class='company-wrapper'>
       {{trainee_data.company}}
+    </view>
+  </view>
+
+  <view class='gap'></view>
+
+  <view class='sub-info-wrapper'>
+    <view class='frist-info'>
+      <view class='sub-info-item'>
+        <view class='iconfont icon-location'></view>
+        {{trainee_data.location}}
+      </view>
+      <view class='sub-info-item'>
+        <view class='iconfont icon-time'></view>
+        {{trainee_data.min_time}}
+      </view>
+      <view class='sub-info-item'>
+        <view class='iconfont icon-target'></view>
+        {{trainee_data.target}}
+      </view>
+    </view>
+
+    <view class='second-line'>
+      <view class='sub-info-item'>
+        <view class='iconfont icon-money'></view>
+        {{trainee_data.salary}}
+      </view>
+      <view class='sub-info-item sub-info-item-edu'>
+        <view class='iconfont icon-education'></view>
+        {{trainee_data.education_background}}
+      </view>
+    </view>
+
+  </view>
+
+  <view class='gap'></view>
+  <!--地图  -->
+  <view class='map-wrapper'>
+    <view class='map-title'>公司位置</view>
+    <view class='map-title-sub'>{{trainee_data.main_location}}</view>
+    <map id="map" longitude="113.324520" latitude="23.099994" scale="14" controls="{{controls}}" bindcontroltap="controltap" markers="{{markers}}" bindmarkertap="markertap" polyline="{{polyline}}" bindregionchange="regionchange" show-location style="width: 100%; height: 40vw;"></map>
+  </view>
+
+  <!--岗位具体介绍  -->
+  <view class='gap'></view>
+  <view class='trainee-intro-wrapper'>
+    <view class='title'>
+      职位描述
+      <text>(具体信息以公司提供信息为主)</text>
+    </view>
+    <view class='gap2'></view>
+    <view class='trainee-intro-content'>
+      {{trainee_data.content}}
     </view>
   </view>
 </view>
