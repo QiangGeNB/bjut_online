@@ -1,1 +1,55 @@
 /* pages/trainee_my/trainee_my.wxss */
+
+/*小白wrapper的宽度为40vw  */
+.xiaobai-wrapper{
+  display: inline-block;
+  padding: 5vw;
+}
+.cl-xb{
+  width:30vw;
+  height: 30vw;
+}
+.line{
+  display: inline-block;
+  height: 25vw;
+  border-left: 1px solid gainsboro;
+  margin-top: 8vw;
+  vertical-align: top;
+}
+
+/*内边距5vw 宽度45vw  内容宽度35*/
+.user-info-wrapper{
+  display: inline-block;
+  padding: 5vw;
+  width: 49vw;
+  vertical-align: top;
+}
+.avater-image{
+  display: inline-block;
+  width: 10vw;
+  height: 10vw;
+  border-radius: 50%;
+  border: 1px solid gainsboro;
+}
+
+.name-wrapper{
+  max-width: 30vw; 
+  margin-left: 3vw;
+  display: inline-block;
+  font-size: 4vw;
+  font-weight: 500;
+  vertical-align: top;
+  line-height: 10vw;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
+/*标签样式  */
+.sub-info-item{
+  display: inline-block;
+  padding: .2vw 1vw;
+  font-size: 3vw;
+  border-radius: 5px;
+  background-color: gold;
+  margin-left: 2vw;
+}

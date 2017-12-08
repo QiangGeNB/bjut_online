@@ -1,12 +1,13 @@
 // pages/trainee_my/trainee_my.js
-var app = require('../../../app.js');
+var app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  
+    school: 812,
+    chnel:123
   },
 
   /**
@@ -14,20 +15,38 @@ Page({
    */
   onLoad: function (options) {
     var user_key = wx.getStorageSync('user_key');
-    var send_data = { bjut_id: user_key };
-    app.SendRequest('/api/get_user_info', send_data, self.get_user_info_request_suc);
+    var send_data = { _id: user_key };
+    app.SendRequest('/api/users/all', send_data, this.get_user_info_request_suc);
+    // 获得学校列表
+    app.SendRequest('/api/other_school/all', {}, this.get_other_school_request_suc);
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
+  get_user_info_request_suc: function(res){
+    console.log(res);
+    // 判断有无学校
+    if (res.data.data[0].school == undefined){
+      this.setData({
+        school:812
+      });
+    } else {
+      this.setData({
+        school: res.data.data[0].school
+      });
+    }
+    this.setData({
+      user_info: res.data.data[0],
+      // school: res.data.data[0].school
+    });
+  },
+  get_other_school_request_suc: function(res){
+    console.log(res.data.data[0].other_school);
+    this.setData({
+      other_school_list: res.data.data[0].other_school
+    });
+  },
   onReady: function () {
   
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
   onShow: function () {
   
   },
