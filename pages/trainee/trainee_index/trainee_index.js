@@ -75,5 +75,30 @@ Page({
       url: '/pages/trainee/trainee_detail/trainee_detail?' + trainee_id,
     })
     console.log("点击了实习item", e.currentTarget.dataset.traineeid);
+  },
+
+  //点击了弹出的二级按钮
+  click_sub_button: function(e){
+    var target = e.currentTarget.dataset.function;
+    var target_url = ''
+    console.log('跳转到我的实习界面', target);
+    switch (target) {
+      //跳转到 我的实习 界面
+      case 'my':
+        target_url = '/pages/trainee/trainee_my/trainee_my';
+        break;
+      case 'auth_result': 
+        target_url = '/pages/trainee/trainee_auth/trainee_auth';
+        break;
+      case 'application': 
+        target_url = '/pages/trainee/trainee_application/trainee_application';
+        break;
+    }
+    wx.navigateTo({
+      url: target_url,
+    });
+    this.setData({
+      pop: false
+    });
   }
 })

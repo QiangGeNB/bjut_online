@@ -1,7 +1,7 @@
 <view class='all-wrapper'>
   <view class='collection-button-wrapper'>
-    <image src='/images/trainee/collection.svg'></image>
-    <!-- <image src='/images/trainee/uncollection.svg'></image> -->
+    <image wx:if='{{collection_mark}}' src='/images/trainee/collection.svg' bindtap='click_collection'></image>
+    <image wx:else='{{collection_mark}}' src='/images/trainee/uncollection.svg' bindtap='click_collection'></image>
   </view>
   <view class='header-wrapper'>
     <view class='position-wrapper'>
@@ -48,7 +48,7 @@
   <view class='map-wrapper'>
     <view class='map-title'>公司位置</view>
     <view class='map-title-sub'>{{trainee_data.main_location}}</view>
-    <map id="map" longitude="113.324520" latitude="23.099994" scale="14" controls="{{controls}}" bindcontroltap="controltap" markers="{{markers}}" bindmarkertap="markertap" polyline="{{polyline}}" bindregionchange="regionchange" show-location style="width: 100%; height: 40vw;"></map>
+    <map id="map" longitude="{{trainee_data.coordinate[1]}}" latitude="{{trainee_data.coordinate[0]}}" scale="14" markers='{{marker}}' style="width: 100%; height: 40vw;"></map>
   </view>
 
   <!--岗位具体介绍  -->

@@ -2,66 +2,45 @@
 var data = require('../../../trainee.js');
 Page({
 
-  /**
-   * 页面的初始数据
-   */
   data: {
-    trainee_data: data.trainee.trainee_data[0]
+    trainee_data: data.trainee.trainee_data[0],
+    // 地图上的marker
+    marker: [],
+    collection_mark: data.trainee.trainee_data[0].collection_mark
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
     console.log(options.trainee_id);
+    console.log(data);
+    this.setData({
+      marker: [{
+        id: 1,
+        latitude: data.trainee.trainee_data[0].coordinate[0],
+        longitude: data.trainee.trainee_data[0].coordinate[1],
+        title: data.trainee.trainee_data[0].company
+      }]
+    });
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
   onReady: function () {
-  
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
   onShow: function () {
-  
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
   onHide: function () {
-  
   },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
   onUnload: function () {
-  
   },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
   onPullDownRefresh: function () {
-  
   },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
   onReachBottom: function () {
   
   },
-
-  /**
-   * 用户点击右上角分享
-   */
   onShareAppMessage: function () {
-  
+  },
+  click_collection: function(){
+    console.log('点击了收藏or取消收藏按钮');
+    this.setData({
+      collection_mark: !this.data.collection_mark
+    })
   }
 })

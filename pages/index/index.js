@@ -126,7 +126,7 @@ Page({
           open: false
         })
         wx.navigateTo({
-          url: '/pages/trainee/trainee',
+          url: '/pages/trainee/trainee_index/trainee_index',
         });
         break;
       case "5"://联系客服

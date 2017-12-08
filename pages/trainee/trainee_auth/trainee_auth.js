@@ -1,5 +1,4 @@
-// pages/trainee_my/trainee_my.js
-var app = require('../../../app.js');
+// pages/trainee/trainee_auth/trainee_auth.js
 Page({
 
   /**
@@ -13,9 +12,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var user_key = wx.getStorageSync('user_key');
-    var send_data = { bjut_id: user_key };
-    app.SendRequest('/api/get_user_info', send_data, self.get_user_info_request_suc);
+  
   },
 
   /**

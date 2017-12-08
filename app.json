@@ -20,7 +20,8 @@
     "template/trainee_item/trainee_item",
     "pages/trainee/trainee_detail/trainee_detail",
     "pages/trainee/trainee_application/trainee_application",
-    "pages/trainee/trainee_my/trainee_my"
+    "pages/trainee/trainee_my/trainee_my",
+    "pages/trainee/trainee_auth/trainee_auth"
   ],
   "window": {
     "backgroundTextStyle": "light",
