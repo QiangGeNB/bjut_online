@@ -1,0 +1,61 @@
+<import src="/template/trainee_item/trainee_item.wxml" />
+<view class="all-wrapper">
+  <view class='header-wrapper'>
+    <image class='header-image' src='/images/trainee/trainee2.jpg' mode='aspectFill'></image>
+    <view class='filter'></view>
+    <view class='header-text-wrapper'>
+      <view class='header-text-content'>
+        <view style='font-size:5vw;font-weight:bold;'>北京工业大学</view>
+        <view>实习信息平台</view>
+        <view class='sub-title'>今天有
+          <text style='color:#00BFFF;font-size:8vw;font-weight:900;'> 15 </text>条招聘信息供您挑选</view>
+      </view>
+    </view>
+
+  </view>
+
+  <!-- <view class='my-info-wrapper'>
+    <image src='/images/record/athlete.svg'></image>
+    <view class='my-info-content' style='width:25vw;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;'>
+      <view class="iconfont icon-name" ></view>周杰伦周嘎嘎嘎
+    </view>
+    <view class='my-info-content' style='width:15vw;'>
+      <view class="iconfont icon-sex"></view>--
+    </view>
+    <view class='my-info-content'style='width:20vw;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;'>
+      <view class="iconfont icon-academy" ></view>北京科学与工程计算研究院
+    </view>
+  </view> -->
+
+  <!--实习信息流  -->
+  <view class='trainee-wrapper'>
+    <!-- <view class='trainee-title'>职位信息</view> -->
+    <!-- <view class='gap2'></view> -->
+    <block wx:for="{{trainee_data}}" wx:for-index="idx">
+      <view class='{{idx+1!=1?"gap":""}}'></view>
+      <view bindtap='click_item' data-traineeID='{{item.id}}'>
+        <template is="trainee_item" data="{{...item}}" />
+      </view>
+      <!-- <view class='{{idx+1 != trainee_data.length?"gap":""}}'></view> -->
+    </block>
+  </view>
+
+
+  <!--按钮wrapper  -->
+  <view class='button-wrapper'>
+    <!--总按钮  -->
+    <view class='circular-button circular-button-animation' bindtap='click_function_button'>
+      <image class='c-button-image' src='/images/icon/flat.svg'></image>
+    </view>
+    <!--次级按钮  -->
+    <view class='circular-button button-sub {{pop?"circular-button-send shake-send":""}}' bindtap='click_sub_button' data-function='application'>
+      <image class='c-button-image' src='/images/icon/trainee-send2.svg'></image>
+    </view>
+    <view class='circular-button button-sub {{pop?"circular-button-auth-result shake-auth":""}}' bindtap='click_sub_button' data-function='auth_result'>
+      <image class='c-button-image' src='/images/icon/trainee-auth-result.svg'></image>
+    </view>
+    <view class='circular-button button-sub {{pop?"circular-button-my shake-my":""}}' bindtap='click_sub_button' data-function='my'>
+      <image class='c-button-image' src='/images/icon/trainee-my.svg'></image>
+    </view>
+  </view>
+</view>

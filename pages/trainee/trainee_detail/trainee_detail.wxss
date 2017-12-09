@@ -1,0 +1,104 @@
+/* pages/trainee_detail/trainee_detail.wxss */
+@import '/font.wxss';
+/*收藏按钮样式  */
+.collection-button-wrapper{
+  position: absolute;
+  top: 5vw;
+  right: 5vw;
+  width: 8vw;
+  height: 8vw;
+}
+.collection-button-wrapper > image {
+  width: 8vw;
+  height: 8vw;
+}
+
+.header-wrapper{
+  width: 80vw;
+  padding-top: 3vw;
+  padding-left: 5vw;
+}
+.position-wrapper{
+  font: 7vw;
+  font-weight: bold;
+}
+.company-wrapper{
+  display: inline-block;
+  margin-top: 2vw;
+  margin-left: -3vw;
+  padding: 2vw;
+  font-size: 3.5vw;
+  color: sandybrown;
+  background-color: whitesmoke;
+  border-radius: 5px;
+}
+.gap{
+  margin-top: 3vw;
+  width: 100%;
+  height: 4px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  background-color: ghostwhite;
+}
+
+.gap2{
+  width: 80vw;
+  margin: 2vw 0vw;
+  border-top: 1px solid gainsboro;
+}
+
+.sub-info-wrapper{
+  padding: 2vw 4vw;
+  padding-right: 1vw;
+}
+
+.sub-info-item{
+  display: inline-block;
+  width: 31vw;
+  font-size: 3.5vw;
+  text-align: left;
+  color: grey;
+}
+.sub-info-item-edu{
+  width: 40vw;
+}
+
+.trainee-intro-wrapper{
+  margin: 3vw;
+}
+
+.title{
+  font-size: 5vw;
+  font-weight: 600;
+}
+.title > text {
+  font-size:3vw; 
+  font-weight:100; 
+  color:gray;
+}
+
+.trainee-intro-content{
+  padding: 3vw;
+  font-size: 4vw;
+  background-color:	rgba(255, 250, 205, .2);
+  border-radius: 10px;
+}
+
+.map-title{
+  width: 20vw;
+  padding-right: 2vw;
+  display: inline-block;
+  border-right: 1px solid gainsboro;
+  font-size: 5vw;
+  font-weight: 600;
+  margin: 2vw;
+}
+
+.map-title-sub{
+  font-size: 3vw;
+  width: 70vw;
+  display: inline-block;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  vertical-align: text-bottom; 
+}

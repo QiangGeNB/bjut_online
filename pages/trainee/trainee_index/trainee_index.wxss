@@ -1,0 +1,219 @@
+/* pages/trainee/trainee_index/trainee_index.wxss */
+/* pages/trainee/trainee.wxss */
+@import '/font.wxss';
+@import '/template/trainee_item/trainee_item.wxss';
+.circular-button {
+  position: fixed;
+  bottom: 10vw;
+  right: 10vw;
+  width: 15vw;
+  height: 15vw;
+  background-color: rgba(196, 226, 216, 0.5);
+  border-radius: 50%;
+  z-index: 200;
+  box-shadow: 5px 5px 5px gainsboro;
+}
+
+.circular-button-animation {
+  animation-name: main_button;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  animation-direction: alternate;
+}
+
+.c-button-image {
+  width: 8vw;
+  height: 8vw;
+  margin: 3.5vw;
+}
+
+/* 副图标样式  */
+
+.button-sub {
+  width: 10vw;
+  height: 10vw;
+  z-index: 0;
+  transition: all 0.2s;
+  transition-timing-function: ease-in-out;
+  opacity: 0;
+}
+
+/*副图标中的图片样式  */
+
+.button-sub > image {
+  width: 5vw;
+  height: 5vw;
+  margin: 2.5vw;
+}
+
+.circular-button-my {
+  transform: translate(-20vw, 0vw);
+  opacity: 1;
+}
+
+.circular-button-send {
+  transform: translate(0, -20vw) scale(1, 1);
+  opacity: 1;
+}
+
+.circular-button-auth-result {
+  transform: translate(-15vw, -15vw) scale(1, 1);
+  opacity: 1;
+}
+
+/*主按钮动画部分  */
+
+@keyframes main_button {
+  from {
+    transform: scale(1.1, 1.1);
+  }
+
+  to {
+    transform: scale(1, 1);
+  }
+}
+
+/*抖动动画部分  */
+
+.shake-my {
+  animation-name: shake-my;
+  animation-delay: 0.21s;
+  animation-iteration-count: 1;
+  animation-duration: 0.2s;
+}
+
+.shake-auth {
+  animation-name: shake-auth;
+  animation-delay: 0.21s;
+  animation-iteration-count: 1;
+  animation-duration: 0.2s;
+}
+
+.shake-send {
+  animation-name: shake-send;
+  animation-delay: 0.21s;
+  animation-iteration-count: 1;
+  animation-duration: 0.2s;
+}
+
+@keyframes shake-my {
+  from {
+    transform: translate(-20.8vw, 0);
+  }
+
+  to {
+    transform: translate(-19.8vw, 0);
+  }
+}
+
+@keyframes shake-send {
+  from {
+    transform: translate(0, -20.8vw);
+  }
+
+  to {
+    transform: translate(0, -19.8vw);
+  }
+}
+
+@keyframes shake-auth {
+  from {
+    transform: translate(-15.13vw, -15.13vw);
+  }
+
+  to {
+    transform: translate(-14.8vw, -14.8vw);
+  }
+}
+.header-wrapper{
+  position: absolute;
+  top: 0;
+}
+.header-image{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 45vw;
+  /* filter: blur(2px); */
+}
+/*header 白色过滤框  */
+.filter{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 45vw;
+  background: linear-gradient(rgba(0,0,0, .5), rgba(0,0,0, 0.4),rgba(0,0,0, 0.35),rgba(0,0,0, 0.3), rgba(255, 255, 255, 1));
+}
+.header-text-wrapper{
+  position: absolute;
+  z-index: 500;
+  width: 100vw;
+  height: 45vw;
+}
+.sub-title{
+  margin:3vw 10vw;
+  font-size:5vw;
+  font-weight:bold;
+  border-top: 1px solid ghostwhite;
+}
+.header-text-content{
+  width: 100vw;
+  margin-top: 4vw;
+  text-align: center;
+  font-size: 10vw;
+  font-weight: 600;
+  color: aliceblue;
+}
+
+/* .my-info-wrapper{
+  padding: 3vw 5vw;
+  margin-top: 45vw;
+}
+.my-info-wrapper > image{
+  width: 8vw;
+  height: 8vw;
+  border: 1px solid gainsboro;
+  border-radius: 50%;
+}
+.my-info-content{
+  height: 5vw;
+  display: inline-block;
+  margin-left: 2vw;
+  padding-right: 2vw;
+  font-size: 3.5vw;
+  vertical-align: 3vw;
+  line-height: 5vw;
+  border-right: 1px solid gainsboro;
+}
+.my-info-content:last-child{
+  border-color: white;
+} */
+
+.trainee-wrapper{
+  margin-top: 47vw;
+}
+.trainee-title{
+  margin: 3vw 32vw;
+  width: 30vw;
+  height: 8vw;
+  line-height: 8vw;
+  text-align: center;
+  border: 3vw double antiquewhite;
+  font-weight: bold;
+}
+
+.gap{
+  width: 100%;
+  height: 4px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  background-color: ghostwhite;
+}
+.gap2{
+  width: 100vw;
+  margin-top: -2vw;
+  border-top: 2px dotted gainsboro;
+}

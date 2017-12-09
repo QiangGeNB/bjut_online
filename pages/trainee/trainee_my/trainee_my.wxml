@@ -1,0 +1,16 @@
+<view class='trainee-my-wrapper'>
+  <view>
+    <view class='xiaobai-wrapper'>
+      <image src='/images/trainee/cl_xb.png' class='cl-xb' mode='aspectFit'></image>
+    </view>
+    <view class='line'></view>
+    <view class='user-info-wrapper'>
+      <image src='{{user_info.avatarUrl}}' class='avater-image'></image>
+      <view class='name-wrapper'>{{user_info.name==''||user_info.name==null?user_info.nickname:user_info.name}}</view>
+      <view class='sub-info-wrapper'>
+        <view class='sub-info-item' wx:if='{{user_info.gender != 0}}'>{{user_info.gender==1?"男同学":"女同学"}} {{user_inof.school}}</view>
+        <view class='sub-info-item' wx:if='{{school != 812}}'>{{other_school_list[user_info.school].school_name}}</view>
+      </view>
+    </view>
+  </view>
+</view>

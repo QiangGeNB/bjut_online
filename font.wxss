@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'iconfont';  /* project id 346498 */
-  src: url('//at.alicdn.com/t/font_346498_2cex9y44gs7tlnmi.eot');
-  src: url('//at.alicdn.com/t/font_346498_2cex9y44gs7tlnmi.eot?#iefix') format('embedded-opentype'),
-  url('//at.alicdn.com/t/font_346498_2cex9y44gs7tlnmi.woff') format('woff'),
-  url('//at.alicdn.com/t/font_346498_2cex9y44gs7tlnmi.ttf') format('truetype'),
-  url('//at.alicdn.com/t/font_346498_2cex9y44gs7tlnmi.svg#iconfont') format('svg');
+  src: url('//at.alicdn.com/t/font_346498_1tk6r9mm69au4n29.eot');
+  src: url('//at.alicdn.com/t/font_346498_1tk6r9mm69au4n29.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_346498_1tk6r9mm69au4n29.woff') format('woff'),
+  url('//at.alicdn.com/t/font_346498_1tk6r9mm69au4n29.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_346498_1tk6r9mm69au4n29.svg#iconfont') format('svg');
 }
 .iconfont {
   display: inline;
@@ -111,4 +111,55 @@
 
 .icon-phone:before {
   content: "\e6d5";
+}
+
+.icon-trainee:before {
+  content: "\e6c0";
+  font-size: 4.5vw;
+  font-weight: 600;
+  margin-right: 3vw;
+  margin-left: .5vw;
+}
+
+.icon-name:before{
+  content: "\e633";
+  font-size: 5vw;
+  margin-right: 2vw;
+}
+.icon-sex:before{
+  content: "\e632";
+  font-size: 5vw;
+  margin-right: 2vw;
+}
+.icon-academy:before{
+  content: "\e607";
+  font-size: 5vw;
+  margin-right: 2vw;
+}
+
+.icon-location:before{
+  content: "\e66b";
+  margin-left: -.5vw;
+}
+
+.icon-money:before{
+  content: "\e6a4";
+  font-size: 3.8vw;
+  margin-right: .5vw;
+}
+
+.icon-target:before{
+  content: "\e67f";
+  font-size: 3.5vw;
+  margin-right: 1vw;
+}
+/*实习 详情页面 学历  */
+.icon-education:before{
+  content: "\e6c1";
+  font-size: 3.5vw;
+}
+
+.icon-time:before{
+  content: "\e631";
+  font-size: 3.5vw;
 }

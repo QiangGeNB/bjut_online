@@ -22,48 +22,6 @@ Page({
     onReady: function () {
 
     },
-
-    /**
-     * 生命周期函数--监听页面显示
-     */
-    // onShow: function () {
-    //   let self = this;
-    //   wx.getSetting({
-    //     success(res) {
-    //       console.log(res);
-    //       if (!res.authSetting['scope.userInfo']) {
-    //         wx.showModal({
-    //           title: '授权信息',
-    //           content: '该功能需要授权获取你的公开信息',
-    //           confirmText: '进行授权',
-    //           success: function (res) {
-    //             if (res.confirm) {
-    //               wx.openSetting({
-    //                 success: (res) => {
-    //                   res.authSetting = {
-    //                     "scope.userInfo": true,
-    //                     "scope.werun": true
-    //                   }
-    //                   self.initPage();
-    //                 }
-    //               })
-    //             }
-    //             else {
-    //               console.log("取消");
-    //               wx.navigateTo({
-    //                 url: '/pages/index/index'
-    //               })
-    //             }
-    //           }
-    //         })
-
-    //       }
-    //       else {
-    //         self.initPage();
-    //       }
-    //     }
-    //   })
-    // },
     onShow: function() {
       let self = this;
       self.initPage();
@@ -94,6 +52,8 @@ Page({
         var un_verify_reason = res.data.user_info.un_verify_reason;
         console.log(un_verify_reason);
         self = this;
+        console.log('this is get_user_info_request_suc')
+        console.log(res);
         for (var i = 0; i < res.data.coll_activity.length; i++){
             res.data.coll_activity[i].activityDate = this.formate_date(new Date(res.data.coll_activity[i].activityDate));
         }

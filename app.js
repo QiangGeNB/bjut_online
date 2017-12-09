@@ -27,9 +27,7 @@ App({
         })
         self.getUserKey();
       }
-    })
-    //每次登陆时都向后台发送code验证bjut_id, 保证bjut_id 的实时性
-    // self.getUserKey();
+    });
   },
   useAuthSetting: function () {
     let self = this;
