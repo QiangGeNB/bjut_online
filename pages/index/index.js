@@ -30,6 +30,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
+    app.checkFristLogin();
   },
 
   /**
@@ -37,8 +38,8 @@ Page({
    */
   onShow: function () {
     this.initPage();
+    // app.checkFristLogin();
   },
-
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作

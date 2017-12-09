@@ -8,8 +8,24 @@
       <image src='{{user_info.avatarUrl}}' class='avater-image'></image>
       <view class='name-wrapper'>{{user_info.name==''||user_info.name==null?user_info.nickname:user_info.name}}</view>
       <view class='sub-info-wrapper'>
-        <view class='sub-info-item' wx:if='{{user_info.gender != 0}}'>{{user_info.gender==1?"男同学":"女同学"}} {{user_inof.school}}</view>
-        <view class='sub-info-item' wx:if='{{school != 812}}'>{{other_school_list[user_info.school].school_name}}</view>
+        <view class='sub-info-item' wx:if='{{!verify_mark}}'>
+          对不起，您还没有进行认证
+        </view>
+        <view class='sub-info-item sub-1' wx:if='{{user_info.gender != 0}}'>
+          {{user_info.gender==1?"男同学":"女同学"}} {{user_inof.school}}
+        </view>
+        <view class='sub-info-item sub-2' wx:if='{{user_info.province != ""}}'>
+          {{user_info.province}},China
+        </view>
+        <view class='sub-info-item sub-3' wx:if='{{school != 812}}'>
+          {{other_school_list[user_info.school].school_name}}
+        </view>
+        <view class='sub-info-item sub-4' wx:if='{{verify_mark}}'>
+          {{academy}}
+        </view>
+        <view class='sub-info-item sub-5' wx:if='{{enter_year}}'>
+          {{enter_year}}届
+        </view>
       </view>
     </view>
   </view>
