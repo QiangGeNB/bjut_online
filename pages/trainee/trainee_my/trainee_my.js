@@ -7,7 +7,26 @@ Page({
    */
   data: {
     school: 812,
-    verify_mark: false
+    verify_mark: false,
+    collection_data: [{
+      id:1,
+      logo: '/images/trainee/baidu.svg',
+      company: '北京百度在线网络技术有限公司',
+      position: 'java后端工程师'
+    },
+    {
+      id:2,
+      logo: '/images/trainee/tencent.svg',
+      company: '深圳市腾讯计算机系统有限公司',
+      position: '前端开发'
+    },
+    {
+      id: 3,
+      logo: '/images/trainee/tencent.svg',
+      company: '深圳市腾讯计算机系统有限公司',
+      position: '前端开发'
+    }
+    ]
   },
 
   /**
@@ -70,9 +89,8 @@ Page({
   },
 
   onShow: function () {
-  
   },
-
+  
   /**
    * 生命周期函数--监听页面隐藏
    */
@@ -106,5 +124,12 @@ Page({
    */
   onShareAppMessage: function () {
   
+  },
+  // 点击收藏的模块
+  cilck_col_item: function (id) {
+    console.log(id.currentTarget.dataset.id);
+    wx.navigateTo({
+      url: '/pages/trainee/trainee_detail/trainee_detail?trainee_id=' + id.currentTarget.dataset.id,
+    });
   }
 })

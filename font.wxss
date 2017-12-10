@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'iconfont';  /* project id 346498 */
-  src: url('//at.alicdn.com/t/font_346498_1tk6r9mm69au4n29.eot');
-  src: url('//at.alicdn.com/t/font_346498_1tk6r9mm69au4n29.eot?#iefix') format('embedded-opentype'),
-  url('//at.alicdn.com/t/font_346498_1tk6r9mm69au4n29.woff') format('woff'),
-  url('//at.alicdn.com/t/font_346498_1tk6r9mm69au4n29.ttf') format('truetype'),
-  url('//at.alicdn.com/t/font_346498_1tk6r9mm69au4n29.svg#iconfont') format('svg');
+  src: url('//at.alicdn.com/t/font_346498_ytqqkbn0cvmtpgb9.eot');
+  src: url('//at.alicdn.com/t/font_346498_ytqqkbn0cvmtpgb9.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_346498_ytqqkbn0cvmtpgb9.woff') format('woff'),
+  url('//at.alicdn.com/t/font_346498_ytqqkbn0cvmtpgb9.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_346498_ytqqkbn0cvmtpgb9.svg#iconfont') format('svg');
 }
 .iconfont {
   display: inline;
@@ -162,4 +162,8 @@
 .icon-time:before{
   content: "\e631";
   font-size: 3.5vw;
+}
+
+.icon-add:before{
+  content: "\e604";
 }
