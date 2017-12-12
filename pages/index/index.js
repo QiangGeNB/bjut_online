@@ -9,7 +9,6 @@ Page({
   data: {
     // 已经点击过的侧边栏item
     has_click_side_item: [1],
-    page_index: 1,
     show_search_back: false,
     activity_data: '',
     swiper: '',
@@ -31,6 +30,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
+    app.checkFristLogin();
   },
 
   /**
@@ -38,8 +38,8 @@ Page({
    */
   onShow: function () {
     this.initPage();
+    // app.checkFristLogin();
   },
-
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
@@ -109,21 +109,30 @@ Page({
         wx.navigateTo({
           url: '/pages/index/index',
         });
+        this.setData({
+          open: false
+        });
         break;
       case "2": // 点击“每天行走一万步活动”
         // 请求每天行走一万步的数据
         this.setData({
-          open: false,
-          page_index: 1
-        })
+          open: false
+        });
         wx.navigateTo({
           url: '/pages/sport/sport',
+        });
+        break;
+      case "3": // 点击“实习信息”
+        this.setData({
+          open: false
+        })
+        wx.navigateTo({
+          url: '/pages/trainee/trainee_index/trainee_index',
         });
         break;
       case "5"://联系客服
         this.setData({
           open: false,
-          page_index: 1
         })
         wx.navigateTo({
           url: '/pages/contact_us/contact_us',
@@ -131,8 +140,7 @@ Page({
         break;
       case "6"://关于我们
         this.setData({
-          open: false,
-          page_index: 1
+          open: false
         })
         wx.navigateTo({
           url: '/pages/about_us/about_us',
@@ -140,8 +148,7 @@ Page({
         break;
       case "7"://设置
         this.setData({
-          open: false,
-          page_index: 1
+          open: false
         })
         wx.navigateTo({
           url: '/pages/update_info/update_info',

@@ -1,5 +1,4 @@
 <import src="/template/activity_item/activity_item.wxml" />
-<import src="/template/rank_item/rank_item.wxml" />
 <view class="page">
   <!--收缩框-->
   <view class="search-wrapper {{show_search_back?'search-wrapper-blue':''}}">
@@ -20,6 +19,10 @@
         <view class="iconfont icon-run"></view>
         <text>运动达人</text>
       </view>
+      <view class="list-item" data-list-index="3" bindtap="click_side_item">
+        <view class="iconfont icon-trainee"></view>
+        <text>实习信息</text>
+      </view>
       <view class="botton-item1" data-list-index="7" bindtap="click_side_item">
         <view class="iconfont icon-setting"></view>
         <text>设置</text>
@@ -35,7 +38,7 @@
     </view>
   </view>
   <!--活动详情界面-->
-  <view wx:if="{{page_index == 1}}" class="page-top {{open ? 'c-state1' : ''}}">
+  <view class="page-top {{open ? 'c-state1' : ''}}">
     <view wx:if="{{open}}" class="filter" bindtap="click_filter"></view>
     <scroll-view scroll-y="true" bindscroll="bindscroll" bindscrolltoupper="reach_top">
     <!--轮播图-->

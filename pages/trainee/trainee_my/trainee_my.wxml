@@ -1,0 +1,52 @@
+<view class='trainee-my-wrapper'>
+  <!--头部部件  -->
+  <view class='header'>
+    <view class='xiaobai-wrapper'>
+      <image src='/images/trainee/cl_xb.png' class='cl-xb' mode='aspectFit'></image>
+    </view>
+    <view class='line'></view>
+    <view class='user-info-wrapper'>
+      <image src='{{user_info.avatarUrl}}' class='avater-image'></image>
+      <view class='name-wrapper'>{{user_info.name==''||user_info.name==null?user_info.nickname:user_info.name}}</view>
+      <view class='sub-info-wrapper'>
+        <view class='sub-info-item' wx:if='{{!verify_mark}}'>
+          对不起，您还没有进行认证
+        </view>
+        <view class='sub-info-item sub-1' wx:if='{{user_info.gender != 0}}'>
+          {{user_info.gender==1?"男同学":"女同学"}} {{user_inof.school}}
+        </view>
+        <view class='sub-info-item sub-2' wx:if='{{user_info.province != ""}}'>
+          {{user_info.province}},China
+        </view>
+        <view class='sub-info-item sub-3' wx:if='{{school != 812}}'>
+          {{other_school_list[user_info.school].school_name}}
+        </view>
+        <view class='sub-info-item sub-4' wx:if='{{verify_mark}}'>
+          {{academy}}
+        </view>
+        <view class='sub-info-item sub-5' wx:if='{{enter_year}}'>
+          {{enter_year}}届
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!--搜藏内容部件  -->
+  <view class='trainee-my-collection-wrapper'>
+    <!--没有收藏职位  -->
+    <view wx:if='{{collection_data.length == 0}}' class='no-collection-wrapper'>
+      <view class='iconfont icon-add no-coll-item' style='display:block;font-size:10vw;'></view>
+      <view class='no-coll-item'>您还没有收藏职位</view>
+    </view>
+    <!--收藏了职位  -->
+    <view wx:else>
+      <view wx:for='{{collection_data}}' wx:for-index='idx' class='collection-item' >
+        <view bindtap='cilck_col_item' data-id='{{item.id}}'>
+          <image src='{{item.logo}}' mode='aspectFill' class='col-logo'></image>
+          <view class='col-position'>{{item.position}}</view>
+          <view class='col-company'>{{item.company}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
