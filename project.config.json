@@ -57,10 +57,28 @@
 					"scene": "1001"
 				},
 				{
-					"id": -1,
+					"id": 5,
 					"name": "实习界面",
-					"pathName": "pages/trainee/trainee",
+					"pathName": "pages/trainee/trainee_index/trainee_index",
 					"query": ""
+				},
+				{
+					"id": 6,
+					"name": "实习详情界面",
+					"pathName": "pages/trainee/trainee_detail/trainee_detail",
+					"query": "trainee_id=1"
+				},
+				{
+					"id": -1,
+					"name": "我的实习界面",
+					"pathName": "pages/trainee/trainee_my/trainee_my",
+					"query": ""
+				},
+				{
+					"id": 8,
+					"name": "申请实习界面",
+					"pathName": "pages/trainee/trainee_application/trainee_application",
+					"query": "trainee_id=1"
 				}
 			]
 		}

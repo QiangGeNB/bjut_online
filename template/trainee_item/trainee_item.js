@@ -1,4 +1,4 @@
-// template/trainee_item/train_item.js
+// template/trainee_item/trainee_item.js
 Page({
 
   /**

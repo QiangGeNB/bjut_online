@@ -1,0 +1,35 @@
+<!-- <view class='apply-header-wrapper'>
+  <image class='header-background-image' src='/images/trainee/apply_image2.png' mode="aspectFill"></image>
+  <view class='header-filter'></view>
+</view> -->
+
+<view class='apply-header-wrapper'>
+    <image class='header-background-image' src='/images/trainee/push.png' mode="aspectFit"></image>
+    <view class='line'></view>
+    <view class='header-title'>
+      <view class='title'>发布我的招聘实习信息</view>
+      <view class='warning-wrapper'>
+        <view>您所知道的</view> 正是大家所需要的
+      </view>
+    </view>
+</view>
+<view class='content-wrapper'>
+  <view class='content-header-wrapper'>
+    基本信息
+  </view>
+  <view class='content-item-wrapper'>
+    <view class='content-title'>公司名称：</view>
+    <input class='content-input' type='text'></input>
+  </view>
+  <view class='content-item-wrapper'>
+    <view class='content-title'>需求职位：</view>
+    <input class='content-input' type='text'></input>
+  </view>
+  <view class='content-item-wrapper'>
+    <view class='content-title'>信息来源：</view>
+    <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+    <view class="picker">
+    </view>
+  </picker>
+  </view>
+</view>

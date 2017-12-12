@@ -1,5 +1,4 @@
 <import src="/template/activity_item/activity_item.wxml" />
-<import src="/template/rank_item/rank_item.wxml" />
 <view class="page">
   <!--收缩框-->
   <view class="search-wrapper {{show_search_back?'search-wrapper-blue':''}}">

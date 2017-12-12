@@ -1,5 +1,7 @@
+/* pages/trainee/trainee_index/trainee_index.wxss */
 /* pages/trainee/trainee.wxss */
 @import '/font.wxss';
+@import '/template/trainee_item/trainee_item.wxss';
 .circular-button {
   position: fixed;
   bottom: 10vw;
@@ -31,7 +33,7 @@
 .button-sub {
   width: 10vw;
   height: 10vw;
-  z-index: 90;
+  z-index: 0;
   transition: all 0.2s;
   transition-timing-function: ease-in-out;
   opacity: 0;
@@ -125,7 +127,8 @@
   }
 }
 .header-wrapper{
-  position: relative;
+  position: absolute;
+  top: 0;
 }
 .header-image{
   position: absolute;
@@ -148,11 +151,10 @@
   position: absolute;
   z-index: 500;
   width: 100vw;
-  height: 60vw;
+  height: 45vw;
 }
 .sub-title{
   margin:3vw 10vw;
-  padding-top: 3vw;
   font-size:5vw;
   font-weight:bold;
   border-top: 1px solid ghostwhite;
@@ -166,25 +168,52 @@
   color: aliceblue;
 }
 
-.my-info-wrapper{
-  width: 100vw;
+/* .my-info-wrapper{
   padding: 3vw 5vw;
+  margin-top: 45vw;
 }
 .my-info-wrapper > image{
   width: 8vw;
   height: 8vw;
+  border: 1px solid gainsboro;
   border-radius: 50%;
 }
 .my-info-content{
   height: 5vw;
-  margin-left: 5vw;
-  padding-right: 4vw;
   display: inline-block;
-  font-size: 4vw;
+  margin-left: 2vw;
+  padding-right: 2vw;
+  font-size: 3.5vw;
   vertical-align: 3vw;
   line-height: 5vw;
   border-right: 1px solid gainsboro;
 }
 .my-info-content:last-child{
   border-color: white;
+} */
+
+.trainee-wrapper{
+  margin-top: 47vw;
+}
+.trainee-title{
+  margin: 3vw 32vw;
+  width: 30vw;
+  height: 8vw;
+  line-height: 8vw;
+  text-align: center;
+  border: 3vw double antiquewhite;
+  font-weight: bold;
+}
+
+.gap{
+  width: 100%;
+  height: 4px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  background-color: ghostwhite;
+}
+.gap2{
+  width: 100vw;
+  margin-top: -2vw;
+  border-top: 2px dotted gainsboro;
 }

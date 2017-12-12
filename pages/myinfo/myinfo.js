@@ -14,56 +14,15 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
+      app.checkFristLogin();
     },
 
     /**
      * 生命周期函数--监听页面初次渲染完成
      */
     onReady: function () {
-
+      
     },
-
-    /**
-     * 生命周期函数--监听页面显示
-     */
-    // onShow: function () {
-    //   let self = this;
-    //   wx.getSetting({
-    //     success(res) {
-    //       console.log(res);
-    //       if (!res.authSetting['scope.userInfo']) {
-    //         wx.showModal({
-    //           title: '授权信息',
-    //           content: '该功能需要授权获取你的公开信息',
-    //           confirmText: '进行授权',
-    //           success: function (res) {
-    //             if (res.confirm) {
-    //               wx.openSetting({
-    //                 success: (res) => {
-    //                   res.authSetting = {
-    //                     "scope.userInfo": true,
-    //                     "scope.werun": true
-    //                   }
-    //                   self.initPage();
-    //                 }
-    //               })
-    //             }
-    //             else {
-    //               console.log("取消");
-    //               wx.navigateTo({
-    //                 url: '/pages/index/index'
-    //               })
-    //             }
-    //           }
-    //         })
-
-    //       }
-    //       else {
-    //         self.initPage();
-    //       }
-    //     }
-    //   })
-    // },
     onShow: function() {
       let self = this;
       self.initPage();

@@ -1,19 +1,23 @@
-// pages/trainee/trainee.js
+// pages/trainee_application/trainee_application.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    // 触发功能按钮参数
-    pop: false
+    info_come: ['我在这家公司实习','微信群','朋友介绍']
   },
 
-
+  /**
+   * 生命周期函数--监听页面加载
+   */
   onLoad: function (options) {
   
   },
 
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
   onReady: function () {
   
   },
@@ -58,11 +62,5 @@ Page({
    */
   onShareAppMessage: function () {
   
-  },
-  click_function_button: function(){
-    console.log('点击了功能按钮...');
-    this.setData({
-      pop: !this.data.pop
-    })
   }
 })

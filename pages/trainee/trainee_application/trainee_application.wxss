@@ -1,0 +1,87 @@
+/* pages/trainee_application/trainee_application.wxss */
+
+.apply-header-wrapper {
+  background-color: ghostwhite;
+}
+
+.header-background-image {
+  margin: 3vw;
+  margin-right: 0;
+  height: 30vw;
+  width: 30vw;
+}
+
+.line {
+  display: inline-block;
+  height: 27vw;
+  margin-top: 9vw;
+  margin-bottom: 5vw;
+  border-left: 2px solid gainsboro;
+  vertical-align: top;
+}
+
+/*实际宽度为55vw  */
+
+.header-title {
+  display: inline-block;
+  width: 55vw;
+  vertical-align: top;
+  margin: 5vw 0;
+  margin-bottom: 0;
+  padding-left: 5vw;
+}
+
+.title {
+  margin-top: 5vw;
+  font-size: 5vw;
+  font-weight: bold;
+}
+
+.warning-wrapper {
+  width: 30vw;
+  margin-left: 8.5vw;
+  margin-top: 3vw;
+  font-size: 3.5vw;
+  font-weight: bold;
+  line-height: 6vw;
+  background-color: rgba(0, 172, 107, 0.8);
+  padding: 2vw;
+  border-radius: 3px;
+  color: white;
+  text-align: center;
+}
+
+.content-wrapper {
+  padding: 5vw;
+  width: 90vw;
+}
+.content-header-wrapper{
+  width: 20vw;
+  margin-left: 30vw;
+  background-color: rgba(30,144,255,.2);
+  padding: 2vw 4vw;
+  margin-bottom: 3vw;
+  border-radius: 2vw;
+  font-size: 4vw;
+  font-weight: bold;
+  text-align: center;
+}
+.content-item-wrapper{
+  margin-bottom: 3vw;
+}
+.content-title {
+  display: inline-block;
+  font-size: 4vw;
+  width: 25vw;
+  margin-right: 2vw;
+  text-align: right
+}
+.content-input{
+  display: inline-block;
+  padding: 0 2vw;
+  width: 50vw;
+  border: 1px solid gainsboro;
+  vertical-align: top;
+  border-radius: 2px;
+  font-size: 4vw;
+}
