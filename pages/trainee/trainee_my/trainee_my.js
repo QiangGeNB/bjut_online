@@ -7,7 +7,26 @@ Page({
    */
   data: {
     school: 812,
-    chnel:123
+    verify_mark: false,
+    collection_data: [{
+      id:1,
+      logo: '/images/trainee/baidu.svg',
+      company: '北京百度在线网络技术有限公司',
+      position: 'java后端工程师'
+    },
+    {
+      id:2,
+      logo: '/images/trainee/tencent.svg',
+      company: '深圳市腾讯计算机系统有限公司',
+      position: '前端开发'
+    },
+    {
+      id: 3,
+      logo: '/images/trainee/tencent.svg',
+      company: '深圳市腾讯计算机系统有限公司',
+      position: '前端开发'
+    }
+    ]
   },
 
   /**
@@ -20,23 +39,45 @@ Page({
     // 获得学校列表
     app.SendRequest('/api/other_school/all', {}, this.get_other_school_request_suc);
   },
-  get_user_info_request_suc: function(res){
-    console.log(res);
-    // 判断有无学校
-    if (res.data.data[0].school == undefined){
+  check_auth_state: function (userinfo) {
+    var _this = this;
+    // 用户已认证
+    if (userinfo.verify_state == 0) {
+      // 根据学院id获取学院
+      app.SendRequest('/api/find_academy_by_number', { academy_number: userinfo.academy}, function(res){
+        _this.setData({
+          academy: res.data.academy_name
+        });
+      });
       this.setData({
-        school:812
+        enter_year: userinfo.enter_year,
+        verify_mark: true
+      });
+    }
+  },
+  check_school: function(school) {
+    if (school == undefined) { // 没有学校的情况下将学校值设为812
+      this.setData({
+        school: 812
       });
     } else {
       this.setData({
-        school: res.data.data[0].school
+        school: school
       });
     }
+  },
+  get_user_info_request_suc: function(res){
+    console.log(res);
+    var user_info = res.data.data[0];
+    // 判断用户认证状态, 并对相应数据复制
+    this.check_auth_state(user_info);
+    // 判断有无学校(因为所属学校是之后加入的数据)
+    this.check_school(user_info.school);
     this.setData({
       user_info: res.data.data[0],
-      // school: res.data.data[0].school
     });
   },
+  // 获取学校列表回调函数
   get_other_school_request_suc: function(res){
     console.log(res.data.data[0].other_school);
     this.setData({
@@ -48,9 +89,8 @@ Page({
   },
 
   onShow: function () {
-  
   },
-
+  
   /**
    * 生命周期函数--监听页面隐藏
    */
@@ -84,5 +124,12 @@ Page({
    */
   onShareAppMessage: function () {
   
+  },
+  // 点击收藏的模块
+  cilck_col_item: function (id) {
+    console.log(id.currentTarget.dataset.id);
+    wx.navigateTo({
+      url: '/pages/trainee/trainee_detail/trainee_detail?trainee_id=' + id.currentTarget.dataset.id,
+    });
   }
 })

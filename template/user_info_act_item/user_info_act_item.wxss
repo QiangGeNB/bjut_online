@@ -1,5 +1,6 @@
 /* template/user_info_act_item/user_info_act_item.wxss */
 .user-act-wrapper{
+  position:relative;
     margin: 3vw 0;
     width: 86vw;
     padding: 2vw;
@@ -36,4 +37,24 @@
 }
 .fire{
     color: red;
+}
+
+.over{
+    position:relative;
+    background-color:#F0F0F0;
+    color: #ADADAD;
+    margin: 3vw 0;
+    width: 86vw;
+    padding: 2vw;
+    border: 2px solid silver;
+    border-radius: 5px;
+}
+
+.activity-over{
+  font-size: 5vw;
+  opacity: 0.5;
+  position:absolute;
+  right:0px;
+  top:5px;
+  transform:matrix(0.866,0.5,-0.5,0.866,0,0);
 }

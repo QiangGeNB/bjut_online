@@ -1,22 +1,32 @@
 //app.js
 App({
   onLaunch: function () {
-    console.log('this is onlauch')
-    self = this;
+    // console.log('this is onlauch')
+    // self = this;
     // 添加数组包含方法
-    Array.prototype.contains = function (obj) {
-      var i = this.length;
-      while (i--) {
-        if (this[i] === obj) {
-          return true;
-        }
-      }
-      return false;
-    }
+    // Array.prototype.contains = function (obj) {
+    //   var i = this.length;
+    //   while (i--) {
+    //     if (this[i] === obj) {
+    //       return true;
+    //     }
+    //   }
+    //   return false;
+    // }
+    
+  },
+  onShow: function(){
+    console.log('app.js 中的 onShow函数');
+    // this.checkFristLogin();
+  },
+  // 检查用户是否为第一次登陆
+  checkFristLogin: function(){
+    var self = this;
     wx.getStorage({
       key: 'first_login',
       success: function (res) {
         console.log("first_login存在");
+        // 若不是第一次登陆，则进行授权验证
         self.useAuthSetting();
       },
       fail: function (res) {
@@ -24,22 +34,24 @@ App({
         wx.setStorage({
           key: 'first_login',
           data: true,
-        })
+        });
+        // 获取用户信息（弹窗）
         self.getUserKey();
       }
     });
   },
   useAuthSetting: function () {
+    console.log('进行用户授权验证...');
     let self = this;
     // 获取用户设置
     wx.getSetting({
       success(res) {
-        // console.log(res);
+        console.log(res);
         // 没有通过验证
         if (res.authSetting['scope.userInfo'] === false ) {
           wx.showModal({
             title: '授权信息',
-            content: '该功能需要授权获取你的公开信息',
+            content: '该功能需要授权获取你的公开信息，请进行授权，点击取消返回首页',
             confirmText: '进行授权',
             success: function (res) {
               if (res.confirm) {
@@ -59,15 +71,14 @@ App({
               else {
                 console.log("取消");
                 wx.navigateBack({
-                  delta: 1
-                })
+                  delta: 10
+                });
               }
             }
           })
-
-        }
+        } // 已经通过了验证
         else {
-          self.getUserKey();
+          // self.getUserKey();
         }
       }
     })
