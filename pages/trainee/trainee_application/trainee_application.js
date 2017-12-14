@@ -5,7 +5,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    info_come: ['我在这家公司实习','微信群','朋友介绍']
+    info_come: ['我在这家公司实习','微信群','朋友介绍','其他'],
+    info_come_index: 0
   },
 
   /**
@@ -62,5 +63,11 @@ Page({
    */
   onShareAppMessage: function () {
   
+  },
+  info_come_picker: function(e){
+    console.log(e.detail.value);
+    this.setData({
+      info_come_index: e.detail.value
+    });
   }
 })

@@ -85,3 +85,19 @@
   border-radius: 2px;
   font-size: 4vw;
 }
+
+picker{
+  display: inline-block;
+  font-size: 3.5vw;
+  width: 40vw;
+  padding-bottom: .5vw;
+  border-bottom: 1px solid gainsboro;
+  text-align: center;
+}
+.other-come{
+  width: 70vw;
+  margin-left: 5vw;
+  padding: 0 2vw;
+  border: 1px solid gainsboro;
+  border-radius: 1vw;
+}
